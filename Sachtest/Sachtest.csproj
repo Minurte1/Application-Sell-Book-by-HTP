@@ -76,11 +76,29 @@
     <Compile Include="FormChucNang.Designer.cs">
       <DependentUpon>FormChucNang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhacungcap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhacungcap.Designer.cs">
+      <DependentUpon>FormNhacungcap.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaothanhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTaothanhVien.Designer.cs">
       <DependentUpon>FormTaothanhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTinhtien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTinhtien.Designer.cs">
+      <DependentUpon>FormTinhtien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormXuathoadon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormXuathoadon.Designer.cs">
+      <DependentUpon>FormXuathoadon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,8 +117,17 @@
     <EmbeddedResource Include="FormChucNang.resx">
       <DependentUpon>FormChucNang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNhacungcap.resx">
+      <DependentUpon>FormNhacungcap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTaothanhVien.resx">
       <DependentUpon>FormTaothanhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTinhtien.resx">
+      <DependentUpon>FormTinhtien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormXuathoadon.resx">
+      <DependentUpon>FormXuathoadon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
