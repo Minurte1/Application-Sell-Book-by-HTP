@@ -33,13 +33,13 @@
             this.btn_Taothanhvien = new System.Windows.Forms.Button();
             this.btn_Xuathoadon = new System.Windows.Forms.Button();
             this.panel_Left = new System.Windows.Forms.Panel();
+            this.btn_Tinhtien = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.btn_Nhacungcap = new System.Windows.Forms.Button();
             this.panel_Top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
-            this.btn_Nhacungcap = new System.Windows.Forms.Button();
-            this.btn_Tinhtien = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel_Left.SuspendLayout();
             this.panel_Top.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@
             // 
             this.btn_Checkkhosach.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btn_Checkkhosach.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_Checkkhosach.Location = new System.Drawing.Point(11, 313);
+            this.btn_Checkkhosach.Location = new System.Drawing.Point(11, 302);
             this.btn_Checkkhosach.Name = "btn_Checkkhosach";
             this.btn_Checkkhosach.Size = new System.Drawing.Size(87, 57);
             this.btn_Checkkhosach.TabIndex = 3;
@@ -104,8 +104,51 @@
             this.panel_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_Left.Location = new System.Drawing.Point(0, 0);
             this.panel_Left.Name = "panel_Left";
-            this.panel_Left.Size = new System.Drawing.Size(104, 526);
+            this.panel_Left.Size = new System.Drawing.Size(104, 609);
             this.panel_Left.TabIndex = 6;
+            // 
+            // btn_Tinhtien
+            // 
+            this.btn_Tinhtien.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_Tinhtien.Location = new System.Drawing.Point(11, 65);
+            this.btn_Tinhtien.Name = "btn_Tinhtien";
+            this.btn_Tinhtien.Size = new System.Drawing.Size(87, 50);
+            this.btn_Tinhtien.TabIndex = 7;
+            this.btn_Tinhtien.Text = "Tinhtien";
+            this.btn_Tinhtien.UseVisualStyleBackColor = true;
+            this.btn_Tinhtien.Click += new System.EventHandler(this.btn_Tinhtien_Click);
+            // 
+            // button7
+            // 
+            this.button7.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.button7.Location = new System.Drawing.Point(11, 444);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(87, 50);
+            this.button7.TabIndex = 9;
+            this.button7.Text = "Chức Năng";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.button6.Location = new System.Drawing.Point(11, 376);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(87, 50);
+            this.button6.TabIndex = 8;
+            this.button6.Text = "Chức Năng";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // btn_Nhacungcap
+            // 
+            this.btn_Nhacungcap.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_Nhacungcap.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_Nhacungcap.Location = new System.Drawing.Point(11, 239);
+            this.btn_Nhacungcap.Name = "btn_Nhacungcap";
+            this.btn_Nhacungcap.Size = new System.Drawing.Size(87, 57);
+            this.btn_Nhacungcap.TabIndex = 6;
+            this.btn_Nhacungcap.Text = "Nhà Cung Cấp";
+            this.btn_Nhacungcap.UseVisualStyleBackColor = false;
+            this.btn_Nhacungcap.Click += new System.EventHandler(this.btn_Nhacungcap_Click);
             // 
             // panel_Top
             // 
@@ -114,7 +157,7 @@
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Top.Location = new System.Drawing.Point(104, 0);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(902, 65);
+            this.panel_Top.Size = new System.Drawing.Size(1038, 65);
             this.panel_Top.TabIndex = 7;
             // 
             // label1
@@ -130,58 +173,15 @@
             this.panel_Body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Body.Location = new System.Drawing.Point(104, 65);
             this.panel_Body.Name = "panel_Body";
-            this.panel_Body.Size = new System.Drawing.Size(902, 461);
+            this.panel_Body.Size = new System.Drawing.Size(1038, 544);
             this.panel_Body.TabIndex = 8;
             this.panel_Body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Body_Paint_1);
-            // 
-            // btn_Nhacungcap
-            // 
-            this.btn_Nhacungcap.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_Nhacungcap.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_Nhacungcap.Location = new System.Drawing.Point(11, 239);
-            this.btn_Nhacungcap.Name = "btn_Nhacungcap";
-            this.btn_Nhacungcap.Size = new System.Drawing.Size(87, 57);
-            this.btn_Nhacungcap.TabIndex = 6;
-            this.btn_Nhacungcap.Text = "Nhà Cung Cấp";
-            this.btn_Nhacungcap.UseVisualStyleBackColor = false;
-            this.btn_Nhacungcap.Click += new System.EventHandler(this.btn_Nhacungcap_Click);
-            // 
-            // btn_Tinhtien
-            // 
-            this.btn_Tinhtien.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.btn_Tinhtien.Location = new System.Drawing.Point(11, 65);
-            this.btn_Tinhtien.Name = "btn_Tinhtien";
-            this.btn_Tinhtien.Size = new System.Drawing.Size(87, 50);
-            this.btn_Tinhtien.TabIndex = 7;
-            this.btn_Tinhtien.Text = "Tinhtien";
-            this.btn_Tinhtien.UseVisualStyleBackColor = true;
-            this.btn_Tinhtien.Click += new System.EventHandler(this.btn_Tinhtien_Click);
-            // 
-            // button6
-            // 
-            this.button6.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.button6.Location = new System.Drawing.Point(11, 376);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(87, 50);
-            this.button6.TabIndex = 8;
-            this.button6.Text = "Chức Năng";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.button7.Location = new System.Drawing.Point(11, 444);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(87, 50);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "Chức Năng";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 526);
+            this.ClientSize = new System.Drawing.Size(1142, 609);
             this.Controls.Add(this.panel_Body);
             this.Controls.Add(this.panel_Top);
             this.Controls.Add(this.panel_Left);

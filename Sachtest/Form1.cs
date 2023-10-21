@@ -21,8 +21,8 @@ namespace Sachtest
         {
             string tk = textBox1.Text;
             string pass = textBox2.Text;
-            string tktest = "phuc";
-            string passtest = "0123";
+            string tktest = "";
+            string passtest = "";
             if (tk == tktest)
             {
                 if (pass == passtest)
@@ -78,6 +78,11 @@ namespace Sachtest
             textBox1.Text = "";
             textBox2.Text = "";
             lblSaimatkhau.Text = "";
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
