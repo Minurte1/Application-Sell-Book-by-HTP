@@ -25,7 +25,7 @@ namespace Sachtest
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
        void loadtacgia()
         {
@@ -38,7 +38,19 @@ namespace Sachtest
         }
         private void FormNhapsach_Load(object sender, EventArgs e)
         {
+            using (SqlConnection connection = new SqlConnection(str))
+            {
+                connection.Open();
 
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+
+                loadtacgia();
+           
+                command.ExecuteNonQuery();
+
+                connection.Close();
+            }
         }
     }
 }
