@@ -18,7 +18,7 @@ namespace Sachtest
             InitializeComponent();
 
         }
-        
+
         SqlConnection connection;
         SqlCommand command;
         string str = "Data Source=ACER;Initial Catalog=QuanlyNhasach;Integrated Security=True";
@@ -26,8 +26,8 @@ namespace Sachtest
         DataTable table = new DataTable();
         void loaddatasach()
         {
-            command  = connection.CreateCommand();
-            command.CommandText = "select * from SACH";
+            command = connection.CreateCommand();
+            command.CommandText = "select * from TACGIA";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -35,6 +35,7 @@ namespace Sachtest
         }
         private void FormCheckkhosach_Load(object sender, EventArgs e)
         {
+
             connection = new SqlConnection(str);
             connection.Open();
             loaddatasach();
@@ -47,16 +48,20 @@ namespace Sachtest
 
         private void thêmDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-       
+            
+           Themdulieu themdulieu = new Themdulieu();
+            themdulieu.ShowDialog();
 
-            
-                command.Connection.CreateCommand();
-                command.CommandText = "insert into SACH values(N'" + tb_Masach.Text + "','" + tb_Tensach.Text + "','" + tb_Matg.Text + "','"+ tb_Matl.Text + "','" + tb_Giamua.Text + "','" + tb_Giaban.Text + "', '"+ tb_Lantaiban.Text +"','"+ tb_Manxb.Text + "','" + tb_Namxb.Text + "')";
-                command.ExecuteNonQuery();
-                  
-            
-       
-           
+            //command.connection.createcommand();
+            //command.commandtext = "insert into sach values(n'" + tb_masach.text + "','" + tb_tensach.text + "','" + tb_matg.text + "','" + tb_matl.text + "','" + tb_giamua.text + "','" + tb_giaban.text + "', '" + tb_lantaiban.text + "','" + tb_manxb.text + "','" + tb_namxb.text + "')";
+            //command.executenonquery();
+            //connection.open();
+            //DataRow dongmoi = table.NewRow();
+            //dongmoi["MaSach"] = tb_Masach.Text;
+            //dongmoi[""]
+
+
+
 
         }
 
@@ -65,4 +70,9 @@ namespace Sachtest
 
         }
     }
+
+
+//    --Tạo bảng TG 
+//-- Tạo bảng NXB
+//-- Tạo bảng sách
 }

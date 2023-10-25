@@ -186,7 +186,7 @@
             this.Controls.Add(this.panel_Top);
             this.Controls.Add(this.panel_Left);
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel_Left.ResumeLayout(false);
             this.panel_Top.ResumeLayout(false);
