@@ -76,6 +76,7 @@
             this.dgvKhosach.RowTemplate.Height = 24;
             this.dgvKhosach.Size = new System.Drawing.Size(1090, 328);
             this.dgvKhosach.TabIndex = 2;
+            this.dgvKhosach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhosach_CellContentClick);
             // 
             // tb_Masach
             // 

@@ -38,17 +38,18 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbMatheloai = new System.Windows.Forms.TextBox();
-            this.tbTentheloai = new System.Windows.Forms.TextBox();
+            this.tb_MaTL = new System.Windows.Forms.TextBox();
+            this.tb_TenTL = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.tbMaNXB = new System.Windows.Forms.TextBox();
-            this.tbTenNXB = new System.Windows.Forms.TextBox();
+            this.tb_MaNXB = new System.Windows.Forms.TextBox();
+            this.tb_TenNXB = new System.Windows.Forms.TextBox();
             this.tbThoatdulieu = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -124,8 +125,8 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.tbMatheloai);
-            this.groupBox2.Controls.Add(this.tbTentheloai);
+            this.groupBox2.Controls.Add(this.tb_MaTL);
+            this.groupBox2.Controls.Add(this.tb_TenTL);
             this.groupBox2.Location = new System.Drawing.Point(30, 212);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(780, 147);
@@ -152,27 +153,26 @@
             this.label6.TabIndex = 3;
             this.label6.Text = "NHẬP TÊN THỂ LOẠI";
             // 
-            // tbMatheloai
+            // tb_MaTL
             // 
-            this.tbMatheloai.Location = new System.Drawing.Point(315, 56);
-            this.tbMatheloai.Name = "tbMatheloai";
-            this.tbMatheloai.Size = new System.Drawing.Size(364, 22);
-            this.tbMatheloai.TabIndex = 0;
+            this.tb_MaTL.Location = new System.Drawing.Point(315, 56);
+            this.tb_MaTL.Name = "tb_MaTL";
+            this.tb_MaTL.Size = new System.Drawing.Size(364, 22);
+            this.tb_MaTL.TabIndex = 0;
             // 
-            // tbTentheloai
+            // tb_TenTL
             // 
-            this.tbTentheloai.Location = new System.Drawing.Point(315, 84);
-            this.tbTentheloai.Name = "tbTentheloai";
-            this.tbTentheloai.Size = new System.Drawing.Size(364, 22);
-            this.tbTentheloai.TabIndex = 2;
+            this.tb_TenTL.Location = new System.Drawing.Point(315, 84);
+            this.tb_TenTL.Name = "tb_TenTL";
+            this.tb_TenTL.Size = new System.Drawing.Size(364, 22);
+            this.tb_TenTL.TabIndex = 2;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.tbMaNXB);
-            this.groupBox3.Controls.Add(this.tbTenNXB);
+            this.groupBox3.Controls.Add(this.tb_MaNXB);
+            this.groupBox3.Controls.Add(this.tb_TenNXB);
             this.groupBox3.Location = new System.Drawing.Point(30, 386);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(780, 147);
@@ -198,19 +198,19 @@
             this.label9.TabIndex = 3;
             this.label9.Text = "NHẬP TÊN NHÀ XUẤT BẢN";
             // 
-            // tbMaNXB
+            // tb_MaNXB
             // 
-            this.tbMaNXB.Location = new System.Drawing.Point(315, 50);
-            this.tbMaNXB.Name = "tbMaNXB";
-            this.tbMaNXB.Size = new System.Drawing.Size(364, 22);
-            this.tbMaNXB.TabIndex = 0;
+            this.tb_MaNXB.Location = new System.Drawing.Point(315, 50);
+            this.tb_MaNXB.Name = "tb_MaNXB";
+            this.tb_MaNXB.Size = new System.Drawing.Size(364, 22);
+            this.tb_MaNXB.TabIndex = 0;
             // 
-            // tbTenNXB
+            // tb_TenNXB
             // 
-            this.tbTenNXB.Location = new System.Drawing.Point(315, 78);
-            this.tbTenNXB.Name = "tbTenNXB";
-            this.tbTenNXB.Size = new System.Drawing.Size(364, 22);
-            this.tbTenNXB.TabIndex = 2;
+            this.tb_TenNXB.Location = new System.Drawing.Point(315, 78);
+            this.tb_TenNXB.Name = "tb_TenNXB";
+            this.tb_TenNXB.Size = new System.Drawing.Size(364, 22);
+            this.tb_TenNXB.TabIndex = 2;
             // 
             // tbThoatdulieu
             // 
@@ -230,6 +230,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Xong ";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -243,18 +244,31 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(315, 105);
+            this.button3.Location = new System.Drawing.Point(833, 457);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(92, 29);
             this.button3.TabIndex = 11;
             this.button3.Text = "Xong ";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(833, 512);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(99, 23);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Check Data";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Themdulieu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 547);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.tbThoatdulieu);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -284,16 +298,17 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbMatheloai;
-        private System.Windows.Forms.TextBox tbTentheloai;
+        private System.Windows.Forms.TextBox tb_MaTL;
+        private System.Windows.Forms.TextBox tb_TenTL;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbMaNXB;
-        private System.Windows.Forms.TextBox tbTenNXB;
+        private System.Windows.Forms.TextBox tb_MaNXB;
+        private System.Windows.Forms.TextBox tb_TenNXB;
         private System.Windows.Forms.Button tbThoatdulieu;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }

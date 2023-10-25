@@ -82,6 +82,12 @@
     <Compile Include="FormNhacungcap.Designer.cs">
       <DependentUpon>FormNhacungcap.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNhapsach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNhapsach.Designer.cs">
+      <DependentUpon>FormNhapsach.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaothanhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormNhacungcap.resx">
       <DependentUpon>FormNhacungcap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNhapsach.resx">
+      <DependentUpon>FormNhapsach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTaothanhVien.resx">
       <DependentUpon>FormTaothanhVien.cs</DependentUpon>

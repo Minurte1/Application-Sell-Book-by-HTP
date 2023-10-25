@@ -69,6 +69,11 @@ namespace Sachtest
         {
 
         }
+
+        private void dgvKhosach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 

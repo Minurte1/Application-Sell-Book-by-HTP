@@ -50,3 +50,4 @@ D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Themdulieu.resources
+D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhapsach.resources
