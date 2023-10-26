@@ -41,11 +41,11 @@
             this.tb_MaTL = new System.Windows.Forms.TextBox();
             this.tb_TenTL = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_MaNXB = new System.Windows.Forms.TextBox();
             this.tb_TenNXB = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.tbThoatdulieu = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.dgv_Tacgia = new System.Windows.Forms.DataGridView();
@@ -61,9 +61,9 @@
             // 
             // tb_MaTG
             // 
-            this.tb_MaTG.Location = new System.Drawing.Point(171, 35);
+            this.tb_MaTG.Location = new System.Drawing.Point(200, 38);
             this.tb_MaTG.Name = "tb_MaTG";
-            this.tb_MaTG.Size = new System.Drawing.Size(146, 22);
+            this.tb_MaTG.Size = new System.Drawing.Size(176, 22);
             this.tb_MaTG.TabIndex = 0;
             // 
             // label1
@@ -86,9 +86,9 @@
             // 
             // tb_TenTG
             // 
-            this.tb_TenTG.Location = new System.Drawing.Point(171, 63);
+            this.tb_TenTG.Location = new System.Drawing.Point(200, 66);
             this.tb_TenTG.Name = "tb_TenTG";
-            this.tb_TenTG.Size = new System.Drawing.Size(146, 22);
+            this.tb_TenTG.Size = new System.Drawing.Size(176, 22);
             this.tb_TenTG.TabIndex = 2;
             // 
             // groupBox1
@@ -101,7 +101,7 @@
             this.groupBox1.Controls.Add(this.tb_TenTG);
             this.groupBox1.Location = new System.Drawing.Point(30, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 164);
+            this.groupBox1.Size = new System.Drawing.Size(387, 164);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "NHẬP TÁC GIẢ";
@@ -118,9 +118,9 @@
             // 
             // tb_NamsinhTG
             // 
-            this.tb_NamsinhTG.Location = new System.Drawing.Point(171, 93);
+            this.tb_NamsinhTG.Location = new System.Drawing.Point(200, 96);
             this.tb_NamsinhTG.Name = "tb_NamsinhTG";
-            this.tb_NamsinhTG.Size = new System.Drawing.Size(146, 22);
+            this.tb_NamsinhTG.Size = new System.Drawing.Size(176, 22);
             this.tb_NamsinhTG.TabIndex = 4;
             // 
             // groupBox2
@@ -175,27 +175,17 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.tb_MaNXB);
             this.groupBox3.Controls.Add(this.tb_TenNXB);
-            this.groupBox3.Location = new System.Drawing.Point(30, 386);
+            this.groupBox3.Location = new System.Drawing.Point(30, 369);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(407, 147);
+            this.groupBox3.Size = new System.Drawing.Size(387, 164);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "NHẬP NHÀ XUẤT BẢN";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(345, 571);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(92, 29);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Xong ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 53);
+            this.label8.Location = new System.Drawing.Point(15, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(170, 16);
             this.label8.TabIndex = 1;
@@ -204,7 +194,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 81);
+            this.label9.Location = new System.Drawing.Point(15, 93);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(178, 16);
             this.label9.TabIndex = 3;
@@ -212,17 +202,27 @@
             // 
             // tb_MaNXB
             // 
-            this.tb_MaNXB.Location = new System.Drawing.Point(200, 47);
+            this.tb_MaNXB.Location = new System.Drawing.Point(200, 59);
             this.tb_MaNXB.Name = "tb_MaNXB";
-            this.tb_MaNXB.Size = new System.Drawing.Size(187, 22);
+            this.tb_MaNXB.Size = new System.Drawing.Size(176, 22);
             this.tb_MaNXB.TabIndex = 0;
             // 
             // tb_TenNXB
             // 
-            this.tb_TenNXB.Location = new System.Drawing.Point(200, 75);
+            this.tb_TenNXB.Location = new System.Drawing.Point(200, 87);
             this.tb_TenNXB.Name = "tb_TenNXB";
-            this.tb_TenNXB.Size = new System.Drawing.Size(187, 22);
+            this.tb_TenNXB.Size = new System.Drawing.Size(176, 22);
             this.tb_TenNXB.TabIndex = 2;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(314, 560);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(92, 29);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Xong ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tbThoatdulieu
             // 
@@ -258,7 +258,7 @@
             // dgv_Theloaisach
             // 
             this.dgv_Theloaisach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Theloaisach.Location = new System.Drawing.Point(460, 212);
+            this.dgv_Theloaisach.Location = new System.Drawing.Point(460, 199);
             this.dgv_Theloaisach.Name = "dgv_Theloaisach";
             this.dgv_Theloaisach.RowHeadersWidth = 51;
             this.dgv_Theloaisach.RowTemplate.Height = 24;
@@ -268,7 +268,7 @@
             // dgv_Nhaxuatban
             // 
             this.dgv_Nhaxuatban.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Nhaxuatban.Location = new System.Drawing.Point(460, 399);
+            this.dgv_Nhaxuatban.Location = new System.Drawing.Point(460, 369);
             this.dgv_Nhaxuatban.Name = "dgv_Nhaxuatban";
             this.dgv_Nhaxuatban.RowHeadersWidth = 51;
             this.dgv_Nhaxuatban.RowTemplate.Height = 24;

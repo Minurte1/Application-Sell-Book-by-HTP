@@ -136,43 +136,60 @@ namespace Sachtest
             //    loadTheloai();
             //    connection.Close();
             //}
-
-            using (SqlConnection connection = new SqlConnection(str))
-            {
-                connection.Open();
-
-                using (SqlCommand command = new SqlCommand())
+            //try
+            //{
+                using (SqlConnection connection = new SqlConnection(str))
                 {
-                    command.Connection = connection;
-                    command.CommandText = "INSERT INTO TACGIA VALUES (@MaTG, @TenTG, @NamsinhTG)";
-                    command.Parameters.Add("@MaTG", SqlDbType.Char).Value = tb_MaTG.Text;
-                    command.Parameters.Add("@TenTG", SqlDbType.NVarChar).Value = tb_TenTG.Text;
-                    command.Parameters.Add("@NamsinhTG", SqlDbType.Date).Value = tb_NamsinhTG.Text;
-                    command.ExecuteNonQuery();
-                }
+                    connection.Open();
 
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = "INSERT INTO THELOAISACH VALUES (@MaTL, @TenTL)";
-                    command.Parameters.Add("@MaTL", SqlDbType.NVarChar).Value = tb_MaTL.Text;
-                    command.Parameters.Add("@TenTL", SqlDbType.NVarChar).Value = tb_TenTL.Text;
-                    command.ExecuteNonQuery();
-                }
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "INSERT INTO TACGIA VALUES (@MaTG, @TenTG, @NamsinhTG)";
+                        command.Parameters.Add("@MaTG", SqlDbType.Char).Value = tb_MaTG.Text;
+                        command.Parameters.Add("@TenTG", SqlDbType.NVarChar).Value = tb_TenTG.Text;
+                        command.Parameters.Add("@NamsinhTG", SqlDbType.Date).Value = tb_NamsinhTG.Text;
+                        command.ExecuteNonQuery();
+                    }
 
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandText = "INSERT INTO NHAXUATBAN VALUES (@MaNXB, @TenNXB)";
-                    command.Parameters.Add("@MaNXB", SqlDbType.NVarChar).Value = tb_MaNXB.Text;
-                    command.Parameters.Add("@TenNXB", SqlDbType.NVarChar).Value = tb_TenNXB.Text;
-                    command.ExecuteNonQuery();
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "INSERT INTO THELOAISACH VALUES (@MaTL, @TenTL)";
+                        command.Parameters.Add("@MaTL", SqlDbType.NVarChar).Value = tb_MaTL.Text;
+                        command.Parameters.Add("@TenTL", SqlDbType.NVarChar).Value = tb_TenTL.Text;
+                        command.ExecuteNonQuery();
+                    }
+
+                    using (SqlCommand command = new SqlCommand())
+                    {
+                        command.Connection = connection;
+                        command.CommandText = "INSERT INTO NHAXUATBAN VALUES (@MaNXB, @TenNXB)";
+                        command.Parameters.Add("@MaNXB", SqlDbType.NVarChar).Value = tb_MaNXB.Text;
+                        command.Parameters.Add("@TenNXB", SqlDbType.NVarChar).Value = tb_TenNXB.Text;
+                        command.ExecuteNonQuery();
+                    }
+                    loadtacgia();
+                    loadTheloai();
+                    loadNhaxuatban();
+                    connection.Close();
+                    MessageBox.Show("Dữ liệu đã được thêm vào");
+                
                 }
-                loadtacgia();
-                loadTheloai();
-                loadNhaxuatban();
-                connection.Close();
-            }
+                this.Hide();
+                Themdulieu a = new Themdulieu();
+                FormNhapsach FormNhapsach = new FormNhapsach();
+                a.Closed += (s, args) => this.Close();
+                FormNhapsach.Show();
+
+
+            //}
+            //catch(Exception ex)
+            //{
+            //    MessageBox.Show("Lỗi nhập liệu, vui lòng nhập lại");
+            //}
+            
+           
 
 
 
@@ -190,6 +207,11 @@ namespace Sachtest
         }
 
         private void dgv_Nhaxuatban_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
         {
 
         }

@@ -27,7 +27,7 @@ namespace Sachtest
         void loaddatasach()
         {
             command = connection.CreateCommand();
-            command.CommandText = "select * from TACGIA";
+            command.CommandText = "select * from SACH";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
