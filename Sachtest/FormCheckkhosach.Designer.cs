@@ -28,25 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCheckkhosach));
             this.button1 = new System.Windows.Forms.Button();
             this.dgvKhosach = new System.Windows.Forms.DataGridView();
             this.tb_Masach = new System.Windows.Forms.TextBox();
             this.lb_Masach = new System.Windows.Forms.Label();
             this.lb_Tensach = new System.Windows.Forms.Label();
-            this.tb_Tensach = new System.Windows.Forms.TextBox();
             this.lb_Matg = new System.Windows.Forms.Label();
-            this.tb_Matg = new System.Windows.Forms.TextBox();
             this.lb_Giaban = new System.Windows.Forms.Label();
             this.tb_Giaban = new System.Windows.Forms.TextBox();
             this.lb_Giamua = new System.Windows.Forms.Label();
             this.tb_Giamua = new System.Windows.Forms.TextBox();
             this.lb_MaTL = new System.Windows.Forms.Label();
-            this.tb_Matl = new System.Windows.Forms.TextBox();
             this.lb_Namxb = new System.Windows.Forms.Label();
             this.tb_Namxb = new System.Windows.Forms.TextBox();
             this.lb_Manxb = new System.Windows.Forms.Label();
-            this.tb_Manxb = new System.Windows.Forms.TextBox();
             this.lb_Lantaiban = new System.Windows.Forms.Label();
             this.tb_Lantaiban = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -54,13 +51,41 @@
             this.xóaDữLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sửaDữLiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tổngSốLượngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tACGIABindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNS3TG = new Sachtest.QLNS3TG();
+            this.tb_Tensach = new System.Windows.Forms.TextBox();
+            this.tHELOAISACHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNS3DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLNS3DataSet = new Sachtest.QLNS3DataSet();
+            this.tACGIATableAdapter = new Sachtest.QLNS3TGTableAdapters.TACGIATableAdapter();
+            this.qLNS3DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.tHELOAISACHTableAdapter = new Sachtest.QLNS3DataSetTableAdapters.THELOAISACHTableAdapter();
+            this.tHELOAISACHBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cb_MaNXB = new System.Windows.Forms.ComboBox();
+            this.qLNS3DataSet1 = new Sachtest.QLNS3DataSet1();
+            this.qLNS3DataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nHAXUATBANBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nHAXUATBANTableAdapter = new Sachtest.QLNS3DataSet1TableAdapters.NHAXUATBANTableAdapter();
+            this.theloaisachTableAdapter1 = new Sachtest.QLNS3DataSetTableAdapters.THELOAISACHTableAdapter();
+            this.cb_MaTL = new System.Windows.Forms.ComboBox();
+            this.cb_MaTG = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhosach)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tACGIABindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3TG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHELOAISACHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSetBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHELOAISACHBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAXUATBANBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1039, 549);
+            this.button1.Location = new System.Drawing.Point(1042, 530);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -74,7 +99,7 @@
             this.dgvKhosach.Name = "dgvKhosach";
             this.dgvKhosach.RowHeadersWidth = 51;
             this.dgvKhosach.RowTemplate.Height = 24;
-            this.dgvKhosach.Size = new System.Drawing.Size(1090, 328);
+            this.dgvKhosach.Size = new System.Drawing.Size(1218, 328);
             this.dgvKhosach.TabIndex = 2;
             this.dgvKhosach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhosach_CellContentClick);
             // 
@@ -104,13 +129,6 @@
             this.lb_Tensach.Text = "TÊN SÁCH";
             this.lb_Tensach.Click += new System.EventHandler(this.lb_Tensach_Click);
             // 
-            // tb_Tensach
-            // 
-            this.tb_Tensach.Location = new System.Drawing.Point(162, 76);
-            this.tb_Tensach.Name = "tb_Tensach";
-            this.tb_Tensach.Size = new System.Drawing.Size(125, 22);
-            this.tb_Tensach.TabIndex = 5;
-            // 
             // lb_Matg
             // 
             this.lb_Matg.AutoSize = true;
@@ -119,13 +137,6 @@
             this.lb_Matg.Size = new System.Drawing.Size(49, 16);
             this.lb_Matg.TabIndex = 8;
             this.lb_Matg.Text = "MÃ TG";
-            // 
-            // tb_Matg
-            // 
-            this.tb_Matg.Location = new System.Drawing.Point(162, 120);
-            this.tb_Matg.Name = "tb_Matg";
-            this.tb_Matg.Size = new System.Drawing.Size(125, 22);
-            this.tb_Matg.TabIndex = 7;
             // 
             // lb_Giaban
             // 
@@ -168,13 +179,6 @@
             this.lb_MaTL.TabIndex = 10;
             this.lb_MaTL.Text = "MÃ TL";
             // 
-            // tb_Matl
-            // 
-            this.tb_Matl.Location = new System.Drawing.Point(503, 34);
-            this.tb_Matl.Name = "tb_Matl";
-            this.tb_Matl.Size = new System.Drawing.Size(125, 22);
-            this.tb_Matl.TabIndex = 9;
-            // 
             // lb_Namxb
             // 
             this.lb_Namxb.AutoSize = true;
@@ -199,13 +203,6 @@
             this.lb_Manxb.Size = new System.Drawing.Size(57, 16);
             this.lb_Manxb.TabIndex = 18;
             this.lb_Manxb.Text = "MÃ NXB";
-            // 
-            // tb_Manxb
-            // 
-            this.tb_Manxb.Location = new System.Drawing.Point(882, 82);
-            this.tb_Manxb.Name = "tb_Manxb";
-            this.tb_Manxb.Size = new System.Drawing.Size(125, 22);
-            this.tb_Manxb.TabIndex = 17;
             // 
             // lb_Lantaiban
             // 
@@ -234,7 +231,7 @@
             this.tổngSốLượngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 556);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1140, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1297, 28);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -268,15 +265,120 @@
             this.tổngSốLượngToolStripMenuItem.Size = new System.Drawing.Size(143, 24);
             this.tổngSốLượngToolStripMenuItem.Text = "Tổng số lượng ";
             // 
+            // tACGIABindingSource
+            // 
+            this.tACGIABindingSource.DataMember = "TACGIA";
+            this.tACGIABindingSource.DataSource = this.qLNS3TG;
+            // 
+            // qLNS3TG
+            // 
+            this.qLNS3TG.DataSetName = "QLNS3TG";
+            this.qLNS3TG.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tb_Tensach
+            // 
+            this.tb_Tensach.Location = new System.Drawing.Point(162, 76);
+            this.tb_Tensach.Name = "tb_Tensach";
+            this.tb_Tensach.Size = new System.Drawing.Size(125, 22);
+            this.tb_Tensach.TabIndex = 5;
+            this.tb_Tensach.TextChanged += new System.EventHandler(this.tb_Tensach_TextChanged);
+            // 
+            // tHELOAISACHBindingSource
+            // 
+            this.tHELOAISACHBindingSource.DataMember = "THELOAISACH";
+            this.tHELOAISACHBindingSource.DataSource = this.qLNS3DataSetBindingSource;
+            // 
+            // qLNS3DataSetBindingSource
+            // 
+            this.qLNS3DataSetBindingSource.DataSource = this.qLNS3DataSet;
+            this.qLNS3DataSetBindingSource.Position = 0;
+            // 
+            // qLNS3DataSet
+            // 
+            this.qLNS3DataSet.DataSetName = "QLNS3DataSet";
+            this.qLNS3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tACGIATableAdapter
+            // 
+            this.tACGIATableAdapter.ClearBeforeFill = true;
+            // 
+            // qLNS3DataSetBindingSource1
+            // 
+            this.qLNS3DataSetBindingSource1.DataSource = this.qLNS3DataSet;
+            this.qLNS3DataSetBindingSource1.Position = 0;
+            // 
+            // tHELOAISACHTableAdapter
+            // 
+            this.tHELOAISACHTableAdapter.ClearBeforeFill = true;
+            // 
+            // tHELOAISACHBindingSource1
+            // 
+            this.tHELOAISACHBindingSource1.DataMember = "THELOAISACH";
+            this.tHELOAISACHBindingSource1.DataSource = this.qLNS3DataSetBindingSource1;
+            // 
+            // cb_MaNXB
+            // 
+            this.cb_MaNXB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHELOAISACHBindingSource, "MATL", true));
+            this.cb_MaNXB.FormattingEnabled = true;
+            this.cb_MaNXB.Location = new System.Drawing.Point(882, 82);
+            this.cb_MaNXB.Name = "cb_MaNXB";
+            this.cb_MaNXB.Size = new System.Drawing.Size(121, 24);
+            this.cb_MaNXB.TabIndex = 24;
+            this.cb_MaNXB.SelectedIndexChanged += new System.EventHandler(this.cb_MaNXB_SelectedIndexChanged);
+            // 
+            // qLNS3DataSet1
+            // 
+            this.qLNS3DataSet1.DataSetName = "QLNS3DataSet1";
+            this.qLNS3DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // qLNS3DataSet1BindingSource
+            // 
+            this.qLNS3DataSet1BindingSource.DataSource = this.qLNS3DataSet1;
+            this.qLNS3DataSet1BindingSource.Position = 0;
+            // 
+            // nHAXUATBANBindingSource
+            // 
+            this.nHAXUATBANBindingSource.DataMember = "NHAXUATBAN";
+            this.nHAXUATBANBindingSource.DataSource = this.qLNS3DataSet1BindingSource;
+            // 
+            // nHAXUATBANTableAdapter
+            // 
+            this.nHAXUATBANTableAdapter.ClearBeforeFill = true;
+            // 
+            // theloaisachTableAdapter1
+            // 
+            this.theloaisachTableAdapter1.ClearBeforeFill = true;
+            // 
+            // cb_MaTL
+            // 
+            this.cb_MaTL.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHELOAISACHBindingSource, "MATL", true));
+            this.cb_MaTL.FormattingEnabled = true;
+            this.cb_MaTL.Location = new System.Drawing.Point(507, 40);
+            this.cb_MaTL.Name = "cb_MaTL";
+            this.cb_MaTL.Size = new System.Drawing.Size(121, 24);
+            this.cb_MaTL.TabIndex = 23;
+            this.cb_MaTL.SelectedIndexChanged += new System.EventHandler(this.cb_MaTL_SelectedIndexChanged);
+            // 
+            // cb_MaTG
+            // 
+            this.cb_MaTG.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tACGIABindingSource, "TENTG", true));
+            this.cb_MaTG.FormattingEnabled = true;
+            this.cb_MaTG.Location = new System.Drawing.Point(166, 112);
+            this.cb_MaTG.Name = "cb_MaTG";
+            this.cb_MaTG.Size = new System.Drawing.Size(121, 24);
+            this.cb_MaTG.TabIndex = 22;
+            // 
             // FormCheckkhosach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1140, 584);
+            this.ClientSize = new System.Drawing.Size(1297, 584);
+            this.Controls.Add(this.cb_MaNXB);
+            this.Controls.Add(this.cb_MaTL);
+            this.Controls.Add(this.cb_MaTG);
             this.Controls.Add(this.lb_Namxb);
             this.Controls.Add(this.tb_Namxb);
             this.Controls.Add(this.lb_Manxb);
-            this.Controls.Add(this.tb_Manxb);
             this.Controls.Add(this.lb_Lantaiban);
             this.Controls.Add(this.tb_Lantaiban);
             this.Controls.Add(this.lb_Giaban);
@@ -284,9 +386,7 @@
             this.Controls.Add(this.lb_Giamua);
             this.Controls.Add(this.tb_Giamua);
             this.Controls.Add(this.lb_MaTL);
-            this.Controls.Add(this.tb_Matl);
             this.Controls.Add(this.lb_Matg);
-            this.Controls.Add(this.tb_Matg);
             this.Controls.Add(this.lb_Tensach);
             this.Controls.Add(this.tb_Tensach);
             this.Controls.Add(this.lb_Masach);
@@ -301,6 +401,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhosach)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tACGIABindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3TG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHELOAISACHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSetBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tHELOAISACHBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nHAXUATBANBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,19 +423,15 @@
         private System.Windows.Forms.TextBox tb_Masach;
         private System.Windows.Forms.Label lb_Masach;
         private System.Windows.Forms.Label lb_Tensach;
-        private System.Windows.Forms.TextBox tb_Tensach;
         private System.Windows.Forms.Label lb_Matg;
-        private System.Windows.Forms.TextBox tb_Matg;
         private System.Windows.Forms.Label lb_Giaban;
         private System.Windows.Forms.TextBox tb_Giaban;
         private System.Windows.Forms.Label lb_Giamua;
         private System.Windows.Forms.TextBox tb_Giamua;
         private System.Windows.Forms.Label lb_MaTL;
-        private System.Windows.Forms.TextBox tb_Matl;
         private System.Windows.Forms.Label lb_Namxb;
         private System.Windows.Forms.TextBox tb_Namxb;
         private System.Windows.Forms.Label lb_Manxb;
-        private System.Windows.Forms.TextBox tb_Manxb;
         private System.Windows.Forms.Label lb_Lantaiban;
         private System.Windows.Forms.TextBox tb_Lantaiban;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -333,5 +439,23 @@
         private System.Windows.Forms.ToolStripMenuItem xóaDữLiệuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sửaDữLiệuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tổngSốLượngToolStripMenuItem;
+        private System.Windows.Forms.TextBox tb_Tensach;
+        private QLNS3TG qLNS3TG;
+        private System.Windows.Forms.BindingSource tACGIABindingSource;
+        private QLNS3TGTableAdapters.TACGIATableAdapter tACGIATableAdapter;
+        private QLNS3DataSet qLNS3DataSet;
+        private System.Windows.Forms.BindingSource qLNS3DataSetBindingSource;
+        private System.Windows.Forms.BindingSource qLNS3DataSetBindingSource1;
+        private System.Windows.Forms.BindingSource tHELOAISACHBindingSource;
+        private QLNS3DataSetTableAdapters.THELOAISACHTableAdapter tHELOAISACHTableAdapter;
+        private System.Windows.Forms.BindingSource tHELOAISACHBindingSource1;
+        private System.Windows.Forms.ComboBox cb_MaNXB;
+        private System.Windows.Forms.BindingSource qLNS3DataSet1BindingSource;
+        private QLNS3DataSet1 qLNS3DataSet1;
+        private System.Windows.Forms.BindingSource nHAXUATBANBindingSource;
+        private QLNS3DataSet1TableAdapters.NHAXUATBANTableAdapter nHAXUATBANTableAdapter;
+        private QLNS3DataSetTableAdapters.THELOAISACHTableAdapter theloaisachTableAdapter1;
+        private System.Windows.Forms.ComboBox cb_MaTL;
+        private System.Windows.Forms.ComboBox cb_MaTG;
     }
 }
