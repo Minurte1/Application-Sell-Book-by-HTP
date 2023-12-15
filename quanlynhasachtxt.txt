@@ -1,0 +1,396 @@
+/*==============================================================*/
+/* DBMS name:      Microsoft SQL Server 2017                    */
+/* Created on:     07/12/2023 8:50:29 pm                        */
+/*==============================================================*/
+
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('CHITIETHOADON') and o.name = 'FK_CHITIETH_CHITIETHO_SACH')
+alter table CHITIETHOADON
+   drop constraint FK_CHITIETH_CHITIETHO_SACH
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('CHITIETHOADON') and o.name = 'FK_CHITIETH_CHITIETHO_HOADON')
+alter table CHITIETHOADON
+   drop constraint FK_CHITIETH_CHITIETHO_HOADON
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('HOADON') and o.name = 'FK_HOADON_CO_NHIEU_KHACHHAN')
+alter table HOADON
+   drop constraint FK_HOADON_CO_NHIEU_KHACHHAN
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('HOADON') and o.name = 'FK_HOADON_TAO_RA_NHANVIEN')
+alter table HOADON
+   drop constraint FK_HOADON_TAO_RA_NHANVIEN
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SACH') and o.name = 'FK_SACH_CO_THELOAIS')
+alter table SACH
+   drop constraint FK_SACH_CO_THELOAIS
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SACH') and o.name = 'FK_SACH_TAO_NHAXUATB')
+alter table SACH
+   drop constraint FK_SACH_TAO_NHAXUATB
+go
+
+if exists (select 1
+   from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')
+   where r.fkeyid = object_id('SACH') and o.name = 'FK_SACH_VIET_TACGIA')
+alter table SACH
+   drop constraint FK_SACH_VIET_TACGIA
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('CHITIETHOADON')
+            and   name  = 'CHITIETHOADON2_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index CHITIETHOADON.CHITIETHOADON2_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('CHITIETHOADON')
+            and   name  = 'CHITIETHOADON_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index CHITIETHOADON.CHITIETHOADON_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('CHITIETHOADON')
+            and   type = 'U')
+   drop table CHITIETHOADON
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('HOADON')
+            and   name  = 'CO_NHIEU_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index HOADON.CO_NHIEU_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('HOADON')
+            and   name  = 'TAO_RA_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index HOADON.TAO_RA_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('HOADON')
+            and   type = 'U')
+   drop table HOADON
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('KHACHHANG')
+            and   type = 'U')
+   drop table KHACHHANG
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('NHANVIEN')
+            and   type = 'U')
+   drop table NHANVIEN
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('NHAXUATBAN')
+            and   type = 'U')
+   drop table NHAXUATBAN
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('SACH')
+            and   name  = 'TAO_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index SACH.TAO_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('SACH')
+            and   name  = 'VIET_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index SACH.VIET_FK
+go
+
+if exists (select 1
+            from  sysindexes
+           where  id    = object_id('SACH')
+            and   name  = 'CO_FK'
+            and   indid > 0
+            and   indid < 255)
+   drop index SACH.CO_FK
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('SACH')
+            and   type = 'U')
+   drop table SACH
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('TACGIA')
+            and   type = 'U')
+   drop table TACGIA
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('TAIKHOANADMIN')
+            and   type = 'U')
+   drop table TAIKHOANADMIN
+go
+
+if exists (select 1
+            from  sysobjects
+           where  id = object_id('THELOAISACH')
+            and   type = 'U')
+   drop table THELOAISACH
+go
+
+/*==============================================================*/
+/* Table: CHITIETHOADON                                         */
+/*==============================================================*/
+create table CHITIETHOADON (
+   MASACH               nvarchar(255)         not null,
+   MAHOADON             nvarchar(255)         not null,
+   SOLUONGMUA           int                  null,
+   GIATIEN              float                null,
+   THANHTIEN            float                null,
+   constraint PK_CHITIETHOADON primary key (MASACH, MAHOADON)
+)
+go
+
+/*==============================================================*/
+/* Index: CHITIETHOADON_FK                                      */
+/*==============================================================*/
+
+
+
+
+create nonclustered index CHITIETHOADON_FK on CHITIETHOADON (MASACH ASC)
+go
+
+/*==============================================================*/
+/* Index: CHITIETHOADON2_FK                                     */
+/*==============================================================*/
+
+
+
+
+create nonclustered index CHITIETHOADON2_FK on CHITIETHOADON (MAHOADON ASC)
+go
+
+/*==============================================================*/
+/* Table: HOADON                                                */
+/*==============================================================*/
+create table HOADON (
+   MAHOADON             nvarchar(255)         not null,
+   MANV                 nvarchar(255)         not null,
+   MAKH                 nvarchar(255)         not null,
+   NGAYLAPHD            datetime             null,
+   TONGTIEN             float                null,
+   constraint PK_HOADON primary key (MAHOADON)
+)
+go
+
+/*==============================================================*/
+/* Index: TAO_RA_FK                                             */
+/*==============================================================*/
+
+
+
+
+create nonclustered index TAO_RA_FK on HOADON (MANV ASC)
+go
+
+/*==============================================================*/
+/* Index: CO_NHIEU_FK                                           */
+/*==============================================================*/
+
+
+
+
+create nonclustered index CO_NHIEU_FK on HOADON (MAKH ASC)
+go
+
+/*==============================================================*/
+/* Table: KHACHHANG                                             */
+/*==============================================================*/
+create table KHACHHANG (
+   MAKH                 nvarchar(255)         not null,
+   TENKH                nvarchar(255)         null,
+   SDT                  nvarchar(10)          null,
+   DIACHI               nvarchar(255)         null,
+   GIOITINH             nvarchar(5)           null,
+   constraint PK_KHACHHANG primary key (MAKH)
+)
+go
+
+/*==============================================================*/
+/* Table: NHANVIEN                                              */
+/*==============================================================*/
+create table NHANVIEN (
+   MANV                 nvarchar(255)         not null,
+   TENNV                nvarchar(255)         null,
+   SDTNV                nvarchar(255)         null,
+   DIACHINV             nvarchar(255)         null,
+   GIOITINHNV           nvarchar(5)           null,
+   constraint PK_NHANVIEN primary key (MANV)
+)
+go
+
+/*==============================================================*/
+/* Table: NHAXUATBAN                                            */
+/*==============================================================*/
+create table NHAXUATBAN (
+   MANXB                nvarchar(255)         not null,
+   TENNXB               nvarchar(255)         null,
+   constraint PK_NHAXUATBAN primary key (MANXB)
+)
+go
+
+/*==============================================================*/
+/* Table: SACH                                                  */
+/*==============================================================*/
+create table SACH (
+   MASACH               nvarchar(255)         not null,
+   MATG                 nvarchar(255)         not null,
+   MATL                 nvarchar(255)         not null,
+   MANXB                nvarchar(255)         not null,
+   TENSACH              nvarchar(255)         null,
+   GIAMUA               float                null,
+   GIABIA               float                null,
+   LANTAIBAN            int                  null,
+   NAMXUATBAN           datetime             null,
+   constraint PK_SACH primary key (MASACH)
+)
+go
+
+/*==============================================================*/
+/* Index: CO_FK                                                 */
+/*==============================================================*/
+
+
+
+
+create nonclustered index CO_FK on SACH (MATL ASC)
+go
+
+/*==============================================================*/
+/* Index: VIET_FK                                               */
+/*==============================================================*/
+
+
+
+
+create nonclustered index VIET_FK on SACH (MATG ASC)
+go
+
+/*==============================================================*/
+/* Index: TAO_FK                                                */
+/*==============================================================*/
+
+
+
+
+create nonclustered index TAO_FK on SACH (MANXB ASC)
+go
+
+/*==============================================================*/
+/* Table: TACGIA                                                */
+/*==============================================================*/
+create table TACGIA (
+   MATG                 nvarchar(255)         not null,
+   TENTG                nvarchar(255)         null,
+   NAMSINH              char(10)             null,
+   constraint PK_TACGIA primary key (MATG)
+)
+go
+
+/*==============================================================*/
+/* Table: TAIKHOANADMIN                                         */
+/*==============================================================*/
+create table TAIKHOANADMIN (
+   TAIKHOAN             nvarchar(255)         not null,
+   MATKHAU              nvarchar(255)         null,
+   constraint PK_TAIKHOANADMIN primary key (TAIKHOAN)
+)
+go
+
+/*==============================================================*/
+/* Table: THELOAISACH                                           */
+/*==============================================================*/
+create table THELOAISACH (
+   MATL                 nvarchar(255)         not null,
+   TENTL                nvarchar(255)         null,
+   constraint PK_THELOAISACH primary key (MATL)
+)
+go
+
+alter table CHITIETHOADON
+   add constraint FK_CHITIETH_CHITIETHO_SACH foreign key (MASACH)
+      references SACH (MASACH)
+go
+
+alter table CHITIETHOADON
+   add constraint FK_CHITIETH_CHITIETHO_HOADON foreign key (MAHOADON)
+      references HOADON (MAHOADON)
+go
+
+alter table HOADON
+   add constraint FK_HOADON_CO_NHIEU_KHACHHAN foreign key (MAKH)
+      references KHACHHANG (MAKH)
+go
+
+alter table HOADON
+   add constraint FK_HOADON_TAO_RA_NHANVIEN foreign key (MANV)
+      references NHANVIEN (MANV)
+go
+
+alter table SACH
+   add constraint FK_SACH_CO_THELOAIS foreign key (MATL)
+      references THELOAISACH (MATL)
+go
+
+alter table SACH
+   add constraint FK_SACH_TAO_NHAXUATB foreign key (MANXB)
+      references NHAXUATBAN (MANXB)
+go
+
+alter table SACH
+   add constraint FK_SACH_VIET_TACGIA foreign key (MATG)
+      references TACGIA (MATG)
+go
+
