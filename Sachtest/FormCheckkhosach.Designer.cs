@@ -69,6 +69,10 @@
             this.theloaisachTableAdapter1 = new Sachtest.QLNS3DataSetTableAdapters.THELOAISACHTableAdapter();
             this.cb_MaTL = new System.Windows.Forms.ComboBox();
             this.cb_MaTG = new System.Windows.Forms.ComboBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.thêmThểLoạiSáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmTácGiảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thêmNhàXuấtBảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhosach)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tACGIABindingSource)).BeginInit();
@@ -81,6 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHAXUATBANBindingSource)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -368,6 +373,40 @@
             this.cb_MaTG.Size = new System.Drawing.Size(121, 24);
             this.cb_MaTG.TabIndex = 22;
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thêmThểLoạiSáchToolStripMenuItem,
+            this.thêmTácGiảToolStripMenuItem,
+            this.thêmNhàXuấtBảnToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1297, 28);
+            this.menuStrip2.TabIndex = 25;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // thêmThểLoạiSáchToolStripMenuItem
+            // 
+            this.thêmThểLoạiSáchToolStripMenuItem.Name = "thêmThểLoạiSáchToolStripMenuItem";
+            this.thêmThểLoạiSáchToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.thêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách";
+            this.thêmThểLoạiSáchToolStripMenuItem.Click += new System.EventHandler(this.thêmThểLoạiSáchToolStripMenuItem_Click);
+            // 
+            // thêmTácGiảToolStripMenuItem
+            // 
+            this.thêmTácGiảToolStripMenuItem.Name = "thêmTácGiảToolStripMenuItem";
+            this.thêmTácGiảToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.thêmTácGiảToolStripMenuItem.Text = "Thêm Tác Giả";
+            this.thêmTácGiảToolStripMenuItem.Click += new System.EventHandler(this.thêmTácGiảToolStripMenuItem_Click);
+            // 
+            // thêmNhàXuấtBảnToolStripMenuItem
+            // 
+            this.thêmNhàXuấtBảnToolStripMenuItem.Name = "thêmNhàXuấtBảnToolStripMenuItem";
+            this.thêmNhàXuấtBảnToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.thêmNhàXuấtBảnToolStripMenuItem.Text = "Thêm Nhà Xuất Bản";
+            this.thêmNhàXuấtBảnToolStripMenuItem.Click += new System.EventHandler(this.thêmNhàXuấtBảnToolStripMenuItem_Click);
+            // 
             // FormCheckkhosach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -394,6 +433,7 @@
             this.Controls.Add(this.dgvKhosach);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormCheckkhosach";
             this.Text = "FormCheckkhosach";
@@ -411,6 +451,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLNS3DataSet1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHAXUATBANBindingSource)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,5 +499,9 @@
         private QLNS3DataSetTableAdapters.THELOAISACHTableAdapter theloaisachTableAdapter1;
         private System.Windows.Forms.ComboBox cb_MaTL;
         private System.Windows.Forms.ComboBox cb_MaTG;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem thêmThểLoạiSáchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmTácGiảToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thêmNhàXuấtBảnToolStripMenuItem;
     }
 }

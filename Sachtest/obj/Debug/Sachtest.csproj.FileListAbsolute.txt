@@ -51,3 +51,6 @@ D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Themdulieu.resources
 D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhapsach.resources
+D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThemTheLoaiSach.resources
+D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTacGia.resources
+D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNSX.resources

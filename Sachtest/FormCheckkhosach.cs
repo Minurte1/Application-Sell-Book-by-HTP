@@ -209,6 +209,24 @@ namespace Sachtest
         {
 
         }
+
+        private void thêmThểLoạiSáchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormThemTheLoaiSach ThemTLS = new FormThemTheLoaiSach();
+           ThemTLS.ShowDialog();
+        }
+
+        private void thêmTácGiảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTacGia tacGia = new FormTacGia();
+            tacGia.ShowDialog();
+        }
+
+        private void thêmNhàXuấtBảnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormNSX formNxb = new FormNSX();
+            formNxb.ShowDialog();
+        }
     }
 
 

@@ -88,11 +88,29 @@
     <Compile Include="FormNhapsach.Designer.cs">
       <DependentUpon>FormNhapsach.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNSX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNSX.Designer.cs">
+      <DependentUpon>FormNSX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTacGia.Designer.cs">
+      <DependentUpon>FormTacGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTaothanhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormTaothanhVien.Designer.cs">
       <DependentUpon>FormTaothanhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormThemTheLoaiSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormThemTheLoaiSach.Designer.cs">
+      <DependentUpon>FormThemTheLoaiSach.cs</DependentUpon>
     </Compile>
     <Compile Include="FormTinhtien.cs">
       <SubType>Form</SubType>
@@ -150,8 +168,17 @@
     <EmbeddedResource Include="FormNhapsach.resx">
       <DependentUpon>FormNhapsach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormNSX.resx">
+      <DependentUpon>FormNSX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTacGia.resx">
+      <DependentUpon>FormTacGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTaothanhVien.resx">
       <DependentUpon>FormTaothanhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormThemTheLoaiSach.resx">
+      <DependentUpon>FormThemTheLoaiSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTinhtien.resx">
       <DependentUpon>FormTinhtien.cs</DependentUpon>
