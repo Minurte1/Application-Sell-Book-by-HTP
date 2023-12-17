@@ -167,5 +167,10 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void tb_MaTL_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

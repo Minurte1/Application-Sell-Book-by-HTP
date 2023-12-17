@@ -62,7 +62,7 @@ namespace Sachtest
 
         private void button3_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormTaothanhVien());
+            OpenChildForm(new FormNhanvien());
            
         }
 
@@ -85,6 +85,16 @@ namespace Sachtest
         private void btn_Nhacungcap_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormNhacungcap());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new formKhachHang());
+        }
+
+        private void panel_Top_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

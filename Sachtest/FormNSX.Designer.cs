@@ -41,9 +41,10 @@
             // 
             // tb_Xoa
             // 
-            this.tb_Xoa.Location = new System.Drawing.Point(88, 250);
+            this.tb_Xoa.Location = new System.Drawing.Point(99, 312);
+            this.tb_Xoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_Xoa.Name = "tb_Xoa";
-            this.tb_Xoa.Size = new System.Drawing.Size(80, 30);
+            this.tb_Xoa.Size = new System.Drawing.Size(90, 38);
             this.tb_Xoa.TabIndex = 15;
             this.tb_Xoa.Text = "Xóa";
             this.tb_Xoa.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // bt_sua
             // 
-            this.bt_sua.Location = new System.Drawing.Point(18, 250);
+            this.bt_sua.Location = new System.Drawing.Point(20, 312);
+            this.bt_sua.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bt_sua.Name = "bt_sua";
-            this.bt_sua.Size = new System.Drawing.Size(80, 30);
+            this.bt_sua.Size = new System.Drawing.Size(90, 38);
             this.bt_sua.TabIndex = 14;
             this.bt_sua.Text = "Sửa";
             this.bt_sua.UseVisualStyleBackColor = true;
@@ -61,9 +63,10 @@
             // 
             // bt_Them
             // 
-            this.bt_Them.Location = new System.Drawing.Point(167, 250);
+            this.bt_Them.Location = new System.Drawing.Point(188, 312);
+            this.bt_Them.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bt_Them.Name = "bt_Them";
-            this.bt_Them.Size = new System.Drawing.Size(80, 30);
+            this.bt_Them.Size = new System.Drawing.Size(90, 38);
             this.bt_Them.TabIndex = 13;
             this.bt_Them.Text = "Thêm ";
             this.bt_Them.UseVisualStyleBackColor = true;
@@ -72,51 +75,55 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(38, 189);
+            this.label2.Location = new System.Drawing.Point(38, 236);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.Size = new System.Drawing.Size(140, 20);
             this.label2.TabIndex = 12;
-            this.label2.Text = "label2";
+            this.label2.Text = "Tên Nhà Xuất Bản";
             // 
             // tb_TenTL
             // 
-            this.tb_TenTL.Location = new System.Drawing.Point(106, 184);
+            this.tb_TenTL.Location = new System.Drawing.Point(184, 230);
+            this.tb_TenTL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_TenTL.Name = "tb_TenTL";
-            this.tb_TenTL.Size = new System.Drawing.Size(117, 22);
+            this.tb_TenTL.Size = new System.Drawing.Size(189, 26);
             this.tb_TenTL.TabIndex = 11;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 142);
+            this.label1.Location = new System.Drawing.Point(43, 178);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
+            this.label1.Size = new System.Drawing.Size(135, 20);
             this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.label1.Text = "Mã Nhà Xuất Bản";
             // 
             // tb_MaTL
             // 
-            this.tb_MaTL.Location = new System.Drawing.Point(106, 137);
+            this.tb_MaTL.Location = new System.Drawing.Point(184, 172);
+            this.tb_MaTL.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tb_MaTL.Name = "tb_MaTL";
-            this.tb_MaTL.Size = new System.Drawing.Size(117, 22);
+            this.tb_MaTL.Size = new System.Drawing.Size(189, 26);
             this.tb_MaTL.TabIndex = 9;
+            this.tb_MaTL.TextChanged += new System.EventHandler(this.tb_MaTL_TextChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(253, 116);
+            this.dataGridView1.Location = new System.Drawing.Point(399, 145);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 219);
+            this.dataGridView1.Size = new System.Drawing.Size(482, 274);
             this.dataGridView1.TabIndex = 8;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FormNSX
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 562);
             this.Controls.Add(this.tb_Xoa);
             this.Controls.Add(this.bt_sua);
             this.Controls.Add(this.bt_Them);
@@ -125,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_MaTL);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormNSX";
             this.Text = "FormNXB";
             this.Load += new System.EventHandler(this.FormNSX_Load);

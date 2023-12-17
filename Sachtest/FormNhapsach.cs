@@ -15,7 +15,7 @@ namespace Sachtest
     {
         SqlConnection connection;
         SqlCommand command;
-        string str = "Data Source=ACER;Initial Catalog=QuanlyNhasach;Integrated Security=True";
+        string str = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable tablesach = new DataTable();
         public FormNhapsach()

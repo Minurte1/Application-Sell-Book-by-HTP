@@ -41,11 +41,11 @@ namespace Sachtest
         private void FormCheckkhosach_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'qLNS3DataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
-            this.nHAXUATBANTableAdapter.Fill(this.qLNS3DataSet1.NHAXUATBAN);
+           
             // TODO: This line of code loads data into the 'qLNS3DataSet.THELOAISACH' table. You can move, or remove it, as needed.
-            this.tHELOAISACHTableAdapter.Fill(this.qLNS3DataSet.THELOAISACH);
+         
             // TODO: This line of code loads data into the 'qLNS3TG.TACGIA' table. You can move, or remove it, as needed.
-            this.tACGIATableAdapter.Fill(this.qLNS3TG.TACGIA);
+           
             LoadComboBoxFromDatabase(cb_MaTG, str, "TACGIA", "MaTG", "TenTG");
 
             // Load dữ liệu cho ComboBox từ bảng THELOAISACH
@@ -212,20 +212,30 @@ namespace Sachtest
 
         private void thêmThểLoạiSáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormThemTheLoaiSach ThemTLS = new FormThemTheLoaiSach();
-           ThemTLS.ShowDialog();
+            this.Hide();
+            FormCheckkhosach a = new FormCheckkhosach();
+            FormThemTheLoaiSach FForgetpass = new FormThemTheLoaiSach();
+            a.Closed += (s, args) => this.Close();
+            FForgetpass.Show();
+          
         }
 
         private void thêmTácGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormTacGia tacGia = new FormTacGia();
-            tacGia.ShowDialog();
+            this.Hide();
+            FormCheckkhosach a = new FormCheckkhosach();
+          FormTacGia FForgetpass = new FormTacGia();
+            a.Closed += (s, args) => this.Close();
+            FForgetpass.Show();
         }
 
         private void thêmNhàXuấtBảnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormNSX formNxb = new FormNSX();
-            formNxb.ShowDialog();
+            this.Hide();
+            FormCheckkhosach a = new FormCheckkhosach();
+          FormNSX FForgetpass = new FormNSX();
+            a.Closed += (s, args) => this.Close();
+            FForgetpass.Show();
         }
     }
 
