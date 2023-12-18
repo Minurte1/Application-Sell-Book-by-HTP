@@ -40,12 +40,26 @@ namespace Sachtest
  
         private void FormCheckkhosach_Load(object sender, EventArgs e)
         {
+            void loaddatasach()
+            {
+                if (connection != null)
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "select * from SACH";
+                    adapter.SelectCommand = command;
+                    table.Clear();
+                    adapter.Fill(table);
+                    dgvKhosach.DataSource = table;
+                }
+            }
+
+            dgvKhosach.SelectionChanged += dgvKhosach_SelectionChanged;
             // TODO: This line of code loads data into the 'qLNS3DataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
-           
+
             // TODO: This line of code loads data into the 'qLNS3DataSet.THELOAISACH' table. You can move, or remove it, as needed.
-         
+
             // TODO: This line of code loads data into the 'qLNS3TG.TACGIA' table. You can move, or remove it, as needed.
-           
+
             LoadComboBoxFromDatabase(cb_MaTG, str, "TACGIA", "MaTG", "TenTG");
 
             // Load dữ liệu cho ComboBox từ bảng THELOAISACH
@@ -75,6 +89,32 @@ namespace Sachtest
         {
 
         }
+        private void dgvKhosach_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvKhosach.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgvKhosach.SelectedRows[0];
+                tb_Masach.Text = selectedRow.Cells["MASACH"].Value.ToString();
+                tb_Tensach.Text = selectedRow.Cells["TENSACH"].Value.ToString();
+                cb_MaTG.Text = selectedRow.Cells["MATG"].Value.ToString();
+
+                // Check if SelectedValue is not null before using it
+                object selectedValue = cb_MaTL.SelectedValue;
+                if (selectedValue != null)
+                {
+                    cb_MaTL.Text = selectedValue.ToString();
+                }
+
+                cb_MaNXB.Text = selectedRow.Cells["MANXB"].Value.ToString();
+                tb_Namxb.Text = selectedRow.Cells["NAMXUATBAN"].Value.ToString();
+                tb_Lantaiban.Text = selectedRow.Cells["LANTAIBAN"].Value.ToString();
+                tb_Giaban.Text = selectedRow.Cells["GIABIA"].Value.ToString();
+                tb_Giamua.Text = selectedRow.Cells["GIAMUA"].Value.ToString();
+            }
+        }
+
+
+
 
         private void LoadComboBoxFromDatabase(ComboBox comboBox, string connectionString, string tableName, string valueColumnName, string displayColumnName)
         {
@@ -129,7 +169,7 @@ namespace Sachtest
                 string MaSach = tb_Masach.Text.Trim();
                 string TenSach = tb_Tensach.Text.Trim();
                 string MaTG = cb_MaTG.Text.Trim();
-                string MaTL = cb_MaTL.SelectedValue.ToString(); // Sử dụng SelectedValue
+                string MaTL = cb_MaTL.SelectedValue.ToString();  /* cb_MaTL.Text.Trim();*/// Sử dụng SelectedValue
                 string MaNXB = cb_MaNXB.Text.Trim();
                 string NamNXB = tb_Namxb.Text.Trim();
                 string LanTB = tb_Lantaiban.Text.Trim();
@@ -192,7 +232,8 @@ namespace Sachtest
 
         private void dgvKhosach_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            // Khi chọn một dòng trong DataGridView, hiển thị dữ liệu tương ứng lên TextBox
+        
         }
 
         private void tb_Tensach_TextChanged(object sender, EventArgs e)
@@ -236,6 +277,113 @@ namespace Sachtest
           FormNSX FForgetpass = new FormNSX();
             a.Closed += (s, args) => this.Close();
             FForgetpass.Show();
+        }
+
+        private void tổngSốLượngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xóaDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy mã sách từ TextBox
+                string MaSach = tb_Masach.Text.Trim();
+
+                // Kiểm tra xem có chắc chắn muốn xóa không
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa sách này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    // Tạo câu lệnh SQL để xóa dữ liệu từ bảng SACH
+                    string query = "DELETE FROM SACH WHERE MASACH = @MaSach";
+
+                    // Sử dụng tham số để tránh SQL Injection
+                    command.Parameters.Clear();
+                    command.Parameters.AddWithValue("@MaSach", MaSach);
+
+                    // Thực hiện lệnh SQL
+                    command.CommandText = query;
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Xóa sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // Sau khi xóa, cập nhật DataGridView
+                        loaddatasach();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void sửaDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Lấy thông tin từ các controls trên form
+                string MaSach = tb_Masach.Text.Trim();
+                string TenSach = tb_Tensach.Text.Trim();
+                string MaTG = cb_MaTG.Text.Trim();
+                string MaTL = cb_MaTL.Text.Trim();
+                string MaNXB = cb_MaNXB.Text.Trim();
+                string NamNXB = tb_Namxb.Text.Trim();
+                string LanTB = tb_Lantaiban.Text.Trim();
+                string GiaBia = tb_Giaban.Text.Trim();
+                string GiaMua = tb_Giamua.Text.Trim();
+
+                // Kiểm tra thông tin có đầy đủ hay không
+                if (string.IsNullOrEmpty(MaSach) || string.IsNullOrEmpty(TenSach) || string.IsNullOrEmpty(MaTG) ||
+                    string.IsNullOrEmpty(MaTL) || string.IsNullOrEmpty(MaNXB) || string.IsNullOrEmpty(NamNXB) ||
+                    string.IsNullOrEmpty(LanTB) || string.IsNullOrEmpty(GiaBia) || string.IsNullOrEmpty(GiaMua))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Tạo câu lệnh SQL để cập nhật dữ liệu vào bảng SACH
+                string query = "UPDATE SACH SET MATG = @MaTG, MATL = @MaTL, MANXB = @MaNXB, TENSACH = @TenSach, GIAMUA = @GiaMua, GIABIA = @GiaBia, LANTAIBAN = @LanTB, NAMXUATBAN = @NamXB WHERE MASACH = @MaSach";
+
+                // Sử dụng tham số để tránh SQL Injection
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@MaSach", MaSach);
+                command.Parameters.AddWithValue("@TenSach", TenSach);
+                command.Parameters.AddWithValue("@MaTG", MaTG);
+                command.Parameters.AddWithValue("@MaTL", MaTL);
+                command.Parameters.AddWithValue("@MaNXB", MaNXB);
+                command.Parameters.AddWithValue("@NamXB", NamNXB);
+                command.Parameters.AddWithValue("@LanTB", LanTB);
+                command.Parameters.AddWithValue("@GiaBia", GiaBia);
+                command.Parameters.AddWithValue("@GiaMua", GiaMua);
+
+                // Thực hiện lệnh SQL
+                command.CommandText = query;
+                int rowsAffected = command.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Sửa sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Sau khi sửa, cập nhật DataGridView
+                    loaddatasach();
+                }
+                else
+                {
+                    MessageBox.Show("Sửa sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 
