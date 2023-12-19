@@ -20,7 +20,7 @@ namespace Sachtest
         public FormCheckkhosach()
         {
             InitializeComponent();
-          
+
         }
 
         SqlConnection connection;
@@ -37,37 +37,24 @@ namespace Sachtest
             adapter.Fill(table);
             dgvKhosach.DataSource = table;
         }
- 
+
         private void FormCheckkhosach_Load(object sender, EventArgs e)
         {
-            void loaddatasach()
-            {
-                if (connection != null)
-                {
-                    command = connection.CreateCommand();
-                    command.CommandText = "select * from SACH";
-                    adapter.SelectCommand = command;
-                    table.Clear();
-                    adapter.Fill(table);
-                    dgvKhosach.DataSource = table;
-                }
-            }
-
+            dgvKhosach.MultiSelect = false;
+            dgvKhosach.CellClick += dgvKhosach_CellContentClick;
             dgvKhosach.SelectionChanged += dgvKhosach_SelectionChanged;
-            // TODO: This line of code loads data into the 'qLNS3DataSet1.NHAXUATBAN' table. You can move, or remove it, as needed.
 
-            // TODO: This line of code loads data into the 'qLNS3DataSet.THELOAISACH' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'qLNS3TG.TACGIA' table. You can move, or remove it, as needed.
-
+            // Load dữ liệu cho ComboBox từ bảng TACGIA
             LoadComboBoxFromDatabase(cb_MaTG, str, "TACGIA", "MaTG", "TenTG");
 
             // Load dữ liệu cho ComboBox từ bảng THELOAISACH
             LoadComboBoxFromDatabase(cb_MaTL, str, "THELOAISACH", "MaTL", "TenTL");
-         
+
             // Load dữ liệu cho ComboBox từ bảng NHAXUATBAN
             LoadComboBoxFromDatabase(cb_MaNXB, str, "NHAXUATBAN", "MaNXB", "TenNXB");
             SetDefaultValuesForComboBoxes();
+
+            // Mở kết nối và load dữ liệu sách
             connection = new SqlConnection(str);
             connection.Open();
             loaddatasach();
@@ -123,7 +110,6 @@ namespace Sachtest
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-
                     string query = $"SELECT {valueColumnName}, {displayColumnName} FROM {tableName}";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -165,57 +151,77 @@ namespace Sachtest
         {
             try
             {
-                // Lấy thông tin từ các controls trên form
-                string MaSach = tb_Masach.Text.Trim();
-                string TenSach = tb_Tensach.Text.Trim();
-                string MaTG = cb_MaTG.Text.Trim();
-                string MaTL = cb_MaTL.SelectedValue.ToString();  /* cb_MaTL.Text.Trim();*/// Sử dụng SelectedValue
-                string MaNXB = cb_MaNXB.Text.Trim();
-                string NamNXB = tb_Namxb.Text.Trim();
-                string LanTB = tb_Lantaiban.Text.Trim();
-                string GiaBia = tb_Giaban.Text.Trim();
-                string GiaMua = tb_Giamua.Text.Trim();
-                MessageBox.Show(MaTL);
-                Console.WriteLine(MaTL);
-                // Kiểm tra thông tin có đầy đủ hay không
-                if (string.IsNullOrEmpty(MaSach) || string.IsNullOrEmpty(TenSach) || string.IsNullOrEmpty(MaTG) ||
-                    string.IsNullOrEmpty(MaTL) || string.IsNullOrEmpty(MaNXB) || string.IsNullOrEmpty(NamNXB) ||
-                    string.IsNullOrEmpty(LanTB) || string.IsNullOrEmpty(GiaBia) || string.IsNullOrEmpty(GiaMua))
+                if (cb_MaTG.Items.Count > 0 && cb_MaTL.Items.Count > 0 && cb_MaNXB.Items.Count > 0)
                 {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                    // Lấy thông tin từ các controls trên form
+                    string MaSach = tb_Masach.Text.Trim();
+                    string TenSach = tb_Tensach.Text.Trim();
 
-                // Tạo câu lệnh SQL để thêm dữ liệu vào bảng SACH
-                string query = "INSERT INTO SACH (MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA,GIABIA,LANTAIBAN,NAMXUATBAN) " +
-                               "VALUES (@MaSach, @MaTG, @MaTL, @MaNXB, @TenSach,@GiaMua,@GiaBia, @LanTB, @NamXB)";
+                    // Sử dụng SelectedItem để lấy giá trị và hiển thị tên
+                    ComboboxItem selectedTG = (ComboboxItem)cb_MaTG.SelectedItem;
+                    ComboboxItem selectedTL = (ComboboxItem)cb_MaTL.SelectedItem;
+                    ComboboxItem selectedNXB = (ComboboxItem)cb_MaNXB.SelectedItem;
 
-                // Sử dụng tham số để tránh SQL Injection
-                command.Parameters.Clear();
-                command.Parameters.AddWithValue("@MaSach", MaSach);
-                command.Parameters.AddWithValue("@TenSach", TenSach);
-                command.Parameters.AddWithValue("@MaTG", MaTG);
-                command.Parameters.AddWithValue("@MaTL", MaTL);
-                command.Parameters.AddWithValue("@MaNXB", MaNXB);
-                command.Parameters.AddWithValue("@NamXB", NamNXB);
-                command.Parameters.AddWithValue("@LanTB", LanTB);
-                command.Parameters.AddWithValue("@GiaBia", GiaBia);
-                command.Parameters.AddWithValue("@GiaMua", GiaMua);
+                    // Kiểm tra SelectedItem có khác null hay không
+                    if (selectedTG != null && selectedTL != null && selectedNXB != null)
+                    {
+                        string MaTG = selectedTG.Value;
+                        string MaTL = selectedTL.Value;
+                        string MaNXB = selectedNXB.Value;
+                        string NamNXB = tb_Namxb.Text.Trim();
+                        string LanTB = tb_Lantaiban.Text.Trim();
+                        string GiaBia = tb_Giaban.Text.Trim();
+                        string GiaMua = tb_Giamua.Text.Trim();
 
-                // Thực hiện lệnh SQL
-                command.CommandText = query;
-                int rowsAffected = command.ExecuteNonQuery();
+                        // Kiểm tra thông tin có đầy đủ hay không
+                        if (string.IsNullOrEmpty(MaSach) || string.IsNullOrEmpty(TenSach) || string.IsNullOrEmpty(MaTG) ||
+                            string.IsNullOrEmpty(MaTL) || string.IsNullOrEmpty(MaNXB) || string.IsNullOrEmpty(NamNXB) ||
+                            string.IsNullOrEmpty(LanTB) || string.IsNullOrEmpty(GiaBia) || string.IsNullOrEmpty(GiaMua))
+                        {
+                            MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
-                if (rowsAffected > 0)
-                {
-                    MessageBox.Show("Thêm sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Tạo câu lệnh SQL để thêm dữ liệu vào bảng SACH
+                        string query = "INSERT INTO SACH (MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA,GIABIA,LANTAIBAN,NAMXUATBAN) " +
+                                        "VALUES (@MaSach, @MaTG, @MaTL, @MaNXB, @TenSach,@GiaMua,@GiaBia, @LanTB, @NamXB)";
 
-                    // Sau khi thêm, cập nhật DataGridView
-                    loaddatasach();
+                        // Sử dụng tham số để tránh SQL Injection
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@MaSach", MaSach);
+                        command.Parameters.AddWithValue("@TenSach", TenSach);
+                        command.Parameters.AddWithValue("@MaTG", MaTG);
+                        command.Parameters.AddWithValue("@MaTL", MaTL);
+                        command.Parameters.AddWithValue("@MaNXB", MaNXB);
+                        command.Parameters.AddWithValue("@NamXB", NamNXB);
+                        command.Parameters.AddWithValue("@LanTB", LanTB);
+                        command.Parameters.AddWithValue("@GiaBia", GiaBia);
+                        command.Parameters.AddWithValue("@GiaMua", GiaMua);
+
+                        // Thực hiện lệnh SQL
+                        command.CommandText = query;
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Thêm sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Sau khi thêm, cập nhật DataGridView
+                            loaddatasach();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Thêm sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Một hoặc nhiều ComboBox không có dữ liệu hoặc giá trị được chọn là null.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thêm sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Một hoặc nhiều ComboBox không có dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -223,7 +229,7 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-  
+
 
         private void lb_Tensach_Click(object sender, EventArgs e)
         {
@@ -232,8 +238,27 @@ namespace Sachtest
 
         private void dgvKhosach_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Khi chọn một dòng trong DataGridView, hiển thị dữ liệu tương ứng lên TextBox
-        
+            if (e.RowIndex >= 0 && e.RowIndex < dgvKhosach.Rows.Count)
+            {
+                DataGridViewRow selectedRow = dgvKhosach.Rows[e.RowIndex];
+                tb_Masach.Text = selectedRow.Cells["MASACH"].Value.ToString();
+                tb_Tensach.Text = selectedRow.Cells["TENSACH"].Value.ToString();
+                cb_MaTG.Text = selectedRow.Cells["MATG"].Value.ToString();
+                cb_MaTL.Text = selectedRow.Cells["MATL"].Value.ToString();
+                // Check if SelectedValue is not null before using it
+                object selectedValue = cb_MaTL.SelectedValue;
+                if (selectedValue != null)
+                {
+                    cb_MaTL.Text = selectedValue.ToString();
+                }
+
+                cb_MaNXB.Text = selectedRow.Cells["MANXB"].Value.ToString();
+                tb_Namxb.Text = selectedRow.Cells["NAMXUATBAN"].Value.ToString();
+                tb_Lantaiban.Text = selectedRow.Cells["LANTAIBAN"].Value.ToString();
+                tb_Giaban.Text = selectedRow.Cells["GIABIA"].Value.ToString();
+                tb_Giamua.Text = selectedRow.Cells["GIAMUA"].Value.ToString();
+            }
+
         }
 
         private void tb_Tensach_TextChanged(object sender, EventArgs e)
@@ -258,14 +283,14 @@ namespace Sachtest
             FormThemTheLoaiSach FForgetpass = new FormThemTheLoaiSach();
             a.Closed += (s, args) => this.Close();
             FForgetpass.Show();
-          
+
         }
 
         private void thêmTácGiảToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             FormCheckkhosach a = new FormCheckkhosach();
-          FormTacGia FForgetpass = new FormTacGia();
+            FormTacGia FForgetpass = new FormTacGia();
             a.Closed += (s, args) => this.Close();
             FForgetpass.Show();
         }
@@ -274,7 +299,7 @@ namespace Sachtest
         {
             this.Hide();
             FormCheckkhosach a = new FormCheckkhosach();
-          FormNSX FForgetpass = new FormNSX();
+            FormNSX FForgetpass = new FormNSX();
             a.Closed += (s, args) => this.Close();
             FForgetpass.Show();
         }
@@ -329,12 +354,15 @@ namespace Sachtest
         {
             try
             {
+                ComboboxItem selectedTG = (ComboboxItem)cb_MaTG.SelectedItem;
+                ComboboxItem selectedTL = (ComboboxItem)cb_MaTL.SelectedItem;
+                ComboboxItem selectedNXB = (ComboboxItem)cb_MaNXB.SelectedItem;
                 // Lấy thông tin từ các controls trên form
                 string MaSach = tb_Masach.Text.Trim();
                 string TenSach = tb_Tensach.Text.Trim();
-                string MaTG = cb_MaTG.Text.Trim();
-                string MaTL = cb_MaTL.Text.Trim();
-                string MaNXB = cb_MaNXB.Text.Trim();
+                string MaTG = selectedTG.Value;
+                string MaTL = selectedTL.Value;
+                string MaNXB = selectedNXB.Value;
                 string NamNXB = tb_Namxb.Text.Trim();
                 string LanTB = tb_Lantaiban.Text.Trim();
                 string GiaBia = tb_Giaban.Text.Trim();
@@ -374,21 +402,35 @@ namespace Sachtest
 
                     // Sau khi sửa, cập nhật DataGridView
                     loaddatasach();
+
+                    // Thiết lập giá trị hiển thị cho ComboBox sau khi cập nhật
+                    foreach (ComboboxItem item in cb_MaTL.Items)
+                    {
+                        if (item.Value == MaTL)
+                        {
+                            cb_MaTL.Text = item.Text;
+                            break;
+                        }
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Sửa sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sửa sách thất bại. Không có dữ liệu nào được cập nhật.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"Lỗi SQL: {sqlEx.Message}\nMã lỗi: {sqlEx.ErrorCode}\nChi tiết: {sqlEx.ToString()}", "Lỗi SQL", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Lỗi: {ex.Message}\nStackTrace: {ex.StackTrace}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 
-
-//    --Tạo bảng TG 
-//-- Tạo bảng NXB
-//-- Tạo bảng sách
-}
+        //    --Tạo bảng TG 
+        //-- Tạo bảng NXB
+        //-- Tạo bảng sách
+    }
