@@ -132,3 +132,4 @@ D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-t
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThongKeHoaDon.resources
