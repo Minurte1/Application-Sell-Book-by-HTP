@@ -2,7 +2,9 @@
 /* DBMS name:      Microsoft SQL Server 2017                    */
 /* Created on:     07/12/2023 8:50:29 pm                        */
 /*==============================================================*/
+ALTER TABLE Sach
 
+ADD soluong int;
 
 if exists (select 1
    from sys.sysreferences r join sys.sysobjects o on (o.id = r.constid and o.type = 'F')

@@ -100,11 +100,11 @@
             // dgvKhosach
             // 
             this.dgvKhosach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhosach.Location = new System.Drawing.Point(24, 171);
+            this.dgvKhosach.Location = new System.Drawing.Point(-11, 172);
             this.dgvKhosach.Name = "dgvKhosach";
             this.dgvKhosach.RowHeadersWidth = 51;
             this.dgvKhosach.RowTemplate.Height = 24;
-            this.dgvKhosach.Size = new System.Drawing.Size(1218, 328);
+            this.dgvKhosach.Size = new System.Drawing.Size(1424, 328);
             this.dgvKhosach.TabIndex = 2;
             this.dgvKhosach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhosach_CellContentClick);
             // 
@@ -236,8 +236,7 @@
             this.tổngSốLượngToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 556);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1297, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1482, 28);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -386,8 +385,7 @@
             this.thêmNhàXuấtBảnToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
-            this.menuStrip2.Size = new System.Drawing.Size(1297, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(1482, 28);
             this.menuStrip2.TabIndex = 25;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -416,7 +414,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 584);
+            this.ClientSize = new System.Drawing.Size(1482, 584);
             this.Controls.Add(this.cb_MaNXB);
             this.Controls.Add(this.cb_MaTL);
             this.Controls.Add(this.cb_MaTG);
