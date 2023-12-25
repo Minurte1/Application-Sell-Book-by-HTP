@@ -53,7 +53,11 @@ namespace Sachtest
             // Load dữ liệu cho ComboBox từ bảng NHAXUATBAN
             LoadComboBoxFromDatabase(cb_MaNXB, str, "NHAXUATBAN", "MaNXB", "TenNXB");
             SetDefaultValuesForComboBoxes();
-
+          
+           
+            cb_MaTG.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_MaNXB.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_MaTL.DropDownStyle = ComboBoxStyle.DropDownList;
             // Mở kết nối và load dữ liệu sách
             connection = new SqlConnection(str);
             connection.Open();

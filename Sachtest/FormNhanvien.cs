@@ -40,6 +40,7 @@ namespace Sachtest
             connection = new SqlConnection(str);
             connection.Open();
             loaddata();
+            cbgioitinh.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private bool KiemTraTonTaiManv(string manv)
