@@ -297,14 +297,14 @@ namespace Sachtest
                     if (result != null)
                     {
                         lb_d.Text = "đ";
-                        lb_TextGiatien.Text = "Giá tiền";
+                        //lb_TextGiatien.Text = "Giá tiền";
                         // Hiển thị giá tiền trên Label
                        lb_GiaMua.Text = $"{result.ToString()}";
                     }
                     else
                     {
                         // Nếu không tìm thấy giá tiền
-                        lb_GiaMua.Text = "Giá tiền không xác định";
+                        lb_GiaMua.Text = "";
                     }
                 }
                 catch (Exception ex)

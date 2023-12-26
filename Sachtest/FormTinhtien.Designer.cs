@@ -53,6 +53,7 @@
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlnS3DataSet1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -62,16 +63,16 @@
             // cb_MaNV
             // 
             this.cb_MaNV.FormattingEnabled = true;
-            this.cb_MaNV.Location = new System.Drawing.Point(226, 59);
+            this.cb_MaNV.Location = new System.Drawing.Point(207, 81);
             this.cb_MaNV.Name = "cb_MaNV";
-            this.cb_MaNV.Size = new System.Drawing.Size(138, 24);
+            this.cb_MaNV.Size = new System.Drawing.Size(177, 24);
             this.cb_MaNV.TabIndex = 0;
             this.cb_MaNV.SelectedIndexChanged += new System.EventHandler(this.cb_MaNV_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(94, 59);
+            this.label1.Location = new System.Drawing.Point(75, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 16);
             this.label1.TabIndex = 1;
@@ -80,7 +81,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(94, 98);
+            this.label2.Location = new System.Drawing.Point(75, 120);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 16);
             this.label2.TabIndex = 3;
@@ -89,35 +90,35 @@
             // cb_MaKhachhang
             // 
             this.cb_MaKhachhang.FormattingEnabled = true;
-            this.cb_MaKhachhang.Location = new System.Drawing.Point(226, 93);
+            this.cb_MaKhachhang.Location = new System.Drawing.Point(207, 115);
             this.cb_MaKhachhang.Name = "cb_MaKhachhang";
-            this.cb_MaKhachhang.Size = new System.Drawing.Size(138, 24);
+            this.cb_MaKhachhang.Size = new System.Drawing.Size(177, 24);
             this.cb_MaKhachhang.TabIndex = 2;
             this.cb_MaKhachhang.SelectedIndexChanged += new System.EventHandler(this.cb_MaKhachhang_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(69, 278);
+            this.dataGridView1.Location = new System.Drawing.Point(68, 309);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(792, 190);
+            this.dataGridView1.Size = new System.Drawing.Size(744, 214);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // tb_Soluong
             // 
-            this.tb_Soluong.Location = new System.Drawing.Point(490, 98);
+            this.tb_Soluong.Location = new System.Drawing.Point(577, 125);
             this.tb_Soluong.Name = "tb_Soluong";
-            this.tb_Soluong.Size = new System.Drawing.Size(124, 22);
+            this.tb_Soluong.Size = new System.Drawing.Size(140, 22);
             this.tb_Soluong.TabIndex = 5;
             this.tb_Soluong.TextChanged += new System.EventHandler(this.cb_Soluong_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(397, 101);
+            this.label3.Location = new System.Drawing.Point(484, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 16);
             this.label3.TabIndex = 6;
@@ -132,16 +133,16 @@
             // cb_Sach
             // 
             this.cb_Sach.FormattingEnabled = true;
-            this.cb_Sach.Location = new System.Drawing.Point(490, 58);
+            this.cb_Sach.Location = new System.Drawing.Point(574, 77);
             this.cb_Sach.Name = "cb_Sach";
-            this.cb_Sach.Size = new System.Drawing.Size(121, 24);
+            this.cb_Sach.Size = new System.Drawing.Size(143, 24);
             this.cb_Sach.TabIndex = 7;
             this.cb_Sach.SelectedIndexChanged += new System.EventHandler(this.cb_Sach_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(400, 62);
+            this.label4.Location = new System.Drawing.Point(484, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 16);
             this.label4.TabIndex = 8;
@@ -151,7 +152,7 @@
             // lb_GiaMua
             // 
             this.lb_GiaMua.AutoSize = true;
-            this.lb_GiaMua.Location = new System.Drawing.Point(679, 67);
+            this.lb_GiaMua.Location = new System.Drawing.Point(741, 81);
             this.lb_GiaMua.Name = "lb_GiaMua";
             this.lb_GiaMua.Size = new System.Drawing.Size(0, 16);
             this.lb_GiaMua.TabIndex = 9;
@@ -159,7 +160,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(97, 199);
+            this.label5.Location = new System.Drawing.Point(75, 224);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 16);
             this.label5.TabIndex = 10;
@@ -168,14 +169,14 @@
             // lb_Tongtien
             // 
             this.lb_Tongtien.AutoSize = true;
-            this.lb_Tongtien.Location = new System.Drawing.Point(222, 199);
+            this.lb_Tongtien.Location = new System.Drawing.Point(200, 224);
             this.lb_Tongtien.Name = "lb_Tongtien";
             this.lb_Tongtien.Size = new System.Drawing.Size(0, 16);
             this.lb_Tongtien.TabIndex = 11;
             // 
             // bt_XacNhan
             // 
-            this.bt_XacNhan.Location = new System.Drawing.Point(91, 233);
+            this.bt_XacNhan.Location = new System.Drawing.Point(69, 258);
             this.bt_XacNhan.Name = "bt_XacNhan";
             this.bt_XacNhan.Size = new System.Drawing.Size(100, 27);
             this.bt_XacNhan.TabIndex = 12;
@@ -185,7 +186,7 @@
             // 
             // bt_Lammoi
             // 
-            this.bt_Lammoi.Location = new System.Drawing.Point(208, 233);
+            this.bt_Lammoi.Location = new System.Drawing.Point(186, 258);
             this.bt_Lammoi.Name = "bt_Lammoi";
             this.bt_Lammoi.Size = new System.Drawing.Size(100, 27);
             this.bt_Lammoi.TabIndex = 14;
@@ -196,7 +197,7 @@
             // lb_TextGiatien
             // 
             this.lb_TextGiatien.AutoSize = true;
-            this.lb_TextGiatien.Location = new System.Drawing.Point(628, 67);
+            this.lb_TextGiatien.Location = new System.Drawing.Point(676, 47);
             this.lb_TextGiatien.Name = "lb_TextGiatien";
             this.lb_TextGiatien.Size = new System.Drawing.Size(0, 16);
             this.lb_TextGiatien.TabIndex = 15;
@@ -204,22 +205,22 @@
             // lb_d
             // 
             this.lb_d.AutoSize = true;
-            this.lb_d.Location = new System.Drawing.Point(743, 67);
+            this.lb_d.Location = new System.Drawing.Point(812, 80);
             this.lb_d.Name = "lb_d";
             this.lb_d.Size = new System.Drawing.Size(0, 16);
             this.lb_d.TabIndex = 16;
             // 
             // tb_Hoadon
             // 
-            this.tb_Hoadon.Location = new System.Drawing.Point(226, 133);
+            this.tb_Hoadon.Location = new System.Drawing.Point(204, 161);
             this.tb_Hoadon.Name = "tb_Hoadon";
-            this.tb_Hoadon.Size = new System.Drawing.Size(138, 22);
+            this.tb_Hoadon.Size = new System.Drawing.Size(180, 22);
             this.tb_Hoadon.TabIndex = 17;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(97, 133);
+            this.label6.Location = new System.Drawing.Point(75, 161);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 16);
             this.label6.TabIndex = 18;
@@ -246,7 +247,7 @@
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(947, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(982, 28);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -258,11 +259,22 @@
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1.Text = "XEM THÔNG TIN CHI TIẾT HÓA ĐƠN";
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1.Click += new System.EventHandler(this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1_Click);
             // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Teal;
+            this.label7.Location = new System.Drawing.Point(12, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(210, 47);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "THANH TOÁN";
+            // 
             // FormTinhtien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 522);
+            this.ClientSize = new System.Drawing.Size(982, 584);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tb_Hoadon);
@@ -321,5 +333,6 @@
         private System.Windows.Forms.ToolStripMenuItem xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1;
+        private System.Windows.Forms.Label label7;
     }
 }

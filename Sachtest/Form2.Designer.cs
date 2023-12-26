@@ -40,8 +40,6 @@
             this.panel_Top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel_Left.SuspendLayout();
             this.panel_Top.SuspendLayout();
@@ -113,7 +111,7 @@
             // 
             // panel_Left
             // 
-            this.panel_Left.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Left.BackColor = System.Drawing.Color.Teal;
             this.panel_Left.Controls.Add(this.btn_Checkkhosach);
             this.panel_Left.Controls.Add(this.btn_Tinhtien);
             this.panel_Left.Controls.Add(this.button7);
@@ -173,12 +171,12 @@
             // 
             // panel_Top
             // 
-            this.panel_Top.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel_Top.BackColor = System.Drawing.Color.Teal;
             this.panel_Top.Controls.Add(this.label1);
             this.panel_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Top.Location = new System.Drawing.Point(161, 0);
             this.panel_Top.Name = "panel_Top";
-            this.panel_Top.Size = new System.Drawing.Size(1763, 65);
+            this.panel_Top.Size = new System.Drawing.Size(921, 65);
             this.panel_Top.TabIndex = 7;
             this.panel_Top.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Top_Paint);
             // 
@@ -193,42 +191,20 @@
             // panel_Body
             // 
             this.panel_Body.Controls.Add(this.button4);
-            this.panel_Body.Controls.Add(this.button3);
-            this.panel_Body.Controls.Add(this.button2);
             this.panel_Body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Body.Location = new System.Drawing.Point(161, 65);
             this.panel_Body.Name = "panel_Body";
-            this.panel_Body.Size = new System.Drawing.Size(1763, 544);
+            this.panel_Body.Size = new System.Drawing.Size(921, 544);
             this.panel_Body.TabIndex = 8;
             this.panel_Body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Body_Paint_1);
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Location = new System.Drawing.Point(0, -5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(638, 558);
-            this.button2.TabIndex = 0;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button3.Location = new System.Drawing.Point(529, -5);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(449, 558);
-            this.button3.TabIndex = 1;
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
             this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(950, -14);
+            this.button4.Location = new System.Drawing.Point(0, 0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(458, 587);
+            this.button4.Size = new System.Drawing.Size(934, 544);
             this.button4.TabIndex = 2;
             this.button4.UseVisualStyleBackColor = true;
             // 
@@ -236,7 +212,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 609);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(1082, 609);
             this.Controls.Add(this.panel_Body);
             this.Controls.Add(this.panel_Top);
             this.Controls.Add(this.panel_Left);
@@ -264,8 +241,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn_Tinhtien;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
     }
 }
