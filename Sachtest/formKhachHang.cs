@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+//using System.Data.OfQuocBao
 namespace Sachtest
 {
     public partial class formKhachHang : Form
@@ -17,7 +18,7 @@ namespace Sachtest
         string str = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
-
+      
 
         void loaddata()
         {
@@ -28,6 +29,40 @@ namespace Sachtest
             table.Clear();
             adapter.Fill(table);
             dgvKhachhang.DataSource = table;
+        }
+        void Timkhachhang()
+        {
+            try
+            {
+                // Kiểm tra xem connection có được khởi tạo chưa
+                if (connection == null)
+                {
+                    connection = new SqlConnection(str);
+                    connection.Open();
+                }
+
+                command = connection.CreateCommand();
+                command.CommandText = "SELECT * FROM KHACHHANG WHERE TENKH LIKE @TenLienHe AND DIACHI LIKE @DiaChi AND SDT LIKE @Sdt AND GIOITINH LIKE @Gioitinh;";
+
+                // Sử dụng Parameters để tránh SQL Injection
+                command.Parameters.AddWithValue("@TenLienHe", "%" + txttenkh.Text + "%");
+                command.Parameters.AddWithValue("@DiaChi", "%" + txtdiachi.Text + "%");
+                command.Parameters.AddWithValue("@Sdt", "%" + txtsdt.Text + "%");
+                command.Parameters.AddWithValue("@Gioitinh", "%" + cbgioitinh.Text + "%");
+                adapter.SelectCommand = command;
+                tableKhachHangTim.Clear();
+                adapter.Fill(tableKhachHangTim);
+                dgvKhachhang.DataSource = tableKhachHangTim;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm khách hàng: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi sử dụng
+                connection.Close();
+            }
         }
 
         private bool KiemTraTonTaiMakh(string makh)
@@ -64,8 +99,12 @@ namespace Sachtest
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
+            if (check_timkiem.Checked == true)
+            {
+                Timkhachhang();
+            }
         }
+        DataTable tableKhachHangTim = new DataTable();
 
         private void formKhachHang_Load(object sender, EventArgs e)
         {
@@ -73,13 +112,16 @@ namespace Sachtest
             connection = new SqlConnection(str);
             connection.Open();
             loaddata();
+            check_timkiem.Checked = false;
+            txtmakh.ReadOnly = true; 
+            cbgioitinh.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btnthem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtmakh.Text == "" || txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
+                if (txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
                     return;
@@ -137,7 +179,7 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi nhập liệu");
+                MessageBox.Show("lỗi nhập liệu",ex.Message);
             }
         }
 
@@ -152,20 +194,27 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi update dữ liệu");
+                MessageBox.Show("lỗi update dữ liệu", ex.Message);
             }
         }
 
         private void dgvKhachhang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
+                int i;
+                i = dgvKhachhang.CurrentRow.Index;
+                txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
+                txttenkh.Text = dgvKhachhang.Rows[i].Cells[1].Value.ToString();
+                txtsdt.Text = dgvKhachhang.Rows[i].Cells[2].Value.ToString();
+                txtdiachi.Text = dgvKhachhang.Rows[i].Cells[3].Value.ToString();
+                cbgioitinh.Text = dgvKhachhang.Rows[i].Cells[4].Value.ToString();
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
             txtmakh.ReadOnly = true;
-            int i;
-            i = dgvKhachhang.CurrentRow.Index;
-            txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
-            txttenkh.Text = dgvKhachhang.Rows[i].Cells[1].Value.ToString();
-            txtsdt.Text = dgvKhachhang.Rows[i].Cells[2].Value.ToString();
-            txtdiachi.Text = dgvKhachhang.Rows[i].Cells[3].Value.ToString();
-            cbgioitinh.Text = dgvKhachhang.Rows[i].Cells[4].Value.ToString();
+           
         }
 
         private void btnxoa_Click(object sender, EventArgs e)
@@ -179,7 +228,7 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi xóa dữ liệu");
+                MessageBox.Show("lỗi xóa dữ liệu", ex.Message);
             }
         }
 
@@ -187,70 +236,112 @@ namespace Sachtest
         {
 
         }
+        private bool CheckIfMaHDTonTai(string maKH)
+        {
+            bool result = false;
+            const string prefix = "KH";
+            string HDMAHD = prefix + maKH;
 
+            try
+            {
+                connection.Open();
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @maHD", connection))
+                {
+                   
+                    command.Parameters.AddWithValue("@maHD", HDMAHD);
+               
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // Nếu count > 0, tức là MAHD đã tồn tại
+                    result = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+        }
         private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtmakh.Text == "" || txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
+                const string prefix = "KH";
+
+                Random random = new Random();
+                int randomNumber;
+                string maKH;
+            
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10000);
+                    maKH = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(maKH));
+                connection.Open();
+                if (txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
                     return;
                 }
-
-                if (txtmakh.Text == "")
-                {
-                    command = connection.CreateCommand();
-                    command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+               
+                string MAKHne = prefix + maKH;
+                command = connection.CreateCommand();
+                    command.CommandText = "insert into KHACHHANG values (N'" + MAKHne + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
                     command.ExecuteNonQuery();
                     MessageBox.Show("thêm dữ liệu thành công!!!");
                     loaddata();
-                    return;
-                }
-                else
-                {
-                    if (KiemTraTonTaiMakh(txtmakh.Text))
-                    {
-                        DialogResult result = MessageBox.Show("Mã khách hàng này đã tồn tại! Bạn muốn cập nhật thông tin khách hàng?", "Xác nhận cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result == DialogResult.Yes)
-                        {
-                            // Thực hiện cập nhật thông tin khách hàng
-                            command = connection.CreateCommand();
-                            command.CommandText = "update KHACHHANG set tenkh = '" + txttenkh.Text + "', sdt = '" + txtsdt.Text + "',diachi = '" + txtdiachi.Text + "',gioitinh = '" + cbgioitinh.Text + "' where makh = '" + txtmakh.Text + "'";
-                            command.ExecuteNonQuery();
-                            loaddata();
+                  
+               
+                
+                    //if (KiemTraTonTaiMakh(txtmakh.Text))
+                    //{
+                    //    DialogResult result = MessageBox.Show("Mã khách hàng này đã tồn tại! Bạn muốn cập nhật thông tin khách hàng?", "Xác nhận cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //    if (result == DialogResult.Yes)
+                    //    {
+                    //        // Thực hiện cập nhật thông tin khách hàng
+                    //        command = connection.CreateCommand();
+                    //        command.CommandText = "update KHACHHANG set tenkh = '" + txttenkh.Text + "', sdt = '" + txtsdt.Text + "',diachi = '" + txtdiachi.Text + "',gioitinh = '" + cbgioitinh.Text + "' where makh = '" + txtmakh.Text + "'";
+                    //        command.ExecuteNonQuery();
+                    //        loaddata();
 
-                            return;
-                        }
-                        else
-                        {
+                    //        return;
+                    //    }
+                    //    else
+                    //    {
 
-                            command = connection.CreateCommand();
-                            command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
-                            command.ExecuteNonQuery();
-                            MessageBox.Show("thêm dữ liệu thành công!!!");
-                            loaddata();
-                            return;
-                        }
-                    }
-                    else
-                    {
-                        // Mã KH chưa tồn tại, thực hiện thêm mới
-                        command = connection.CreateCommand();
-                        command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
-                        command.ExecuteNonQuery();
-                        MessageBox.Show("thêm dữ liệu thành công!!!");
-                        loaddata();
+                    //        command = connection.CreateCommand();
+                    //        command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                    //        command.ExecuteNonQuery();
+                         
+                    //        loaddata();
+                    //        return;
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    // Mã KH chưa tồn tại, thực hiện thêm mới
+                    //    command = connection.CreateCommand();
+                    //    command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                    //    command.ExecuteNonQuery();
+                     
+                    //    loaddata();
 
-                        return;
-                    }
-                }
+                    //    return;
+                    //}
+                
 
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi nhập liệu");
+                MessageBox.Show("Lỗi nhập liệu: " + ex.Message);
             }
         }
 
@@ -291,13 +382,66 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi xóa dữ liệu");
+                MessageBox.Show("lỗi xóa dữ liệu", ex.Message);
             }
         }
 
         private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            txtmakh.ReadOnly = false;
+            txtmakh.ReadOnly = true;
+            txtdiachi.Text = "";
+            txtsdt.Text = "";
+            txttenkh.Text = "";
+
+        }
+        private bool shouldRunSearch = false;
+        private void tìmKiếmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            shouldRunSearch = true;
+            Timkhachhang();
+        }
+
+        private void txttenkh_TextChanged(object sender, EventArgs e)
+        {
+
+            if (check_timkiem.Checked == true)
+            {
+                Timkhachhang();
+            }
+        }
+        private void SearchCompleted()
+        {
+            shouldRunSearch = false;
+        }
+        private void txtsdt_TextChanged(object sender, EventArgs e)
+        {
+            if (check_timkiem.Checked == true)
+            {
+                Timkhachhang();
+            }
+        }
+
+        private void cbgioitinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (check_timkiem.Checked == true)
+            {
+                Timkhachhang();
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtmakh_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Sachtest
             {
                 //sqlConnection.Open();
 
-                string query = "SELECT * FROM HOADON";
+                string query = "SELECT H.*, C.* FROM HOADON H JOIN CHITIETHOADON C ON H.MAHOADON = C.MAHOADON ORDER BY H.NGAYLAPHD DESC;";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -398,6 +398,7 @@ namespace Sachtest
             }
 
         }
+       
 
         private void FormTinhtien_Load(object sender, EventArgs e)
         {
@@ -431,6 +432,11 @@ namespace Sachtest
         {
             FormThongKeHoaDon thongke =  new FormThongKeHoaDon();
             thongke.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -176,19 +176,19 @@ namespace Sachtest
                         string LanTB = tb_Lantaiban.Text.Trim();
                         string GiaBia = tb_Giaban.Text.Trim();
                         string GiaMua = tb_Giamua.Text.Trim();
-
+                        string Soluong = tb_Soluong.Text.Trim();
                         // Kiểm tra thông tin có đầy đủ hay không
                         if (string.IsNullOrEmpty(MaSach) || string.IsNullOrEmpty(TenSach) || string.IsNullOrEmpty(MaTG) ||
                             string.IsNullOrEmpty(MaTL) || string.IsNullOrEmpty(MaNXB) || string.IsNullOrEmpty(NamNXB) ||
-                            string.IsNullOrEmpty(LanTB) || string.IsNullOrEmpty(GiaBia) || string.IsNullOrEmpty(GiaMua))
+                            string.IsNullOrEmpty(LanTB) || string.IsNullOrEmpty(GiaBia) || string.IsNullOrEmpty(GiaMua) || string.IsNullOrEmpty(Soluong))
                         {
                             MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
 
                         // Tạo câu lệnh SQL để thêm dữ liệu vào bảng SACH
-                        string query = "INSERT INTO SACH (MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA,GIABIA,LANTAIBAN,NAMXUATBAN) " +
-                                        "VALUES (@MaSach, @MaTG, @MaTL, @MaNXB, @TenSach,@GiaMua,@GiaBia, @LanTB, @NamXB)";
+                        string query = "INSERT INTO SACH (MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA,GIABIA,LANTAIBAN,NAMXUATBAN,soluong) " +
+                                        "VALUES (@MaSach, @MaTG, @MaTL, @MaNXB, @TenSach,@GiaMua,@GiaBia, @LanTB, @NamXB,@Soluong)";
 
                         // Sử dụng tham số để tránh SQL Injection
                         command.Parameters.Clear();
@@ -201,7 +201,7 @@ namespace Sachtest
                         command.Parameters.AddWithValue("@LanTB", LanTB);
                         command.Parameters.AddWithValue("@GiaBia", GiaBia);
                         command.Parameters.AddWithValue("@GiaMua", GiaMua);
-
+                        command.Parameters.AddWithValue("@Soluong",Soluong);
                         // Thực hiện lệnh SQL
                         command.CommandText = query;
                         int rowsAffected = command.ExecuteNonQuery();

@@ -122,7 +122,7 @@ namespace Sachtest
             }
             catch(Exception ex)
             {
-                MessageBox.Show("lỗi nhập liệu");
+                MessageBox.Show("lỗi nhập liệu", ex.Message);
             }
             
         }
@@ -150,7 +150,7 @@ namespace Sachtest
             }
             catch(Exception ex)
             {
-                MessageBox.Show("lỗi update dữ liệu");
+                MessageBox.Show("lỗi update dữ liệu", ex.Message);
             }
         }
 
@@ -165,7 +165,7 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi xóa dữ liệu");
+                MessageBox.Show("lỗi xóa dữ liệu", ex.Message);
             }
 
         }
@@ -237,7 +237,7 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi nhập liệu");
+                MessageBox.Show("lỗi nhập liệu", ex.Message);
             }
         }
 
@@ -277,7 +277,7 @@ namespace Sachtest
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi xóa dữ liệu");
+                MessageBox.Show("lỗi xóa dữ liệu", ex.Message);
             }
         }
 

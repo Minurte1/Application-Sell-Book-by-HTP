@@ -74,6 +74,8 @@
             this.thêmNhàXuấtBảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qlnS3DataSet2 = new Sachtest.QLNS3DataSet();
             this.label6 = new System.Windows.Forms.Label();
+            this.tb_Soluong = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhosach)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tACGIABindingSource)).BeginInit();
@@ -103,7 +105,7 @@
             // 
             // tb_Masach
             // 
-            this.tb_Masach.Location = new System.Drawing.Point(107, 113);
+            this.tb_Masach.Location = new System.Drawing.Point(107, 103);
             this.tb_Masach.Name = "tb_Masach";
             this.tb_Masach.Size = new System.Drawing.Size(226, 22);
             this.tb_Masach.TabIndex = 3;
@@ -111,7 +113,7 @@
             // lb_Masach
             // 
             this.lb_Masach.AutoSize = true;
-            this.lb_Masach.Location = new System.Drawing.Point(22, 116);
+            this.lb_Masach.Location = new System.Drawing.Point(22, 106);
             this.lb_Masach.Name = "lb_Masach";
             this.lb_Masach.Size = new System.Drawing.Size(67, 16);
             this.lb_Masach.TabIndex = 4;
@@ -120,7 +122,7 @@
             // lb_Tensach
             // 
             this.lb_Tensach.AutoSize = true;
-            this.lb_Tensach.Location = new System.Drawing.Point(22, 148);
+            this.lb_Tensach.Location = new System.Drawing.Point(22, 138);
             this.lb_Tensach.Name = "lb_Tensach";
             this.lb_Tensach.Size = new System.Drawing.Size(75, 16);
             this.lb_Tensach.TabIndex = 6;
@@ -130,7 +132,7 @@
             // lb_Matg
             // 
             this.lb_Matg.AutoSize = true;
-            this.lb_Matg.Location = new System.Drawing.Point(22, 184);
+            this.lb_Matg.Location = new System.Drawing.Point(22, 174);
             this.lb_Matg.Name = "lb_Matg";
             this.lb_Matg.Size = new System.Drawing.Size(49, 16);
             this.lb_Matg.TabIndex = 8;
@@ -139,7 +141,7 @@
             // lb_Giaban
             // 
             this.lb_Giaban.AutoSize = true;
-            this.lb_Giaban.Location = new System.Drawing.Point(353, 148);
+            this.lb_Giaban.Location = new System.Drawing.Point(353, 138);
             this.lb_Giaban.Name = "lb_Giaban";
             this.lb_Giaban.Size = new System.Drawing.Size(53, 16);
             this.lb_Giaban.TabIndex = 14;
@@ -147,7 +149,7 @@
             // 
             // tb_Giaban
             // 
-            this.tb_Giaban.Location = new System.Drawing.Point(457, 145);
+            this.tb_Giaban.Location = new System.Drawing.Point(457, 135);
             this.tb_Giaban.Name = "tb_Giaban";
             this.tb_Giaban.Size = new System.Drawing.Size(162, 22);
             this.tb_Giaban.TabIndex = 13;
@@ -155,7 +157,7 @@
             // lb_Giamua
             // 
             this.lb_Giamua.AutoSize = true;
-            this.lb_Giamua.Location = new System.Drawing.Point(353, 113);
+            this.lb_Giamua.Location = new System.Drawing.Point(353, 103);
             this.lb_Giamua.Name = "lb_Giamua";
             this.lb_Giamua.Size = new System.Drawing.Size(62, 16);
             this.lb_Giamua.TabIndex = 12;
@@ -163,7 +165,7 @@
             // 
             // tb_Giamua
             // 
-            this.tb_Giamua.Location = new System.Drawing.Point(457, 113);
+            this.tb_Giamua.Location = new System.Drawing.Point(457, 103);
             this.tb_Giamua.Name = "tb_Giamua";
             this.tb_Giamua.Size = new System.Drawing.Size(162, 22);
             this.tb_Giamua.TabIndex = 11;
@@ -171,7 +173,7 @@
             // lb_MaTL
             // 
             this.lb_MaTL.AutoSize = true;
-            this.lb_MaTL.Location = new System.Drawing.Point(628, 187);
+            this.lb_MaTL.Location = new System.Drawing.Point(628, 177);
             this.lb_MaTL.Name = "lb_MaTL";
             this.lb_MaTL.Size = new System.Drawing.Size(46, 16);
             this.lb_MaTL.TabIndex = 10;
@@ -180,7 +182,7 @@
             // lb_Namxb
             // 
             this.lb_Namxb.AutoSize = true;
-            this.lb_Namxb.Location = new System.Drawing.Point(628, 116);
+            this.lb_Namxb.Location = new System.Drawing.Point(628, 106);
             this.lb_Namxb.Name = "lb_Namxb";
             this.lb_Namxb.Size = new System.Drawing.Size(57, 16);
             this.lb_Namxb.TabIndex = 20;
@@ -188,7 +190,7 @@
             // 
             // tb_Namxb
             // 
-            this.tb_Namxb.Location = new System.Drawing.Point(701, 116);
+            this.tb_Namxb.Location = new System.Drawing.Point(701, 106);
             this.tb_Namxb.Name = "tb_Namxb";
             this.tb_Namxb.Size = new System.Drawing.Size(184, 22);
             this.tb_Namxb.TabIndex = 19;
@@ -196,7 +198,7 @@
             // lb_Manxb
             // 
             this.lb_Manxb.AutoSize = true;
-            this.lb_Manxb.Location = new System.Drawing.Point(628, 151);
+            this.lb_Manxb.Location = new System.Drawing.Point(628, 141);
             this.lb_Manxb.Name = "lb_Manxb";
             this.lb_Manxb.Size = new System.Drawing.Size(57, 16);
             this.lb_Manxb.TabIndex = 18;
@@ -205,7 +207,7 @@
             // lb_Lantaiban
             // 
             this.lb_Lantaiban.AutoSize = true;
-            this.lb_Lantaiban.Location = new System.Drawing.Point(355, 184);
+            this.lb_Lantaiban.Location = new System.Drawing.Point(355, 174);
             this.lb_Lantaiban.Name = "lb_Lantaiban";
             this.lb_Lantaiban.Size = new System.Drawing.Size(88, 16);
             this.lb_Lantaiban.TabIndex = 16;
@@ -213,7 +215,7 @@
             // 
             // tb_Lantaiban
             // 
-            this.tb_Lantaiban.Location = new System.Drawing.Point(457, 181);
+            this.tb_Lantaiban.Location = new System.Drawing.Point(457, 171);
             this.tb_Lantaiban.Name = "tb_Lantaiban";
             this.tb_Lantaiban.Size = new System.Drawing.Size(162, 22);
             this.tb_Lantaiban.TabIndex = 15;
@@ -278,7 +280,7 @@
             // 
             // tb_Tensach
             // 
-            this.tb_Tensach.Location = new System.Drawing.Point(107, 145);
+            this.tb_Tensach.Location = new System.Drawing.Point(107, 135);
             this.tb_Tensach.Name = "tb_Tensach";
             this.tb_Tensach.Size = new System.Drawing.Size(226, 22);
             this.tb_Tensach.TabIndex = 5;
@@ -321,7 +323,7 @@
             // 
             this.cb_MaNXB.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHELOAISACHBindingSource, "MATL", true));
             this.cb_MaNXB.FormattingEnabled = true;
-            this.cb_MaNXB.Location = new System.Drawing.Point(701, 148);
+            this.cb_MaNXB.Location = new System.Drawing.Point(701, 138);
             this.cb_MaNXB.Name = "cb_MaNXB";
             this.cb_MaNXB.Size = new System.Drawing.Size(184, 24);
             this.cb_MaNXB.TabIndex = 24;
@@ -354,7 +356,7 @@
             // 
             this.cb_MaTL.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tHELOAISACHBindingSource, "MATL", true));
             this.cb_MaTL.FormattingEnabled = true;
-            this.cb_MaTL.Location = new System.Drawing.Point(701, 184);
+            this.cb_MaTL.Location = new System.Drawing.Point(701, 174);
             this.cb_MaTL.Name = "cb_MaTL";
             this.cb_MaTL.Size = new System.Drawing.Size(184, 24);
             this.cb_MaTL.TabIndex = 23;
@@ -364,7 +366,7 @@
             // 
             this.cb_MaTG.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.tACGIABindingSource, "TENTG", true));
             this.cb_MaTG.FormattingEnabled = true;
-            this.cb_MaTG.Location = new System.Drawing.Point(107, 181);
+            this.cb_MaTG.Location = new System.Drawing.Point(107, 171);
             this.cb_MaTG.Name = "cb_MaTG";
             this.cb_MaTG.Size = new System.Drawing.Size(226, 24);
             this.cb_MaTG.TabIndex = 22;
@@ -422,11 +424,29 @@
             this.label6.Text = "THÊM SÁCH";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tb_Soluong
+            // 
+            this.tb_Soluong.Location = new System.Drawing.Point(107, 202);
+            this.tb_Soluong.Name = "tb_Soluong";
+            this.tb_Soluong.Size = new System.Drawing.Size(226, 22);
+            this.tb_Soluong.TabIndex = 27;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(25, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "SỐ LƯỢNG";
+            // 
             // FormCheckkhosach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 584);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tb_Soluong);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cb_MaNXB);
             this.Controls.Add(this.cb_MaTL);
@@ -519,5 +539,7 @@
         private System.Windows.Forms.ToolStripMenuItem thêmNhàXuấtBảnToolStripMenuItem;
         private QLNS3DataSet qlnS3DataSet2;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_Soluong;
+        private System.Windows.Forms.Label label1;
     }
 }

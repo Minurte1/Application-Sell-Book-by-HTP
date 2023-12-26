@@ -52,6 +52,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qlnS3DataSet1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -88,7 +89,7 @@
             // cb_MaKhachhang
             // 
             this.cb_MaKhachhang.FormattingEnabled = true;
-            this.cb_MaKhachhang.Location = new System.Drawing.Point(207, 115);
+            this.cb_MaKhachhang.Location = new System.Drawing.Point(207, 111);
             this.cb_MaKhachhang.Name = "cb_MaKhachhang";
             this.cb_MaKhachhang.Size = new System.Drawing.Size(177, 24);
             this.cb_MaKhachhang.TabIndex = 2;
@@ -251,11 +252,22 @@
             this.label7.TabIndex = 21;
             this.label7.Text = "THANH TOÁN";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(313, 258);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 27);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormTinhtien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 584);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.lb_d);
@@ -312,5 +324,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }

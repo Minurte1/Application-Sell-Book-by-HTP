@@ -46,6 +46,7 @@
             this.sửaKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xóaKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.check_timkiem = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachhang)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.txtmakh.Name = "txtmakh";
             this.txtmakh.Size = new System.Drawing.Size(196, 22);
             this.txtmakh.TabIndex = 1;
+            this.txtmakh.TextChanged += new System.EventHandler(this.txtmakh_TextChanged);
             // 
             // txttenkh
             // 
@@ -77,18 +79,20 @@
             this.txttenkh.Name = "txttenkh";
             this.txttenkh.Size = new System.Drawing.Size(196, 22);
             this.txttenkh.TabIndex = 1;
+            this.txttenkh.TextChanged += new System.EventHandler(this.txttenkh_TextChanged);
             // 
             // txtsdt
             // 
-            this.txtsdt.Location = new System.Drawing.Point(523, 122);
+            this.txtsdt.Location = new System.Drawing.Point(520, 98);
             this.txtsdt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtsdt.Name = "txtsdt";
             this.txtsdt.Size = new System.Drawing.Size(203, 22);
             this.txtsdt.TabIndex = 1;
+            this.txtsdt.TextChanged += new System.EventHandler(this.txtsdt_TextChanged);
             // 
             // txtdiachi
             // 
-            this.txtdiachi.Location = new System.Drawing.Point(523, 161);
+            this.txtdiachi.Location = new System.Drawing.Point(520, 137);
             this.txtdiachi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtdiachi.Name = "txtdiachi";
             this.txtdiachi.Size = new System.Drawing.Size(203, 22);
@@ -101,12 +105,14 @@
             this.cbgioitinh.Items.AddRange(new object[] {
             "Nam ",
             "Nữ",
-            "Khác"});
+            "Khác",
+            "Không muốn trả lời"});
             this.cbgioitinh.Location = new System.Drawing.Point(195, 173);
             this.cbgioitinh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbgioitinh.Name = "cbgioitinh";
             this.cbgioitinh.Size = new System.Drawing.Size(196, 24);
             this.cbgioitinh.TabIndex = 2;
+            this.cbgioitinh.SelectedIndexChanged += new System.EventHandler(this.cbgioitinh_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -130,7 +136,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(412, 162);
+            this.label3.Location = new System.Drawing.Point(409, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 3;
@@ -139,7 +145,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(412, 125);
+            this.label4.Location = new System.Drawing.Point(409, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 16);
             this.label4.TabIndex = 3;
@@ -181,6 +187,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(840, 28);
             this.menuStrip1.TabIndex = 28;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // thêmKháchHàngToolStripMenuItem
             // 
@@ -214,11 +221,23 @@
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
             this.làmMớiToolStripMenuItem.Click += new System.EventHandler(this.làmMớiToolStripMenuItem_Click);
             // 
+            // check_timkiem
+            // 
+            this.check_timkiem.AutoSize = true;
+            this.check_timkiem.Location = new System.Drawing.Point(520, 177);
+            this.check_timkiem.Name = "check_timkiem";
+            this.check_timkiem.Size = new System.Drawing.Size(84, 20);
+            this.check_timkiem.TabIndex = 29;
+            this.check_timkiem.Text = "Tìm kiếm";
+            this.check_timkiem.UseVisualStyleBackColor = true;
+            this.check_timkiem.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // formKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 642);
+            this.Controls.Add(this.check_timkiem);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -264,5 +283,6 @@
         private System.Windows.Forms.ToolStripMenuItem sửaKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xóaKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
+        private System.Windows.Forms.CheckBox check_timkiem;
     }
 }
