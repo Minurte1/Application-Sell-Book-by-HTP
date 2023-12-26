@@ -384,22 +384,25 @@
             // 
             // thêmThểLoạiSáchToolStripMenuItem
             // 
+            this.thêmThểLoạiSáchToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmThểLoạiSáchToolStripMenuItem.Image")));
             this.thêmThểLoạiSáchToolStripMenuItem.Name = "thêmThểLoạiSáchToolStripMenuItem";
-            this.thêmThểLoạiSáchToolStripMenuItem.Size = new System.Drawing.Size(155, 24);
+            this.thêmThểLoạiSáchToolStripMenuItem.Size = new System.Drawing.Size(175, 24);
             this.thêmThểLoạiSáchToolStripMenuItem.Text = "Thêm Thể Loại Sách";
             this.thêmThểLoạiSáchToolStripMenuItem.Click += new System.EventHandler(this.thêmThểLoạiSáchToolStripMenuItem_Click);
             // 
             // thêmTácGiảToolStripMenuItem
             // 
+            this.thêmTácGiảToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmTácGiảToolStripMenuItem.Image")));
             this.thêmTácGiảToolStripMenuItem.Name = "thêmTácGiảToolStripMenuItem";
-            this.thêmTácGiảToolStripMenuItem.Size = new System.Drawing.Size(111, 24);
+            this.thêmTácGiảToolStripMenuItem.Size = new System.Drawing.Size(131, 24);
             this.thêmTácGiảToolStripMenuItem.Text = "Thêm Tác Giả";
             this.thêmTácGiảToolStripMenuItem.Click += new System.EventHandler(this.thêmTácGiảToolStripMenuItem_Click);
             // 
             // thêmNhàXuấtBảnToolStripMenuItem
             // 
+            this.thêmNhàXuấtBảnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("thêmNhàXuấtBảnToolStripMenuItem.Image")));
             this.thêmNhàXuấtBảnToolStripMenuItem.Name = "thêmNhàXuấtBảnToolStripMenuItem";
-            this.thêmNhàXuấtBảnToolStripMenuItem.Size = new System.Drawing.Size(154, 24);
+            this.thêmNhàXuấtBảnToolStripMenuItem.Size = new System.Drawing.Size(174, 24);
             this.thêmNhàXuấtBảnToolStripMenuItem.Text = "Thêm Nhà Xuất Bản";
             this.thêmNhàXuấtBảnToolStripMenuItem.Click += new System.EventHandler(this.thêmNhàXuấtBảnToolStripMenuItem_Click);
             // 

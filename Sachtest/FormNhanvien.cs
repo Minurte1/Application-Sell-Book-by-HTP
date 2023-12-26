@@ -174,5 +174,116 @@ namespace Sachtest
         {
 
         }
+
+        private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtmanv.Text == "" || txttennv.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
+                {
+                    MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
+                    return;
+                }
+
+                if (txtmanv.Text == "")
+                {
+                    command = connection.CreateCommand();
+                    command.CommandText = "insert into NHANVIEN values (N'" + txtmanv.Text + "',N'" + txttennv.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("thêm dữ liệu thành công!!!");
+                    loaddata();
+                    return;
+                }
+                else
+                {
+                    if (KiemTraTonTaiManv(txtmanv.Text))
+                    {
+                        DialogResult result = MessageBox.Show("Mã nhân viên này đã tồn tại! Bạn muốn cập nhật thông tin nhân viên?", "Xác nhận cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            // Thực hiện cập nhật thông tin khách hàng
+                            command = connection.CreateCommand();
+                            command.CommandText = "update NHANVIEN set tennv = '" + txttennv.Text + "', sdtnv = '" + txtsdt.Text + "',diachinv = '" + txtdiachi.Text + "',gioitinhnv = '" + cbgioitinh.Text + "' where manv = '" + txtmanv.Text + "'";
+                            command.ExecuteNonQuery();
+                            loaddata();
+
+                            return;
+                        }
+                        else
+                        {
+
+                            command = connection.CreateCommand();
+                            command.CommandText = "insert into NHANVIEN values (N'" + txtmanv.Text + "',N'" + txttennv.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                            command.ExecuteNonQuery();
+                            MessageBox.Show("thêm dữ liệu thành công!!!");
+                            loaddata();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        // Mã KH chưa tồn tại, thực hiện thêm mới
+                        command = connection.CreateCommand();
+                        command.CommandText = "insert into NHANVIEN values (N'" + txtmanv.Text + "',N'" + txttennv.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("thêm dữ liệu thành công!!!");
+                        loaddata();
+
+                        return;
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi nhập liệu");
+            }
+        }
+
+        private void sửaNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "UPDATE NHANVIEN SET tennv = @tennv, sdtnv = @sdt, diachinv = @diachi, gioitinhnv = @gioitinh WHERE manv = @manv";
+
+                    // Thêm các tham số
+                    command.Parameters.AddWithValue("@tennv", txttennv.Text);
+                    command.Parameters.AddWithValue("@sdt", txtsdt.Text);
+                    command.Parameters.AddWithValue("@diachi", txtdiachi.Text);
+                    command.Parameters.AddWithValue("@gioitinh", cbgioitinh.Text);
+                    command.Parameters.AddWithValue("@manv", txtmanv.Text);
+
+                    command.ExecuteNonQuery();
+                    loaddata();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message);
+            }
+        }
+
+        private void xóaNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                command = connection.CreateCommand();
+                command.CommandText = "delete from NHANVIEN where MANV='" + txtmanv.Text + "' ";
+                command.ExecuteNonQuery();
+                loaddata();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("lỗi xóa dữ liệu");
+            }
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            txtmanv.ReadOnly = false;
+        }
     }
 }

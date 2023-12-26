@@ -87,7 +87,7 @@ namespace Sachtest
         {
             try
             {
-                string MaHD = tb_Hoadon.Text;
+               
                 string selectedMaKhachHang = cb_MaKhachhang.SelectedValue.ToString();
                 string selectedMasach = cb_Sach.SelectedValue.ToString();
                 string selectedMaNV = cb_MaNV.SelectedValue.ToString();
@@ -95,9 +95,9 @@ namespace Sachtest
                 int Tongtien = int.Parse(lb_Tongtien.Text);
                 int Giatien = int.Parse(lb_GiaMua.Text);
                 string invoiceCode = GenerateUniqueInvoiceCode();
-             
+                    
                 // Thêm dữ liệu vào bảng HOADON
-                InsertDataIntoHoaDonTable(MaHD,invoiceCode, selectedMaKhachHang, selectedMaNV, currentTime, Tongtien, selectedMasach, Giatien);
+                InsertDataIntoHoaDonTable(invoiceCode, selectedMaKhachHang, selectedMaNV, currentTime, Tongtien, selectedMasach, Giatien);
 
                 // Thêm dữ liệu vào bảng CHITIETHOADON
             
@@ -110,11 +110,54 @@ namespace Sachtest
 
             }
         }
+        private bool CheckIfMaHDTonTai(string maHD)
+        {
+            bool result = false;
+            const string prefix = "HD";
+            string HDMAHD = prefix + maHD;
+     
+            try
+            {
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM HOADON WHERE MAHOADON = @maHD", sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@maHD", HDMAHD);
+                    sqlConnection.Open();
 
-        private void InsertDataIntoHoaDonTable(string MaHD,string invoiceCode, string selectedMaKhachHang, string selectedMaNV, DateTime currentTime, int Tongtien,string selectedMasach ,int Giatien)
+                    int count = (int)command.ExecuteScalar();
+
+                    // Nếu count > 0, tức là MAHD đã tồn tại
+                    result = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+            return result;
+        }
+
+
+        private void InsertDataIntoHoaDonTable(string invoiceCode, string selectedMaKhachHang, string selectedMaNV, DateTime currentTime, int Tongtien,string selectedMasach ,int Giatien)
         {
             try
-            {   
+            {
+                const string prefix = "HD";
+
+                Random random = new Random();
+                int randomNumber;
+                string maHD;
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10001);
+                    maHD = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(maHD));
+
                 sqlConnection.Open();
 
                 // Tạo SqlCommand để thực hiện INSERT vào bảng HOADON
@@ -122,7 +165,7 @@ namespace Sachtest
                 SqlCommand insertHoaDonCommand = new SqlCommand(insertHoaDonQuery, sqlConnection);
 
                 // Thêm các tham số
-                insertHoaDonCommand.Parameters.AddWithValue("@MAHD", MaHD);
+                insertHoaDonCommand.Parameters.AddWithValue("@MAHD", prefix + maHD);
                 insertHoaDonCommand.Parameters.AddWithValue("@MAKH", selectedMaKhachHang);
                 insertHoaDonCommand.Parameters.AddWithValue("@MANV", selectedMaNV);
                 insertHoaDonCommand.Parameters.AddWithValue("@NGAYLAP", currentTime);
@@ -130,7 +173,7 @@ namespace Sachtest
       
                 // Thực hiện INSERT
                 insertHoaDonCommand.ExecuteNonQuery();
-                InsertDataIntoChiTietHoaDonTable(MaHD, selectedMasach, int.Parse(tb_Soluong.Text), Tongtien, Giatien);
+                InsertDataIntoChiTietHoaDonTable(maHD, selectedMasach, int.Parse(tb_Soluong.Text), Tongtien, Giatien);
             }
             catch (Exception ex)
             {
@@ -141,18 +184,20 @@ namespace Sachtest
                 sqlConnection.Close();
             }
         }
-        private void InsertDataIntoChiTietHoaDonTable(string MaHD, string selectedMasach, int soluong,int Tongtien, int Giatien)
+        private void InsertDataIntoChiTietHoaDonTable(string maHD, string selectedMasach, int soluong,int Tongtien, int Giatien)
         {
             try
             {
-             
+                const string prefix = "HD";
+
+                string MAHDne = prefix + maHD;
 
                 // Tạo SqlCommand để thực hiện INSERT vào bảng CHITIETHOADON
                 string insertChiTietHoaDonQuery = "INSERT INTO CHITIETHOADON (MASACH, MAHOADON, SOLUONGMUA,GIATIEN,THANHTIEN) VALUES (@MASACH, @MAHD, @SOLUONG,@GIATIEN,@THANHTIEN)";
                 SqlCommand insertChiTietHoaDonCommand = new SqlCommand(insertChiTietHoaDonQuery, sqlConnection);
 
                 // Thêm các tham số
-                insertChiTietHoaDonCommand.Parameters.AddWithValue("@MAHD", MaHD);
+                insertChiTietHoaDonCommand.Parameters.AddWithValue("@MAHD", MAHDne);
                 insertChiTietHoaDonCommand.Parameters.AddWithValue("@MASACH", selectedMasach);
                 insertChiTietHoaDonCommand.Parameters.AddWithValue("@SOLUONG", soluong);
                 insertChiTietHoaDonCommand.Parameters.AddWithValue("@GIATIEN", Giatien);

@@ -47,8 +47,6 @@
             this.bt_Lammoi = new System.Windows.Forms.Button();
             this.lb_TextGiatien = new System.Windows.Forms.Label();
             this.lb_d = new System.Windows.Forms.Label();
-            this.tb_Hoadon = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -210,22 +208,6 @@
             this.lb_d.Size = new System.Drawing.Size(0, 16);
             this.lb_d.TabIndex = 16;
             // 
-            // tb_Hoadon
-            // 
-            this.tb_Hoadon.Location = new System.Drawing.Point(204, 161);
-            this.tb_Hoadon.Name = "tb_Hoadon";
-            this.tb_Hoadon.Size = new System.Drawing.Size(180, 22);
-            this.tb_Hoadon.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "MÃ HÓA ĐƠN";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -276,8 +258,6 @@
             this.ClientSize = new System.Drawing.Size(982, 584);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.tb_Hoadon);
             this.Controls.Add(this.lb_d);
             this.Controls.Add(this.lb_TextGiatien);
             this.Controls.Add(this.bt_Lammoi);
@@ -327,8 +307,6 @@
         private System.Windows.Forms.Button bt_Lammoi;
         private System.Windows.Forms.Label lb_TextGiatien;
         private System.Windows.Forms.Label lb_d;
-        private System.Windows.Forms.TextBox tb_Hoadon;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
