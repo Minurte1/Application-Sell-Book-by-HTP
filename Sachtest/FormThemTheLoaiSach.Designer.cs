@@ -36,6 +36,7 @@
             this.bt_Them = new System.Windows.Forms.Button();
             this.bt_sua = new System.Windows.Forms.Button();
             this.tb_Xoa = new System.Windows.Forms.Button();
+            this.bt_Lammoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +85,7 @@
             // 
             // bt_Them
             // 
-            this.bt_Them.Location = new System.Drawing.Point(161, 241);
+            this.bt_Them.Location = new System.Drawing.Point(12, 240);
             this.bt_Them.Name = "bt_Them";
             this.bt_Them.Size = new System.Drawing.Size(80, 30);
             this.bt_Them.TabIndex = 5;
@@ -94,7 +95,7 @@
             // 
             // bt_sua
             // 
-            this.bt_sua.Location = new System.Drawing.Point(12, 241);
+            this.bt_sua.Location = new System.Drawing.Point(15, 296);
             this.bt_sua.Name = "bt_sua";
             this.bt_sua.Size = new System.Drawing.Size(80, 30);
             this.bt_sua.TabIndex = 6;
@@ -104,7 +105,7 @@
             // 
             // tb_Xoa
             // 
-            this.tb_Xoa.Location = new System.Drawing.Point(82, 241);
+            this.tb_Xoa.Location = new System.Drawing.Point(137, 240);
             this.tb_Xoa.Name = "tb_Xoa";
             this.tb_Xoa.Size = new System.Drawing.Size(80, 30);
             this.tb_Xoa.TabIndex = 7;
@@ -112,11 +113,22 @@
             this.tb_Xoa.UseVisualStyleBackColor = true;
             this.tb_Xoa.Click += new System.EventHandler(this.tb_Xoa_Click);
             // 
+            // bt_Lammoi
+            // 
+            this.bt_Lammoi.Location = new System.Drawing.Point(137, 296);
+            this.bt_Lammoi.Name = "bt_Lammoi";
+            this.bt_Lammoi.Size = new System.Drawing.Size(80, 27);
+            this.bt_Lammoi.TabIndex = 8;
+            this.bt_Lammoi.Text = "Làm mới";
+            this.bt_Lammoi.UseVisualStyleBackColor = true;
+            this.bt_Lammoi.Click += new System.EventHandler(this.bt_Lammoi_Click);
+            // 
             // FormThemTheLoaiSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_Lammoi);
             this.Controls.Add(this.tb_Xoa);
             this.Controls.Add(this.bt_sua);
             this.Controls.Add(this.bt_Them);
@@ -144,5 +156,6 @@
         private System.Windows.Forms.Button bt_Them;
         private System.Windows.Forms.Button bt_sua;
         private System.Windows.Forms.Button tb_Xoa;
+        private System.Windows.Forms.Button bt_Lammoi;
     }
 }

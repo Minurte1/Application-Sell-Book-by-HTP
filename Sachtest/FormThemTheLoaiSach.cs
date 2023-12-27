@@ -166,6 +166,12 @@ namespace Sachtest
             }
         }
 
+        private void bt_Lammoi_Click(object sender, EventArgs e)
+        {
+            tb_MaTL.Text = "";
+            tb_TenTL.Text = "";
+        }
+
 
 
         // Các phương thức sửa và xóa có thể được triển khai tương tự

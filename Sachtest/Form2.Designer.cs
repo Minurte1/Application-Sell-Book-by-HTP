@@ -40,10 +40,15 @@
             this.panel_Top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel_Left.SuspendLayout();
             this.panel_Top.SuspendLayout();
             this.panel_Body.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -190,7 +195,9 @@
             // 
             // panel_Body
             // 
-            this.panel_Body.Controls.Add(this.button4);
+            this.panel_Body.BackColor = System.Drawing.Color.Gray;
+            this.panel_Body.Controls.Add(this.panel2);
+            this.panel_Body.Controls.Add(this.panel1);
             this.panel_Body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Body.Location = new System.Drawing.Point(161, 65);
             this.panel_Body.Name = "panel_Body";
@@ -198,21 +205,63 @@
             this.panel_Body.TabIndex = 8;
             this.panel_Body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Body_Paint_1);
             // 
-            // button4
+            // panel1
             // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.Location = new System.Drawing.Point(0, 0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(934, 544);
-            this.button4.TabIndex = 2;
-            this.button4.UseVisualStyleBackColor = true;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(766, 544);
+            this.panel1.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(766, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(155, 544);
+            this.panel2.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(18, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(115, 96);
+            this.panel3.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(148, 44);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(545, 23);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "CHÀO MỪNG ĐẾN PHẦN MỀM QUẢN LÝ NHÀ SÁCH HTP";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(149, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(294, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Đừng để giấc mơ của bạn mãi mãi chỉ là giấc mơ";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1082, 609);
             this.Controls.Add(this.panel_Body);
             this.Controls.Add(this.panel_Top);
@@ -224,6 +273,8 @@
             this.panel_Top.ResumeLayout(false);
             this.panel_Top.PerformLayout();
             this.panel_Body.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -241,6 +292,10 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn_Tinhtien;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -15,7 +15,7 @@ namespace Sachtest
     {
         SqlConnection connection;
         SqlCommand command;
-        string str = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
+        string connectionString = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
       
@@ -37,7 +37,7 @@ namespace Sachtest
                 // Kiểm tra xem connection có được khởi tạo chưa
                 if (connection == null)
                 {
-                    connection = new SqlConnection(str);
+                    connection = new SqlConnection(connectionString);
                     connection.Open();
                 }
 
@@ -70,7 +70,7 @@ namespace Sachtest
             // Thực hiện kiểm tra xem MaKH đã tồn tại trong cơ sở dữ liệu hay chưa
             string queryKiemTra = "SELECT COUNT(*) FROM KHACHHANG WHERE makh = @makh";
 
-            using (SqlConnection conn = new SqlConnection(str))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(queryKiemTra, conn))
             {
                 cmd.Parameters.AddWithValue("@makh", makh);
@@ -109,7 +109,8 @@ namespace Sachtest
         private void formKhachHang_Load(object sender, EventArgs e)
         {
             cbgioitinh.SelectedIndex = 0;
-            connection = new SqlConnection(str);
+            cbgioitinh.Text = "Nam";
+            connection = new SqlConnection(connectionString);
             connection.Open();
             loaddata();
             check_timkiem.Checked = false;
@@ -244,32 +245,33 @@ namespace Sachtest
 
             try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @maHD", connection))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                   
-                    command.Parameters.AddWithValue("@maHD", HDMAHD);
-               
+                    connection.Open();
 
-                    int count = (int)command.ExecuteScalar();
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM KHACHHANG WHERE MAKH = @maHD", connection))
+                    {
+                        command.Parameters.AddWithValue("@maHD", HDMAHD);
 
-                    // Nếu count > 0, tức là MAHD đã tồn tại
-                    result = count > 0;
+                        int count = (int)command.ExecuteScalar();
+
+                        // Nếu count > 0, tức là MAHD đã tồn tại
+                        result = count > 0;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
 
             return result;
         }
+
         private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string gioitinh = cbgioitinh.Text;
+        
             try
             {
                 const string prefix = "KH";
@@ -284,16 +286,18 @@ namespace Sachtest
                     randomNumber = random.Next(1, 10000);
                     maKH = randomNumber.ToString();
                 } while (CheckIfMaHDTonTai(maKH));
-                connection.Open();
+                //connection.Open();
                 if (txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
                     return;
                 }
+            
+                
                
                 string MAKHne = prefix + maKH;
                 command = connection.CreateCommand();
-                    command.CommandText = "insert into KHACHHANG values (N'" + MAKHne + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
+                    command.CommandText = "insert into KHACHHANG values (N'" + MAKHne + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + gioitinh + "')";
                     command.ExecuteNonQuery();
                     MessageBox.Show("thêm dữ liệu thành công!!!");
                     loaddata();
@@ -343,6 +347,7 @@ namespace Sachtest
             {
                 MessageBox.Show("Lỗi nhập liệu: " + ex.Message);
             }
+            connection.Close();
         }
 
         private void sửaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -375,16 +380,28 @@ namespace Sachtest
         {
             try
             {
-                command = connection.CreateCommand();
-                command.CommandText = "delete from KHACHHANG where makh='" + txtmakh.Text + "' ";
-                command.ExecuteNonQuery();
-                loaddata();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = connection.CreateCommand())
+                    {
+                        command.CommandText = "delete from KHACHHANG where makh=@makh";
+                        command.Parameters.AddWithValue("@makh", txtmakh.Text);
+
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Đã xóa thành công");
+                    }
+
+                    loaddata();
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("lỗi xóa dữ liệu", ex.Message);
+                MessageBox.Show("Lỗi xóa dữ liệu: " + ex.Message);
             }
         }
+
 
         private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -150,15 +150,61 @@ namespace Sachtest
                 return Text;
             }
         }
+        private bool CheckIfMaHDTonTai(string maSACH)
+        {
+            bool result = false;
+            const string prefix = "KH";
+            string HDMAHD = prefix + maSACH;
 
+            try
+            {
+               
+                using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM SACH WHERE MASACH = @maHD", connection))
+                {
+
+                    command.Parameters.AddWithValue("@maHD", HDMAHD);
+
+
+                    int count = (int)command.ExecuteScalar();
+
+                    // Nếu count > 0, tức là MAHD đã tồn tại
+                    result = count > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return result;
+        }
         private void thêmDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                const string prefix = "KH";
+
+                Random random = new Random();
+                int randomNumber;
+                string maSACH;
+
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10000);
+                    maSACH = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(maSACH));
+                string MASACHne = prefix + maSACH;
+                MessageBox.Show(MASACHne);
+                connection.Open ();
                 if (cb_MaTG.Items.Count > 0 && cb_MaTL.Items.Count > 0 && cb_MaNXB.Items.Count > 0)
                 {
                     // Lấy thông tin từ các controls trên form
-                    string MaSach = tb_Masach.Text.Trim();
+                    string MaSach = MASACHne;
                     string TenSach = tb_Tensach.Text.Trim();
 
                     // Sử dụng SelectedItem để lấy giá trị và hiển thị tên

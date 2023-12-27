@@ -38,12 +38,13 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.bt_Lammoi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tb_Xoa
             // 
-            this.tb_Xoa.Location = new System.Drawing.Point(88, 291);
+            this.tb_Xoa.Location = new System.Drawing.Point(145, 258);
             this.tb_Xoa.Name = "tb_Xoa";
             this.tb_Xoa.Size = new System.Drawing.Size(80, 30);
             this.tb_Xoa.TabIndex = 15;
@@ -53,7 +54,7 @@
             // 
             // bt_sua
             // 
-            this.bt_sua.Location = new System.Drawing.Point(12, 291);
+            this.bt_sua.Location = new System.Drawing.Point(40, 305);
             this.bt_sua.Name = "bt_sua";
             this.bt_sua.Size = new System.Drawing.Size(80, 30);
             this.bt_sua.TabIndex = 14;
@@ -63,7 +64,7 @@
             // 
             // bt_Them
             // 
-            this.bt_Them.Location = new System.Drawing.Point(167, 291);
+            this.bt_Them.Location = new System.Drawing.Point(43, 258);
             this.bt_Them.Name = "bt_Them";
             this.bt_Them.Size = new System.Drawing.Size(80, 30);
             this.bt_Them.TabIndex = 13;
@@ -74,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 190);
+            this.label2.Location = new System.Drawing.Point(22, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 16);
             this.label2.TabIndex = 12;
@@ -82,7 +83,7 @@
             // 
             // tb_TenTG
             // 
-            this.tb_TenTG.Location = new System.Drawing.Point(106, 184);
+            this.tb_TenTG.Location = new System.Drawing.Point(108, 167);
             this.tb_TenTG.Name = "tb_TenTG";
             this.tb_TenTG.Size = new System.Drawing.Size(117, 22);
             this.tb_TenTG.TabIndex = 11;
@@ -90,7 +91,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 143);
+            this.label1.Location = new System.Drawing.Point(17, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 10;
@@ -98,7 +99,7 @@
             // 
             // tb_MaTG
             // 
-            this.tb_MaTG.Location = new System.Drawing.Point(106, 137);
+            this.tb_MaTG.Location = new System.Drawing.Point(108, 120);
             this.tb_MaTG.Name = "tb_MaTG";
             this.tb_MaTG.Size = new System.Drawing.Size(117, 22);
             this.tb_MaTG.TabIndex = 9;
@@ -117,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 236);
+            this.label3.Location = new System.Drawing.Point(25, 219);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 16);
             this.label3.TabIndex = 17;
@@ -125,16 +126,27 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(106, 236);
+            this.dateTimePicker1.Location = new System.Drawing.Point(108, 219);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(117, 22);
             this.dateTimePicker1.TabIndex = 18;
+            // 
+            // bt_Lammoi
+            // 
+            this.bt_Lammoi.Location = new System.Drawing.Point(145, 305);
+            this.bt_Lammoi.Name = "bt_Lammoi";
+            this.bt_Lammoi.Size = new System.Drawing.Size(80, 27);
+            this.bt_Lammoi.TabIndex = 19;
+            this.bt_Lammoi.Text = "Làm mới";
+            this.bt_Lammoi.UseVisualStyleBackColor = true;
+            this.bt_Lammoi.Click += new System.EventHandler(this.bt_Lammoi_Click);
             // 
             // FormTacGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt_Lammoi);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tb_Xoa);
@@ -166,5 +178,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button bt_Lammoi;
     }
 }

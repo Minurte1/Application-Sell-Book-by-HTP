@@ -40,6 +40,7 @@ namespace Sachtest
         private void FormTacGia_Load(object sender, EventArgs e)
         {
             LoadData();
+            tb_MaTG.ReadOnly = true;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -56,12 +57,59 @@ namespace Sachtest
             }
         }
 
+        private bool CheckIfMaHDTonTai(string MATGG)
+        {
+            bool result = false;
+            const string prefix = "TG";
+            string HDMAHD = prefix + MATGG;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();  // Open the connection before executing the command
+
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM TACGIA WHERE MATG = @maHD", connection))
+                    {
+                        command.Parameters.AddWithValue("@maHD", HDMAHD);
+
+                        int count = (int)command.ExecuteScalar();
+
+                        // Nếu count > 0, tức là MAHD đã tồn tại
+                        result = count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
+            }
+
+            return result;
+        }
+
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
             {
+                const string prefix = "TG";
+
+                Random random = new Random();
+                int randomNumber;
+                string MATGG;
+
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10000);
+                    MATGG = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(MATGG));
+                string MASACHne = prefix + MATGG;
+              
+ 
+                
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = tb_MaTG.Text;
+                string maTheLoai = MASACHne;
                 string tenTheLoai = tb_TenTG.Text;
                 string NgaySinh = dateTimePicker1.Value.ToString("yyyy-MM-dd");
 
@@ -87,6 +135,7 @@ namespace Sachtest
                     {
                         MessageBox.Show("Thêm thể loại sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
+                 
                 }
             }
             catch (Exception ex)
@@ -171,6 +220,12 @@ namespace Sachtest
             }
 
      
+        }
+
+        private void bt_Lammoi_Click(object sender, EventArgs e)
+        {
+            tb_MaTG.Text = "";
+            tb_TenTG.Text = "";
         }
     }
 }
