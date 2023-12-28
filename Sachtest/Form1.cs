@@ -35,14 +35,13 @@ namespace Sachtest
                 }
                 else
                 {
-                    lblSaimatkhau.Text = "Sai mật khẩu kìa";
-                    lblSaimatkhau.ForeColor = Color.Red;
+                    MessageBox.Show("Mật khẩu đăng nhập không đúng !!");
                 }
             }
             else
             {
-                lblSaimatkhau.Text = "Sai tài khoản kìa";
-                lblSaimatkhau.ForeColor = Color.Red;
+                MessageBox.Show("Tài khoản đăng nhập không đúng !!");
+
             }
           
          
@@ -77,7 +76,7 @@ namespace Sachtest
         {
             textBox1.Text = "";
             textBox2.Text = "";
-            lblSaimatkhau.Text = "";
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
