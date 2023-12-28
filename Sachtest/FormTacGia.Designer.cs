@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTacGia));
             this.tb_Xoa = new System.Windows.Forms.Button();
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_Them = new System.Windows.Forms.Button();
@@ -39,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.bt_Lammoi = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +57,7 @@
             // 
             // bt_sua
             // 
-            this.bt_sua.Location = new System.Drawing.Point(40, 305);
+            this.bt_sua.Location = new System.Drawing.Point(56, 305);
             this.bt_sua.Name = "bt_sua";
             this.bt_sua.Size = new System.Drawing.Size(80, 30);
             this.bt_sua.TabIndex = 14;
@@ -64,7 +67,7 @@
             // 
             // bt_Them
             // 
-            this.bt_Them.Location = new System.Drawing.Point(43, 258);
+            this.bt_Them.Location = new System.Drawing.Point(59, 258);
             this.bt_Them.Name = "bt_Them";
             this.bt_Them.Size = new System.Drawing.Size(80, 30);
             this.bt_Them.TabIndex = 13;
@@ -91,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 123);
+            this.label1.Location = new System.Drawing.Point(27, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(77, 16);
             this.label1.TabIndex = 10;
@@ -141,11 +144,32 @@
             this.bt_Lammoi.UseVisualStyleBackColor = true;
             this.bt_Lammoi.Click += new System.EventHandler(this.bt_Lammoi_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(87, 38);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(356, 33);
+            this.label4.TabIndex = 21;
+            this.label4.Text = "THÊM THÔNG TIN TÁC GIẢ";
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(23, 22);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(58, 49);
+            this.panel1.TabIndex = 20;
+            // 
             // FormTacGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.bt_Lammoi);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
@@ -179,5 +203,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button bt_Lammoi;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel1;
     }
 }

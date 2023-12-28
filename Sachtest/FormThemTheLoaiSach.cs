@@ -20,6 +20,7 @@ namespace Sachtest
         {
             // Khi form được tải, hiển thị dữ liệu từ CSDL
             LoadData();
+            tb_MaTL.ReadOnly = true;    
         }
 
         private void LoadData()
@@ -39,13 +40,54 @@ namespace Sachtest
                 dataGridView1.DataSource = dataTable;
             }
         }
+        private bool CheckIfMaHDTonTai(string maKH)
+        {
+            bool result = false;
+            const string prefix = "TL";
+            string HDMAHD = prefix + maKH;
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM THELOAISACH WHERE MATL = @maHD", connection))
+                    {
+                        command.Parameters.AddWithValue("@maHD", HDMAHD);
+
+                        int count = (int)command.ExecuteScalar();
+
+                        // Nếu count > 0, tức là MAHD đã tồn tại
+                        result = count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MAHD trong CSDL: " + ex.Message);
+            }
+
+            return result;
+        }
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
             {
+                const string prefix = "TL";
+
+                Random random = new Random();
+                int randomNumber;
+                string maKH;
+
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10000);
+                    maKH = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(maKH));
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = tb_MaTL.Text;
+                string maTheLoai = maKH;
                 string tenTheLoai = tb_TenTL.Text;
 
                 // Tạo kết nối

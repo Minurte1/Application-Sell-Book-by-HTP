@@ -43,7 +43,7 @@ namespace Sachtest
             dgvKhosach.MultiSelect = false;
             dgvKhosach.CellClick += dgvKhosach_CellContentClick;
             dgvKhosach.SelectionChanged += dgvKhosach_SelectionChanged;
-
+            tb_Masach.ReadOnly = true;
             // Load dữ liệu cho ComboBox từ bảng TACGIA
             LoadComboBoxFromDatabase(cb_MaTG, str, "TACGIA", "MaTG", "TenTG");
 
@@ -53,8 +53,8 @@ namespace Sachtest
             // Load dữ liệu cho ComboBox từ bảng NHAXUATBAN
             LoadComboBoxFromDatabase(cb_MaNXB, str, "NHAXUATBAN", "MaNXB", "TenNXB");
             SetDefaultValuesForComboBoxes();
-          
-           
+
+
             cb_MaTG.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_MaNXB.DropDownStyle = ComboBoxStyle.DropDownList;
             cb_MaTL.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -158,7 +158,7 @@ namespace Sachtest
 
             try
             {
-               
+
                 using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM SACH WHERE MASACH = @maHD", connection))
                 {
 
@@ -200,7 +200,7 @@ namespace Sachtest
                 } while (CheckIfMaHDTonTai(maSACH));
                 string MASACHne = prefix + maSACH;
                 MessageBox.Show(MASACHne);
-                connection.Open ();
+                connection.Open();
                 if (cb_MaTG.Items.Count > 0 && cb_MaTL.Items.Count > 0 && cb_MaNXB.Items.Count > 0)
                 {
                     // Lấy thông tin từ các controls trên form
@@ -247,7 +247,7 @@ namespace Sachtest
                         command.Parameters.AddWithValue("@LanTB", LanTB);
                         command.Parameters.AddWithValue("@GiaBia", GiaBia);
                         command.Parameters.AddWithValue("@GiaMua", GiaMua);
-                        command.Parameters.AddWithValue("@Soluong",Soluong);
+                        command.Parameters.AddWithValue("@Soluong", Soluong);
                         // Thực hiện lệnh SQL
                         command.CommandText = query;
                         int rowsAffected = command.ExecuteNonQuery();
@@ -295,6 +295,7 @@ namespace Sachtest
                 tb_Tensach.Text = selectedRow.Cells["TENSACH"].Value.ToString();
                 cb_MaTG.Text = selectedRow.Cells["MATG"].Value.ToString();
                 cb_MaTL.Text = selectedRow.Cells["MATL"].Value.ToString();
+              tb_Soluong.Text = selectedRow.Cells["soluong"].Value.ToString();
                 // Check if SelectedValue is not null before using it
                 object selectedValue = cb_MaTL.SelectedValue;
                 if (selectedValue != null)
@@ -478,9 +479,24 @@ namespace Sachtest
             }
 
         }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tb_Masach.Text = "";
+            tb_Giaban.Text = "";
+            tb_Giamua.Text = "";
+            tb_Lantaiban.Text = "";
+            tb_Namxb.Text = "";
+            tb_Soluong.Text = "";
+            tb_Tensach.Text = "";
+           
+
+
+        }
     }
+}
 
         //    --Tạo bảng TG 
         //-- Tạo bảng NXB
         //-- Tạo bảng sách
-    }
+    

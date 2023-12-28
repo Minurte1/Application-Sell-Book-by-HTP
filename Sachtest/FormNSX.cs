@@ -23,6 +23,7 @@ namespace Sachtest
         private void FormNSX_Load(object sender, EventArgs e)
         {
             LoadData();
+            tb_MaTL.ReadOnly = true;
         }
         private void LoadData()
         {
@@ -41,13 +42,55 @@ namespace Sachtest
                 dataGridView1.DataSource = dataTable;
             }
         }
+        private bool CheckIfMaHDTonTai(string MATGG)
+        {
+            bool result = false;
+            const string prefix = "TG";
+            string HDMAHD = prefix + MATGG;
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();  // Open the connection before executing the command
+
+                    using (SqlCommand command = new SqlCommand("SELECT COUNT(*) FROM NHAXUATBAN WHERE MANXB = @maHD", connection))
+                    {
+                        command.Parameters.AddWithValue("@maHD", HDMAHD);
+
+                        int count = (int)command.ExecuteScalar();
+
+                        // Nếu count > 0, tức là MAHD đã tồn tại
+                        result = count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi kiểm tra MANXB trong CSDL: " + ex.Message);
+            }
+
+            return result;
+        }
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
             {
+                const string prefix = "TG";
+
+                Random random = new Random();
+                int randomNumber;
+                string MATGG;
+
+                do
+                {
+                    // Sinh số ngẫu nhiên từ 1 đến 10000
+                    randomNumber = random.Next(1, 10000);
+                    MATGG = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(MATGG));
+                string MASACHne = prefix + MATGG;
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = tb_MaTL.Text;
+                string maTheLoai = MASACHne;
                 string tenTheLoai = tb_TenTL.Text;
 
                 // Tạo kết nối
@@ -63,7 +106,7 @@ namespace Sachtest
                     // Kiểm tra xem có dữ liệu nào bị ảnh hưởng không
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Thêm thể loại sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm NXB thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Sau khi thêm, cập nhật DataGridView
                         LoadData();
@@ -171,6 +214,12 @@ namespace Sachtest
         private void tb_MaTL_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bt_Lammoi_Click(object sender, EventArgs e)
+        {
+            tb_MaTL.Text = "";
+            tb_TenTL.Text = "";
         }
     }
 }
