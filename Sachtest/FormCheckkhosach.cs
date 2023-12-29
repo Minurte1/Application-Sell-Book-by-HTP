@@ -28,6 +28,7 @@ namespace Sachtest
         string str = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
+        DataTable tableTimkiemSach = new DataTable();
         void loaddatasach()
         {
             command = connection.CreateCommand();
@@ -40,6 +41,7 @@ namespace Sachtest
 
         private void FormCheckkhosach_Load(object sender, EventArgs e)
         {
+          
             dgvKhosach.MultiSelect = false;
             dgvKhosach.CellClick += dgvKhosach_CellContentClick;
             dgvKhosach.SelectionChanged += dgvKhosach_SelectionChanged;
@@ -75,6 +77,71 @@ namespace Sachtest
             if (cb_MaNXB.Items.Count > 0)
                 cb_MaNXB.SelectedIndex = 0;
         }
+        void TimKiemSach()
+        {
+            try
+            {
+               
+
+                // Kiểm tra xem connection có được khởi tạo chưa
+                if (connection == null)
+                {
+                    connection = new SqlConnection(str);
+                    connection.Open();
+                }
+               
+                command = connection.CreateCommand();
+                //command.CommandText = "SELECT * FROM SACH WHERE TENSACH LIKE @TenSach AND MATG LIKE @MaTG AND MATL LIKE @MaTL AND MANXB LIKE @MaNXB AND NAMXUATBAN LIKE @NamXB AND GIAMUA LIKE @GiaMua AND GIABIA LIKE @GiaBia AND LANTAIBAN LIKE @LanTB AND soluong LIKE @SoLuong;";
+                command.CommandText = "SELECT * FROM SACH WHERE MATG LIKE @MaTG " +
+     "AND MATL LIKE @MaTL " +
+     "AND MANXB LIKE @MaNXB " +
+     "AND TENSACH LIKE @TenSach " +
+     "AND GIAMUA LIKE @GiaMua " +
+     "AND GIABIA LIKE @GiaBia " +
+     "AND LANTAIBAN LIKE @LanTB " +
+     "AND NAMXUATBAN LIKE @NamXB " +
+     "AND soluong LIKE @SoLuong;";
+
+                // Sử dụng Parameters để tránh SQL Injection
+                command.Parameters.AddWithValue("@TenSach", "%" + tb_Tensach.Text + "%");
+
+                ComboboxItem selectedTG = (ComboboxItem)cb_MaTG.SelectedItem;
+                ComboboxItem selectedTL = (ComboboxItem)cb_MaTL.SelectedItem;
+                ComboboxItem selectedNXB = (ComboboxItem)cb_MaNXB.SelectedItem;
+
+
+                //MessageBox.Show($"{selectedNXB.Value}, {selectedTG.Value}, {selectedTL.Value}, {tb_Giaban.Text}");
+
+
+
+                command.Parameters.AddWithValue("@MaTG", selectedTG.Value );
+                command.Parameters.AddWithValue("@MaTL", selectedTL.Value );
+                command.Parameters.AddWithValue("@MaNXB", selectedNXB.Value);
+             
+                command.Parameters.AddWithValue("@NamXB", "%" + tb_Namxb.Text + "%");
+                command.Parameters.AddWithValue("@GiaMua", "%" + tb_Giamua.Text + "%");
+                command.Parameters.AddWithValue("@GiaBia", "%" + tb_Giaban.Text + "%");
+                command.Parameters.AddWithValue("@LanTB", "%" + tb_Lantaiban.Text + "%");
+                command.Parameters.AddWithValue("@SoLuong", "%" + tb_Soluong.Text + "%");
+                MessageBox.Show($"Số lượng kết quả: {tableTimkiemSach.Rows.Count}");
+
+                adapter.SelectCommand = command;
+                tableTimkiemSach.Clear();
+                adapter.Fill(tableTimkiemSach);
+                dgvKhosach.DataSource = tableTimkiemSach;
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm sách: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi sử dụng
+                connection.Close();
+            }
+        }
+
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -199,7 +266,7 @@ namespace Sachtest
                     maSACH = randomNumber.ToString();
                 } while (CheckIfMaHDTonTai(maSACH));
                 string MASACHne = prefix + maSACH;
-                MessageBox.Show(MASACHne);
+                
                 connection.Open();
                 if (cb_MaTG.Items.Count > 0 && cb_MaTL.Items.Count > 0 && cb_MaNXB.Items.Count > 0)
                 {
@@ -314,17 +381,17 @@ namespace Sachtest
 
         private void tb_Tensach_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void cb_MaTL_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void cb_MaNXB_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void thêmThểLoạiSáchToolStripMenuItem_Click(object sender, EventArgs e)
@@ -492,6 +559,42 @@ namespace Sachtest
            
 
 
+        }
+
+        private void check_Timkiem_CheckedChanged(object sender, EventArgs e)
+        {
+          
+          
+        }
+
+        private void tb_Soluong_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tb_Giamua_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tb_Giaban_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void tb_Lantaiban_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void tb_Namxb_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cb_MaTG_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -76,7 +76,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tb_Soluong = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhosach)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tACGIABindingSource)).BeginInit();
@@ -154,6 +153,7 @@
             this.tb_Giaban.Name = "tb_Giaban";
             this.tb_Giaban.Size = new System.Drawing.Size(162, 22);
             this.tb_Giaban.TabIndex = 13;
+            this.tb_Giaban.TextChanged += new System.EventHandler(this.tb_Giaban_TextChanged);
             // 
             // lb_Giamua
             // 
@@ -170,6 +170,7 @@
             this.tb_Giamua.Name = "tb_Giamua";
             this.tb_Giamua.Size = new System.Drawing.Size(162, 22);
             this.tb_Giamua.TabIndex = 11;
+            this.tb_Giamua.TextChanged += new System.EventHandler(this.tb_Giamua_TextChanged);
             // 
             // lb_MaTL
             // 
@@ -195,6 +196,7 @@
             this.tb_Namxb.Name = "tb_Namxb";
             this.tb_Namxb.Size = new System.Drawing.Size(184, 22);
             this.tb_Namxb.TabIndex = 19;
+            this.tb_Namxb.TextChanged += new System.EventHandler(this.tb_Namxb_TextChanged);
             // 
             // lb_Manxb
             // 
@@ -220,6 +222,7 @@
             this.tb_Lantaiban.Name = "tb_Lantaiban";
             this.tb_Lantaiban.Size = new System.Drawing.Size(162, 22);
             this.tb_Lantaiban.TabIndex = 15;
+            this.tb_Lantaiban.TextChanged += new System.EventHandler(this.tb_Lantaiban_TextChanged);
             // 
             // menuStrip1
             // 
@@ -371,6 +374,7 @@
             this.cb_MaTG.Name = "cb_MaTG";
             this.cb_MaTG.Size = new System.Drawing.Size(226, 24);
             this.cb_MaTG.TabIndex = 22;
+            this.cb_MaTG.SelectedIndexChanged += new System.EventHandler(this.cb_MaTG_SelectedIndexChanged);
             // 
             // menuStrip2
             // 
@@ -431,6 +435,7 @@
             this.tb_Soluong.Name = "tb_Soluong";
             this.tb_Soluong.Size = new System.Drawing.Size(226, 22);
             this.tb_Soluong.TabIndex = 27;
+            this.tb_Soluong.TextChanged += new System.EventHandler(this.tb_Soluong_TextChanged);
             // 
             // label1
             // 
@@ -441,22 +446,11 @@
             this.label1.TabIndex = 28;
             this.label1.Text = "SỐ LƯỢNG";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(358, 205);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(84, 20);
-            this.checkBox1.TabIndex = 29;
-            this.checkBox1.Text = "Tìm kiếm";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // FormCheckkhosach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(935, 584);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_Soluong);
             this.Controls.Add(this.label6);
@@ -553,6 +547,5 @@
         private System.Windows.Forms.TextBox tb_Soluong;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
-        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

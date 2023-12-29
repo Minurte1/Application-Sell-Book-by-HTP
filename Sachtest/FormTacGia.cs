@@ -87,7 +87,6 @@ namespace Sachtest
 
             return result;
         }
-
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
@@ -104,14 +103,18 @@ namespace Sachtest
                     randomNumber = random.Next(1, 10000);
                     MATGG = randomNumber.ToString();
                 } while (CheckIfMaHDTonTai(MATGG));
-                string MASACHne = prefix + MATGG;
-              
- 
-                
+                string MATGne = prefix + MATGG;
+
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = MASACHne;
-                string tenTheLoai = tb_TenTG.Text;
-                string NgaySinh = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                string tenTacGia = tb_TenTG.Text.Trim();
+                string ngaySinh = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+
+                // Kiểm tra giá trị rỗng
+                if (string.IsNullOrWhiteSpace(tenTacGia) || string.IsNullOrWhiteSpace(ngaySinh))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng lại nếu giá trị rỗng
+                }
 
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -119,23 +122,22 @@ namespace Sachtest
                     connection.Open();
 
                     // Thực hiện lệnh SQL để thêm dữ liệu vào CSDL
-                    string query = $"INSERT INTO TACGIA (MATG, TENTG, NAMSINH) VALUES ('{maTheLoai}', N'{tenTheLoai}','{NgaySinh}')";
+                    string query = $"INSERT INTO TACGIA (MATG, TENTG, NAMSINH) VALUES ('{MATGne}', N'{tenTacGia}', '{ngaySinh}')";
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
 
                     // Kiểm tra xem có dữ liệu nào bị ảnh hưởng không
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Thêm thể loại sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Thêm tác giả thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Sau khi thêm, cập nhật DataGridView
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Thêm thể loại sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thêm tác giả thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                 
                 }
             }
             catch (Exception ex)
@@ -143,6 +145,7 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void tb_Xoa_Click(object sender, EventArgs e)
         {
@@ -186,9 +189,16 @@ namespace Sachtest
             try
             {
                 // Lấy thông tin từ các controls trên form
-                string MATG = tb_MaTG.Text;
-                string tenTG = tb_TenTG.Text;
+                string MATG = tb_MaTG.Text.Trim();
+                string tenTG = tb_TenTG.Text.Trim();
                 string NAMSINH = dateTimePicker1.Value.ToString("yyyy-MM-dd"); // Chuyển định dạng năm sinh
+
+                // Kiểm tra giá trị rỗng
+                if (string.IsNullOrWhiteSpace(MATG) || string.IsNullOrWhiteSpace(tenTG) || string.IsNullOrWhiteSpace(NAMSINH))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng lại nếu giá trị rỗng
+                }
 
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -203,14 +213,14 @@ namespace Sachtest
                     // Kiểm tra xem có dữ liệu nào bị ảnh hưởng không
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Sửa thể loại sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sửa tác giả thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Sau khi sửa, cập nhật DataGridView
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Sửa thể loại sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Sửa tác giả thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -218,9 +228,8 @@ namespace Sachtest
             {
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-     
         }
+
 
         private void bt_Lammoi_Click(object sender, EventArgs e)
         {

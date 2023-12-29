@@ -89,7 +89,11 @@ namespace Sachtest
                 // Lấy thông tin từ các controls trên form
                 string maTheLoai = maKH;
                 string tenTheLoai = tb_TenTL.Text;
-
+                if (string.IsNullOrWhiteSpace(tenTheLoai))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng lại nếu giá trị rỗng
+                }
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -164,7 +168,11 @@ namespace Sachtest
                 // Lấy thông tin từ các controls trên form
                 string maTheLoai = tb_MaTL.Text;
                 string tenTheLoai = tb_TenTL.Text;
-
+                if (string.IsNullOrWhiteSpace(tenTheLoai))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng lại nếu giá trị rỗng
+                }
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
