@@ -33,7 +33,7 @@
             this.bt_sua = new System.Windows.Forms.Button();
             this.bt_Them = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.tb_TenTL = new System.Windows.Forms.TextBox();
+            this.tb_TenNXB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tb_MaTL = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -82,12 +82,13 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Tên Nhà Xuất Bản";
             // 
-            // tb_TenTL
+            // tb_TenNXB
             // 
-            this.tb_TenTL.Location = new System.Drawing.Point(164, 184);
-            this.tb_TenTL.Name = "tb_TenTL";
-            this.tb_TenTL.Size = new System.Drawing.Size(168, 22);
-            this.tb_TenTL.TabIndex = 11;
+            this.tb_TenNXB.Location = new System.Drawing.Point(164, 184);
+            this.tb_TenNXB.Name = "tb_TenNXB";
+            this.tb_TenNXB.Size = new System.Drawing.Size(168, 22);
+            this.tb_TenNXB.TabIndex = 11;
+            this.tb_TenNXB.TextChanged += new System.EventHandler(this.tb_TenTL_TextChanged);
             // 
             // label1
             // 
@@ -160,7 +161,7 @@
             this.Controls.Add(this.bt_sua);
             this.Controls.Add(this.bt_Them);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tb_TenTL);
+            this.Controls.Add(this.tb_TenNXB);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tb_MaTL);
             this.Controls.Add(this.dataGridView1);
@@ -179,7 +180,7 @@
         private System.Windows.Forms.Button bt_sua;
         private System.Windows.Forms.Button bt_Them;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tb_TenTL;
+        private System.Windows.Forms.TextBox tb_TenNXB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_MaTL;
         private System.Windows.Forms.DataGridView dataGridView1;

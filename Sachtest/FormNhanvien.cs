@@ -174,7 +174,26 @@ namespace Sachtest
         {
 
         }
+        private bool IsNumeric(string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IsValidVietnamesePhoneNumber(string phoneNumber)
+        {
+            // Sử dụng biểu thức chính quy để kiểm tra định dạng số điện thoại Việt Nam
+            // Đây là một biểu thức chính quy đơn giản, bạn có thể điều chỉnh nó tùy theo yêu cầu cụ thể.
+            string pattern = @"^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b";
 
+            // Kiểm tra so khớp với biểu thức chính quy
+            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, pattern);
+        }
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -184,7 +203,16 @@ namespace Sachtest
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
                     return;
                 }
-
+                if (!IsNumeric(txtsdt.Text) || txtsdt.Text.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại phải chỉ chứa số và có đủ 10 số.");
+                    return;
+                }
+                if (!IsValidVietnamesePhoneNumber(txtsdt.Text))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
+                    return;
+                }
                 if (txtmanv.Text == "")
                 {
                     command = connection.CreateCommand();

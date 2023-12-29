@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace Sachtest
 {
@@ -20,10 +21,10 @@ namespace Sachtest
             InitializeDatabaseConnection();
         }
         private SqlConnection sqlConnection;
+        string connectionString = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
 
-     
-    
-       
+
+
 
         private void InitializeDatabaseConnection()
         {
@@ -82,12 +83,57 @@ namespace Sachtest
             return newCode;
         }
 
+        private bool MuaSach(string maSach, int soLuongMua)
+        {
+            try
+            {
+                // Tạo kết nối và thực hiện mua sách
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Lấy số lượng sách hiện có từ CSDL
+                    string querySelect = $"SELECT SoLuong FROM SACH WHERE MaSach = '{maSach}'";
+                    SqlCommand selectCommand = new SqlCommand(querySelect, connection);
+                    int soLuongHienCo = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                    // Kiểm tra xem có đủ sách để mua không
+                    if (soLuongHienCo >= soLuongMua)
+                    {
+                        // Cập nhật số lượng sách mới
+                        int soLuongConLai = soLuongHienCo - soLuongMua;
+                        string queryUpdate = $"UPDATE SACH SET SoLuong = {soLuongConLai} WHERE MaSach = '{maSach}'";
+                        SqlCommand updateCommand = new SqlCommand(queryUpdate, connection);
+                        int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                        // Kiểm tra xem có dữ liệu nào bị ảnh hưởng không
+                        if (rowsAffected > 0)
+                        {
+                            return true; // Mua sách thành công
+                        }
+                        else
+                        {
+                            return false; // Mua sách thất bại
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Số lượng sách không đủ để mua", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false; // Mua sách thất bại
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi mua sách: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Mua sách thất bại
+            }
+        }
 
         private void bt_XacNhan_Click(object sender, EventArgs e)
         {
             try
             {
-               
                 string selectedMaKhachHang = cb_MaKhachhang.SelectedValue.ToString();
                 string selectedMasach = cb_Sach.SelectedValue.ToString();
                 string selectedMaNV = cb_MaNV.SelectedValue.ToString();
@@ -95,19 +141,26 @@ namespace Sachtest
                 int Tongtien = int.Parse(lb_Tongtien.Text);
                 int Giatien = int.Parse(lb_GiaMua.Text);
                 string invoiceCode = GenerateUniqueInvoiceCode();
-                    
+                string maSach = selectedMasach;
+                int soLuongMua = int.Parse(tb_Soluong.Text);
+
+                // Mua sách và kiểm tra lỗi
+                if (!MuaSach(maSach, soLuongMua))
+                {
+                    //MessageBox.Show("Lỗi khi mua sách. Vui lòng kiểm tra lại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Thoát khỏi phương thức nếu có lỗi
+                }
+
                 // Thêm dữ liệu vào bảng HOADON
                 InsertDataIntoHoaDonTable(invoiceCode, selectedMaKhachHang, selectedMaNV, currentTime, Tongtien, selectedMasach, Giatien);
 
                 // Thêm dữ liệu vào bảng CHITIETHOADON
-            
 
                 MessageBox.Show("Thêm dữ liệu thành công!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
-
             }
         }
         private bool CheckIfMaHDTonTai(string maHD)
@@ -204,9 +257,9 @@ namespace Sachtest
                 insertChiTietHoaDonCommand.Parameters.AddWithValue("@THANHTIEN", Tongtien);
                 // Thực hiện INSERT
                 insertChiTietHoaDonCommand.ExecuteNonQuery();
-
+              
                 LoadDataFromSachTable();
-
+                
 
             }
             catch (Exception ex)

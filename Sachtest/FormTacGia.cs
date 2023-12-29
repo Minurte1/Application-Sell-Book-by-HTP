@@ -236,5 +236,10 @@ namespace Sachtest
             tb_MaTG.Text = "";
             tb_TenTG.Text = "";
         }
+
+        private void tb_TenTG_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

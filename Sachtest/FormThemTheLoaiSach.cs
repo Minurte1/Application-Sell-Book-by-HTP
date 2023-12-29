@@ -76,28 +76,43 @@ namespace Sachtest
             {
                 const string prefix = "TL";
 
-                Random random = new Random();
-                int randomNumber;
-                string maKH;
-
-                do
-                {
-                    // Sinh số ngẫu nhiên từ 1 đến 10000
-                    randomNumber = random.Next(1, 10000);
-                    maKH = randomNumber.ToString();
-                } while (CheckIfMaHDTonTai(maKH));
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = maKH;
                 string tenTheLoai = tb_TenTL.Text;
                 if (string.IsNullOrWhiteSpace(tenTheLoai))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
+
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
+
+                    // Kiểm tra xem tên thể loại có trùng lặp không
+                    string checkQuery = $"SELECT COUNT(*) FROM THELOAISACH WHERE TENTL = N'{tenTheLoai}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                    int existingRecords = (int)checkCommand.ExecuteScalar();
+
+                    if (existingRecords > 0)
+                    {
+                        MessageBox.Show("Tên thể loại đã tồn tại. Vui lòng chọn tên thể loại khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Dừng lại nếu tên thể loại đã tồn tại
+                    }
+
+                    // Nếu không có trùng lặp, tiếp tục thêm dữ liệu vào CSDL
+                    Random random = new Random();
+                    int randomNumber;
+                    string maKH;
+
+                    do
+                    {
+                        // Sinh số ngẫu nhiên từ 1 đến 10000
+                        randomNumber = random.Next(1, 10000);
+                        maKH = randomNumber.ToString();
+                    } while (CheckIfMaHDTonTai(maKH));
+
+                    string maTheLoai = prefix + maKH;
 
                     // Thực hiện lệnh SQL để thêm dữ liệu vào CSDL
                     string query = $"INSERT INTO THELOAISACH (MATL, TENTL) VALUES ('{maTheLoai}', N'{tenTheLoai}')";
@@ -123,6 +138,7 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void tb_Xoa_Click(object sender, EventArgs e)
         {
@@ -173,12 +189,24 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
+
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    // Thực hiện lệnh SQL để cập nhật dữ liệu trong CSDL
+                    // Kiểm tra xem có tên thể loại khác trùng lặp hay không
+                    string checkQuery = $"SELECT COUNT(*) FROM THELOAISACH WHERE TENTL = N'{tenTheLoai}' AND MATL <> '{maTheLoai}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                    int existingRecords = (int)checkCommand.ExecuteScalar();
+
+                    if (existingRecords > 0)
+                    {
+                        MessageBox.Show("Tên thể loại đã tồn tại. Vui lòng chọn tên thể loại khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Dừng lại nếu tên thể loại đã tồn tại
+                    }
+
+                    // Nếu không có trùng lặp, tiếp tục thực hiện cập nhật dữ liệu trong CSDL
                     string query = $"UPDATE THELOAISACH SET TENTL = N'{tenTheLoai}' WHERE MATL = '{maTheLoai}'";
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
@@ -202,6 +230,7 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

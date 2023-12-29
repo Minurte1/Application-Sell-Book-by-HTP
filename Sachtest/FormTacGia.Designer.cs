@@ -90,6 +90,7 @@
             this.tb_TenTG.Name = "tb_TenTG";
             this.tb_TenTG.Size = new System.Drawing.Size(117, 22);
             this.tb_TenTG.TabIndex = 11;
+            this.tb_TenTG.TextChanged += new System.EventHandler(this.tb_TenTG_TextChanged);
             // 
             // label1
             // 

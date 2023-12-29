@@ -45,7 +45,7 @@ namespace Sachtest
         private bool CheckIfMaHDTonTai(string MATGG)
         {
             bool result = false;
-            const string prefix = "TG";
+            const string prefix = "NXB";
             string HDMAHD = prefix + MATGG;
 
             try
@@ -76,34 +76,48 @@ namespace Sachtest
         {
             try
             {
-                const string prefix = "TG";
+                const string prefix = "NXB";
 
                 Random random = new Random();
                 int randomNumber;
-                string MATGG;
+                string maNXB;
 
                 do
                 {
                     // Sinh số ngẫu nhiên từ 1 đến 10000
                     randomNumber = random.Next(1, 10000);
-                    MATGG = randomNumber.ToString();
-                } while (CheckIfMaHDTonTai(MATGG));
-                string MASACHne = prefix + MATGG;
+                    maNXB = randomNumber.ToString();
+                } while (CheckIfMaHDTonTai(maNXB));
+                string maNXBne = prefix + maNXB;
+
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = MASACHne;
-                string tenTheLoai = tb_TenTL.Text;
-                if (string.IsNullOrWhiteSpace(tenTheLoai))
+
+                string tenNXB = tb_TenNXB.Text;
+
+                if (string.IsNullOrWhiteSpace(tenNXB))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
+
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    // Thực hiện lệnh SQL để thêm dữ liệu vào CSDL
-                    string query = $"INSERT INTO NHAXUATBAN (MANXB, TENNXB) VALUES ('{maTheLoai}', N'{tenTheLoai}')";
+                    // Kiểm tra xem có tên NXB đã tồn tại hay chưa
+                    string checkQuery = $"SELECT COUNT(*) FROM NHAXUATBAN WHERE TENNXB = N'{tenNXB}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                    int existingRecords = (int)checkCommand.ExecuteScalar();
+
+                    if (existingRecords > 0)
+                    {
+                        MessageBox.Show("Tên NXB đã tồn tại. Vui lòng chọn tên NXB khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Dừng lại nếu tên NXB đã tồn tại
+                    }
+
+                    // Nếu không có trùng lặp, tiếp tục thực hiện thêm mới dữ liệu vào CSDL
+                    string query = $"INSERT INTO NHAXUATBAN (MANXB, TENNXB) VALUES ('{maNXBne}', N'{tenNXB}')";
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -117,7 +131,7 @@ namespace Sachtest
                     }
                     else
                     {
-                        MessageBox.Show("Thêm thể loại sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Thêm NXB thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -126,7 +140,8 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
+
         private void tb_Xoa_Click(object sender, EventArgs e)
         {
             try
@@ -173,7 +188,7 @@ namespace Sachtest
 
                 // Hiển thị dữ liệu lên các TextBox
                 tb_MaTL.Text = row.Cells["MANXB"].Value.ToString();
-                tb_TenTL.Text = row.Cells["TENNXB"].Value.ToString();
+                tb_TenNXB.Text = row.Cells["TENNXB"].Value.ToString();
             }
         }
 
@@ -182,9 +197,9 @@ namespace Sachtest
             try
             {
                 // Lấy thông tin từ các controls trên form
-                string maTheLoai = tb_MaTL.Text;
-                string tenTheLoai = tb_TenTL.Text;
-                if (string.IsNullOrWhiteSpace(tenTheLoai))
+                string maNXB = tb_MaTL.Text;
+                string tenNXB = tb_TenNXB.Text;
+                if (string.IsNullOrWhiteSpace(tenNXB))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
@@ -195,22 +210,33 @@ namespace Sachtest
                 {
                     connection.Open();
 
-                    // Thực hiện lệnh SQL để cập nhật dữ liệu trong CSDL
-                    string query = $"UPDATE NHAXUATBAN SET TENNXB = N'{tenTheLoai}' WHERE MANXB = '{maTheLoai}'";
+                    // Kiểm tra xem tên NXB đã tồn tại hay chưa
+                    string checkQuery = $"SELECT COUNT(*) FROM NHAXUATBAN WHERE TENNXB = N'{tenNXB}' AND MANXB != '{maNXB}'";
+                    SqlCommand checkCommand = new SqlCommand(checkQuery, connection);
+                    int existingRecords = (int)checkCommand.ExecuteScalar();
+
+                    if (existingRecords > 0)
+                    {
+                        MessageBox.Show("Tên NXB đã tồn tại. Vui lòng chọn tên NXB khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // Dừng lại nếu tên NXB đã tồn tại
+                    }
+
+                    // Nếu không có trùng lặp, tiếp tục thực hiện cập nhật dữ liệu trong CSDL
+                    string query = $"UPDATE NHAXUATBAN SET TENNXB = N'{tenNXB}' WHERE MANXB = '{maNXB}'";
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
 
                     // Kiểm tra xem có dữ liệu nào bị ảnh hưởng không
                     if (rowsAffected > 0)
                     {
-                        MessageBox.Show("Sửa thể loại sách thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Sửa NXB thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                         // Sau khi sửa, cập nhật DataGridView
                         LoadData();
                     }
                     else
                     {
-                        MessageBox.Show("Sửa thể loại sách thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Sửa NXB thất bại", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -220,6 +246,7 @@ namespace Sachtest
             }
         }
 
+
         private void tb_MaTL_TextChanged(object sender, EventArgs e)
         {
 
@@ -228,7 +255,12 @@ namespace Sachtest
         private void bt_Lammoi_Click(object sender, EventArgs e)
         {
             tb_MaTL.Text = "";
-            tb_TenTL.Text = "";
+            tb_TenNXB.Text = "";
+        }
+
+        private void tb_TenTL_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -220,7 +220,7 @@ namespace Sachtest
         private bool CheckIfMaHDTonTai(string maSACH)
         {
             bool result = false;
-            const string prefix = "KH";
+            const string prefix = "MS";
             string HDMAHD = prefix + maSACH;
 
             try
@@ -253,7 +253,7 @@ namespace Sachtest
         {
             try
             {
-                const string prefix = "KH";
+                const string prefix = "MS";
 
                 Random random = new Random();
                 int randomNumber;
@@ -360,23 +360,29 @@ namespace Sachtest
                 DataGridViewRow selectedRow = dgvKhosach.Rows[e.RowIndex];
                 tb_Masach.Text = selectedRow.Cells["MASACH"].Value.ToString();
                 tb_Tensach.Text = selectedRow.Cells["TENSACH"].Value.ToString();
-                cb_MaTG.Text = selectedRow.Cells["MATG"].Value.ToString();
-                cb_MaTL.Text = selectedRow.Cells["MATL"].Value.ToString();
-              tb_Soluong.Text = selectedRow.Cells["soluong"].Value.ToString();
-                // Check if SelectedValue is not null before using it
-                object selectedValue = cb_MaTL.SelectedValue;
-                if (selectedValue != null)
-                {
-                    cb_MaTL.Text = selectedValue.ToString();
-                }
 
-                cb_MaNXB.Text = selectedRow.Cells["MANXB"].Value.ToString();
+                // Lấy giá trị từ cell "MATG" và tìm ComboboxItem tương ứng
+                string selectedMaTG = selectedRow.Cells["MATG"].Value.ToString();
+                ComboboxItem selectedTG = cb_MaTG.Items.Cast<ComboboxItem>().FirstOrDefault(item => item.Value == selectedMaTG);
+                cb_MaTG.SelectedItem = selectedTG;
+
+                // Lấy giá trị từ cell "MATL" và tìm ComboboxItem tương ứng
+                string selectedMaTL = selectedRow.Cells["MATL"].Value.ToString();
+                ComboboxItem selectedTL = cb_MaTL.Items.Cast<ComboboxItem>().FirstOrDefault(item => item.Value == selectedMaTL);
+                cb_MaTL.SelectedItem = selectedTL;
+
+                tb_Soluong.Text = selectedRow.Cells["soluong"].Value.ToString();
+
+                // Lấy giá trị từ cell "MANXB" và tìm ComboboxItem tương ứng
+                string selectedMaNXB = selectedRow.Cells["MANXB"].Value.ToString();
+                ComboboxItem selectedNXB = cb_MaNXB.Items.Cast<ComboboxItem>().FirstOrDefault(item => item.Value == selectedMaNXB);
+                cb_MaNXB.SelectedItem = selectedNXB;
+
                 tb_Namxb.Text = selectedRow.Cells["NAMXUATBAN"].Value.ToString();
                 tb_Lantaiban.Text = selectedRow.Cells["LANTAIBAN"].Value.ToString();
                 tb_Giaban.Text = selectedRow.Cells["GIABIA"].Value.ToString();
                 tb_Giamua.Text = selectedRow.Cells["GIAMUA"].Value.ToString();
             }
-
         }
 
         private void tb_Tensach_TextChanged(object sender, EventArgs e)
