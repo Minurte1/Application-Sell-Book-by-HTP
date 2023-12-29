@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DoiMatKhau.Designer.cs">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,29 +64,11 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form3.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.cs">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormCheckkhosach.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCheckkhosach.Designer.cs">
       <DependentUpon>FormCheckkhosach.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormChucNang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormChucNang.Designer.cs">
-      <DependentUpon>FormChucNang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formHoaDon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formHoaDon.Designer.cs">
-      <DependentUpon>formHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="formKhachHang.cs">
       <SubType>Form</SubType>
@@ -88,23 +76,11 @@
     <Compile Include="formKhachHang.Designer.cs">
       <DependentUpon>formKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNhacungcap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNhacungcap.Designer.cs">
-      <DependentUpon>FormNhacungcap.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormNhanvien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNhanvien.Designer.cs">
       <DependentUpon>FormNhanvien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormNhapsach.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNhapsach.Designer.cs">
-      <DependentUpon>FormNhapsach.cs</DependentUpon>
     </Compile>
     <Compile Include="FormNSX.cs">
       <SubType>Form</SubType>
@@ -117,12 +93,6 @@
     </Compile>
     <Compile Include="FormTacGia.Designer.cs">
       <DependentUpon>FormTacGia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormTaothanhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTaothanhVien.Designer.cs">
-      <DependentUpon>FormTaothanhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="FormThemTheLoaiSach.cs">
       <SubType>Form</SubType>
@@ -165,50 +135,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLNS3TG.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Themdulieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Themdulieu.Designer.cs">
-      <DependentUpon>Themdulieu.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="DoiMatKhau.resx">
+      <DependentUpon>DoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormCheckkhosach.resx">
       <DependentUpon>FormCheckkhosach.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormChucNang.resx">
-      <DependentUpon>FormChucNang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formHoaDon.resx">
-      <DependentUpon>formHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formKhachHang.resx">
       <DependentUpon>formKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNhacungcap.resx">
-      <DependentUpon>FormNhacungcap.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormNhanvien.resx">
       <DependentUpon>FormNhanvien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormNhapsach.resx">
-      <DependentUpon>FormNhapsach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNSX.resx">
       <DependentUpon>FormNSX.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTacGia.resx">
       <DependentUpon>FormTacGia.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormTaothanhVien.resx">
-      <DependentUpon>FormTaothanhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormThemTheLoaiSach.resx">
       <DependentUpon>FormThemTheLoaiSach.cs</DependentUpon>
@@ -231,9 +180,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Themdulieu.resx">
-      <DependentUpon>Themdulieu.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

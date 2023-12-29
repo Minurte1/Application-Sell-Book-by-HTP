@@ -7,11 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 namespace Sachtest
 {
     public partial class Form1 : Form
     {
+        SqlConnection connection;
+        SqlCommand command;
+        string connectionString = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
+     
+      
+
         public Form1()
         {
             InitializeComponent();
@@ -19,35 +25,63 @@ namespace Sachtest
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string tk = textBox1.Text;
-            string pass = textBox2.Text;
-            string tktest = "";
-            string passtest = "";
-            if (tk == tktest)
+            string taiKhoan = textBox1.Text;
+            string matKhau = textBox2.Text;
+
+            if (DangNhapAdmin(taiKhoan, matKhau))
             {
-                if (pass == passtest)
-                {
-                    this.Hide();
-                    Form1 a = new Form1();
-                    Form2 FDangnhap = new Form2();
-                    a.Closed += (s, args) => this.Close();
-                    FDangnhap.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Mật khẩu đăng nhập không đúng !!");
-                }
+                // Đăng nhập thành công
+                this.Hide();
+                Form1 a = new Form1();
+                Form2 FDangnhap = new Form2();
+                a.Closed += (s, args) => this.Close();
+                FDangnhap.Show();
             }
             else
             {
-                MessageBox.Show("Tài khoản đăng nhập không đúng !!");
-
+                // Đăng nhập thất bại
+                MessageBox.Show("Tài Khoản Hoặc Mật Khẩu Không Đúng !!");
             }
-          
-         
-
         }
 
+        bool DangNhapAdmin(string taiKhoan, string matKhau)
+        {
+            try
+            {
+                // Kiểm tra xem connection có được khởi tạo chưa
+                if (connection == null)
+                {
+                    connection = new SqlConnection(connectionString);
+                    connection.Open();
+                }
+                else if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
+                command = connection.CreateCommand();
+                command.CommandText = "SELECT COUNT(*) FROM TAIKHOANADMIN WHERE TAIKHOAN = @TaiKhoan AND MATKHAU = @MatKhau;";
+
+                // Sử dụng Parameters để tránh SQL Injection
+                command.Parameters.AddWithValue("@TaiKhoan", taiKhoan);
+                command.Parameters.AddWithValue("@MatKhau", matKhau);
+
+                int count = Convert.ToInt32(command.ExecuteScalar());
+
+                // Nếu số lượng bản ghi khớp là 1, đăng nhập thành công
+                return count == 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi đăng nhập: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                // Đóng kết nối sau khi sử dụng
+                connection.Close();
+            }
+        }
         private void lblSaimatkhau_Click(object sender, EventArgs e)
         {
 
@@ -56,15 +90,6 @@ namespace Sachtest
         private void label2_Click(object sender, EventArgs e)
         {
 
-        }
-        
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 a = new Form1();
-            Form3 FForgetpass = new Form3();
-            a.Closed += (s, args) => this.Close();
-            FForgetpass.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -82,6 +107,20 @@ namespace Sachtest
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 a = new Form1();
+           DoiMatKhau FDangnhap = new DoiMatKhau();
+            a.Closed += (s, args) => this.Close();
+            FDangnhap.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); 
         }
     }
 }

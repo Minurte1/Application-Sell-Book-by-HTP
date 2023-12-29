@@ -84,7 +84,7 @@ namespace Sachtest
 
         private void btn_Nhacungcap_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormNhacungcap());
+           
         }
 
         private void button6_Click(object sender, EventArgs e)

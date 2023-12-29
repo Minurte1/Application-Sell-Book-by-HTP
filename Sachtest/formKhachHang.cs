@@ -271,7 +271,7 @@ namespace Sachtest
         private void thêmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string gioitinh = cbgioitinh.Text;
-        
+
             try
             {
                 const string prefix = "KH";
@@ -279,81 +279,93 @@ namespace Sachtest
                 Random random = new Random();
                 int randomNumber;
                 string maKH;
-            
+
                 do
                 {
                     // Sinh số ngẫu nhiên từ 1 đến 10000
                     randomNumber = random.Next(1, 10000);
                     maKH = randomNumber.ToString();
                 } while (CheckIfMaHDTonTai(maKH));
-                //connection.Open();
+
+                if (connection == null)
+                {
+                    connection = new SqlConnection(connectionString);
+                    connection.Open();
+                }
+                else if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
                 if (txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
-                    MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
+                    MessageBox.Show("Bạn chưa truyền đủ dữ liệu, không thể thêm");
                     return;
                 }
-            
-                
-               
+
+                // Kiểm tra số điện thoại có đủ 10 số hay không
+                if (!IsNumeric(txtsdt.Text) || txtsdt.Text.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại phải chỉ chứa số và có đủ 10 số.");
+                    return;
+                }
+                if (!IsValidVietnamesePhoneNumber(txtsdt.Text))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
+                    return;
+                }
                 string MAKHne = prefix + maKH;
                 command = connection.CreateCommand();
-                    command.CommandText = "insert into KHACHHANG values (N'" + MAKHne + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + gioitinh + "')";
-                    command.ExecuteNonQuery();
-                    MessageBox.Show("thêm dữ liệu thành công!!!");
-                    loaddata();
-                  
-               
-                
-                    //if (KiemTraTonTaiMakh(txtmakh.Text))
-                    //{
-                    //    DialogResult result = MessageBox.Show("Mã khách hàng này đã tồn tại! Bạn muốn cập nhật thông tin khách hàng?", "Xác nhận cập nhật", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    //    if (result == DialogResult.Yes)
-                    //    {
-                    //        // Thực hiện cập nhật thông tin khách hàng
-                    //        command = connection.CreateCommand();
-                    //        command.CommandText = "update KHACHHANG set tenkh = '" + txttenkh.Text + "', sdt = '" + txtsdt.Text + "',diachi = '" + txtdiachi.Text + "',gioitinh = '" + cbgioitinh.Text + "' where makh = '" + txtmakh.Text + "'";
-                    //        command.ExecuteNonQuery();
-                    //        loaddata();
-
-                    //        return;
-                    //    }
-                    //    else
-                    //    {
-
-                    //        command = connection.CreateCommand();
-                    //        command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
-                    //        command.ExecuteNonQuery();
-                         
-                    //        loaddata();
-                    //        return;
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    // Mã KH chưa tồn tại, thực hiện thêm mới
-                    //    command = connection.CreateCommand();
-                    //    command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
-                    //    command.ExecuteNonQuery();
-                     
-                    //    loaddata();
-
-                    //    return;
-                    //}
-                
-
-
+                command.CommandText = "INSERT INTO KHACHHANG VALUES (N'" + MAKHne + "', N'" + txttenkh.Text + "','" + txtsdt.Text + "', N'" + txtdiachi.Text + "', N'" + gioitinh + "')";
+                command.ExecuteNonQuery();
+                MessageBox.Show("Thêm dữ liệu thành công!!!");
+                loaddata();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi nhập liệu: " + ex.Message);
             }
-            connection.Close();
+            finally
+            {
+                connection.Close();
+            }
         }
 
+        private bool IsNumeric(string str)
+        {
+            foreach (char c in str)
+            {
+                if (!char.IsDigit(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private bool IsValidVietnamesePhoneNumber(string phoneNumber)
+        {
+            // Sử dụng biểu thức chính quy để kiểm tra định dạng số điện thoại Việt Nam
+            // Đây là một biểu thức chính quy đơn giản, bạn có thể điều chỉnh nó tùy theo yêu cầu cụ thể.
+            string pattern = @"^(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b";
+
+            // Kiểm tra so khớp với biểu thức chính quy
+            return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, pattern);
+        }
         private void sửaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                // Kiểm tra xem connection có được khởi tạo chưa
+                if (connection == null)
+                {
+                    connection = new SqlConnection(connectionString);
+                    connection.Open();
+                }
+                else if (connection.State == ConnectionState.Closed)
+                {
+                    connection.Open();
+                }
+
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE KHACHHANG SET tenkh = @tenkh, sdt = @sdt, diachi = @diachi, gioitinh = @gioitinh WHERE makh = @makh";
@@ -367,14 +379,20 @@ namespace Sachtest
 
                     command.ExecuteNonQuery();
                     loaddata();
+                    MessageBox.Show("Sửa Thông Tin Khách Hàng Thành Công");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi cập nhật dữ liệu: " + ex.Message);
             }
-
+            finally
+            {
+                // Đảm bảo đóng kết nối sau khi sử dụng
+                connection.Close();
+            }
         }
+
 
         private void xóaKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -35,16 +35,15 @@
             this.btn_Xuathoadon = new System.Windows.Forms.Button();
             this.panel_Left = new System.Windows.Forms.Panel();
             this.btn_Tinhtien = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel_Top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_Body = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel_Left.SuspendLayout();
             this.panel_Top.SuspendLayout();
             this.panel_Body.SuspendLayout();
@@ -56,7 +55,7 @@
             this.button1.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-2, 499);
+            this.button1.Location = new System.Drawing.Point(-2, 427);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 70);
             this.button1.TabIndex = 0;
@@ -119,7 +118,6 @@
             this.panel_Left.BackColor = System.Drawing.Color.Teal;
             this.panel_Left.Controls.Add(this.btn_Checkkhosach);
             this.panel_Left.Controls.Add(this.btn_Tinhtien);
-            this.panel_Left.Controls.Add(this.button7);
             this.panel_Left.Controls.Add(this.button6);
             this.panel_Left.Controls.Add(this.btn_Xuathoadon);
             this.panel_Left.Controls.Add(this.btn_Taothanhvien);
@@ -144,20 +142,6 @@
             this.btn_Tinhtien.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Tinhtien.UseVisualStyleBackColor = true;
             this.btn_Tinhtien.Click += new System.EventHandler(this.btn_Tinhtien_Click);
-            // 
-            // button7
-            // 
-            this.button7.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(-2, 430);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(164, 70);
-            this.button7.TabIndex = 9;
-            this.button7.Text = "CHỨC NĂNG";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -205,6 +189,15 @@
             this.panel_Body.TabIndex = 8;
             this.panel_Body.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Body_Paint_1);
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(766, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(155, 544);
+            this.panel2.TabIndex = 3;
+            // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
@@ -217,24 +210,15 @@
             this.panel1.Size = new System.Drawing.Size(766, 544);
             this.panel1.TabIndex = 2;
             // 
-            // panel2
+            // label3
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Location = new System.Drawing.Point(766, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(155, 544);
-            this.panel2.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(18, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(115, 96);
-            this.panel3.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(149, 74);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(294, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Đừng để giấc mơ của bạn mãi mãi chỉ là giấc mơ";
             // 
             // label2
             // 
@@ -247,15 +231,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "CHÀO MỪNG ĐẾN PHẦN MỀM QUẢN LÝ NHÀ SÁCH HTP";
             // 
-            // label3
+            // panel3
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Location = new System.Drawing.Point(149, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(294, 16);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Đừng để giấc mơ của bạn mãi mãi chỉ là giấc mơ";
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(18, 6);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(115, 96);
+            this.panel3.TabIndex = 0;
             // 
             // Form2
             // 
@@ -289,7 +273,6 @@
         private System.Windows.Forms.Panel panel_Top;
         private System.Windows.Forms.Panel panel_Body;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button btn_Tinhtien;
         private System.Windows.Forms.Panel panel2;
