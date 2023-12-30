@@ -107,13 +107,21 @@ namespace Sachtest
 
                 // Lấy thông tin từ các controls trên form
                 string tenTacGia = tb_TenTG.Text.Trim();
-                string ngaySinh = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+                DateTime ngaySinh = dateTimePicker1.Value;
 
                 // Kiểm tra giá trị rỗng
-                if (string.IsNullOrWhiteSpace(tenTacGia) || string.IsNullOrWhiteSpace(ngaySinh))
+                if (string.IsNullOrWhiteSpace(tenTacGia))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
+                }
+
+                // Kiểm tra tuổi
+                int age = CalculateAge(ngaySinh);
+                if (age < 18)
+                {
+                    MessageBox.Show("Tác giả phải đủ 18 tuổi trở lên", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return; // Dừng lại nếu tuổi không đủ
                 }
 
                 // Tạo kết nối
@@ -122,7 +130,7 @@ namespace Sachtest
                     connection.Open();
 
                     // Thực hiện lệnh SQL để thêm dữ liệu vào CSDL
-                    string query = $"INSERT INTO TACGIA (MATG, TENTG, NAMSINH) VALUES ('{MATGne}', N'{tenTacGia}', '{ngaySinh}')";
+                    string query = $"INSERT INTO TACGIA (MATG, TENTG, NAMSINH) VALUES ('{MATGne}', N'{tenTacGia}', '{ngaySinh:yyyy-MM-dd}')";
                     SqlCommand command = new SqlCommand(query, connection);
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -145,7 +153,18 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private int CalculateAge(DateTime birthdate)
+        {
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthdate.Year;
 
+            if (birthdate > today.AddYears(-age))
+            {
+                age--;
+            }
+
+            return age;
+        }
 
         private void tb_Xoa_Click(object sender, EventArgs e)
         {
