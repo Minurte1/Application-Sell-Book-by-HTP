@@ -22,13 +22,33 @@ namespace Sachtest
 
         void loaddata()
         {
-
+            try
+            {
+                if (connection == null)
+            {
+                connection = new SqlConnection(connectionString);
+                connection.Open();
+            }
+            else if (connection.State == ConnectionState.Closed)
+            {
+                connection.Open();
+            }
             command = connection.CreateCommand();
             command.CommandText = "select * from KHACHHANG";
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
             dgvKhachhang.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi sử dụng
+                connection.Close();
+            }
         }
         void Timkhachhang()
         {
@@ -203,21 +223,44 @@ namespace Sachtest
         {
             try
             {
+                if (dgvKhachhang.CurrentRow != null && dgvKhachhang.CurrentRow.Index >= 0)
+                {
+                    int i = dgvKhachhang.CurrentRow.Index;
 
-                int i;
-                i = dgvKhachhang.CurrentRow.Index;
-                txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
-                txttenkh.Text = dgvKhachhang.Rows[i].Cells[1].Value.ToString();
-                txtsdt.Text = dgvKhachhang.Rows[i].Cells[2].Value.ToString();
-                txtdiachi.Text = dgvKhachhang.Rows[i].Cells[3].Value.ToString();
-                cbgioitinh.Text = dgvKhachhang.Rows[i].Cells[4].Value.ToString();
+                    // Kiểm tra giá trị của ô trước khi truy cập
+                    if (dgvKhachhang.Rows[i].Cells[0].Value != null)
+                    {
+                        txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
+                    }
+
+                    if (dgvKhachhang.Rows[i].Cells[1].Value != null)
+                    {
+                        txttenkh.Text = dgvKhachhang.Rows[i].Cells[1].Value.ToString();
+                    }
+
+                    if (dgvKhachhang.Rows[i].Cells[2].Value != null)
+                    {
+                        txtsdt.Text = dgvKhachhang.Rows[i].Cells[2].Value.ToString();
+                    }
+
+                    if (dgvKhachhang.Rows[i].Cells[3].Value != null)
+                    {
+                        txtdiachi.Text = dgvKhachhang.Rows[i].Cells[3].Value.ToString();
+                    }
+
+                    if (dgvKhachhang.Rows[i].Cells[4].Value != null)
+                    {
+                        cbgioitinh.Text = dgvKhachhang.Rows[i].Cells[4].Value.ToString();
+                    }
+                }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message);
             }
             txtmakh.ReadOnly = true;
-           
         }
+
 
         private void btnxoa_Click(object sender, EventArgs e)
         {
