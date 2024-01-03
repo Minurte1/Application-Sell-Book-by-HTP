@@ -203,6 +203,7 @@ namespace Sachtest
         {
             try
             {
+
                 int i;
                 i = dgvKhachhang.CurrentRow.Index;
                 txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
@@ -314,6 +315,16 @@ namespace Sachtest
                     MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
                     return;
                 }
+                if (ContainsNumeric(txttenkh.Text))
+                {
+                    MessageBox.Show("Tên khách hàng không được chứa số.");
+                    return;
+                }
+                if (ContainsNumeric(txtdiachi.Text))
+                {
+                    MessageBox.Show("Tên tỉnh thành không được chứa số.");
+                    return;
+                }
                 string MAKHne = prefix + maKH;
                 command = connection.CreateCommand();
                 command.CommandText = "INSERT INTO KHACHHANG VALUES (N'" + MAKHne + "', N'" + txttenkh.Text + "','" + txtsdt.Text + "', N'" + txtdiachi.Text + "', N'" + gioitinh + "')";
@@ -329,6 +340,18 @@ namespace Sachtest
             {
                 connection.Close();
             }
+        }
+             
+    private bool ContainsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private bool IsNumeric(string str)
@@ -433,7 +456,7 @@ namespace Sachtest
         private void tìmKiếmKháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             shouldRunSearch = true;
-            Timkhachhang();
+           
         }
 
         private void txttenkh_TextChanged(object sender, EventArgs e)
@@ -477,6 +500,11 @@ namespace Sachtest
         private void txtmakh_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tìmKiếmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Timkhachhang();
         }
     }
 }

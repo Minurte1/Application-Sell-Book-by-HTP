@@ -43,6 +43,29 @@ namespace Sachtest
                 adapter.Fill(dataTable);
 
                 // Bây giờ bạn có thể sử dụng dataTable để đổ dữ liệu vào dataGridView hoặc các điều khiển khác.
+                //dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải dữ liệu từ bảng HOA DON: " + ex.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
+        private void LoadDataFromSachTablee()
+        {
+            try
+            {
+                //sqlConnection.Open();
+
+                string query = "SELECT H.*, C.* FROM HOADON H JOIN CHITIETHOADON C ON H.MAHOADON = C.MAHOADON ORDER BY H.NGAYLAPHD DESC;";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                // Bây giờ bạn có thể sử dụng dataTable để đổ dữ liệu vào dataGridView hoặc các điều khiển khác.
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -258,7 +281,7 @@ namespace Sachtest
                 // Thực hiện INSERT
                 insertChiTietHoaDonCommand.ExecuteNonQuery();
               
-                LoadDataFromSachTable();
+                LoadDataFromSachTablee();
                 
 
             }
@@ -490,6 +513,11 @@ namespace Sachtest
         private void button1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            LoadDataFromSachTablee();
         }
     }
 }

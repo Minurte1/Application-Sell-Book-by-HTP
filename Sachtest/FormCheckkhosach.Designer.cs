@@ -95,7 +95,7 @@
             // dgvKhosach
             // 
             this.dgvKhosach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKhosach.Location = new System.Drawing.Point(38, 250);
+            this.dgvKhosach.Location = new System.Drawing.Point(28, 260);
             this.dgvKhosach.Name = "dgvKhosach";
             this.dgvKhosach.RowHeadersWidth = 51;
             this.dgvKhosach.RowTemplate.Height = 24;

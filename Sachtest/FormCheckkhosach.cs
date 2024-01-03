@@ -32,7 +32,8 @@ namespace Sachtest
         void loaddatasach()
         {
             command = connection.CreateCommand();
-            command.CommandText = "select * from SACH";
+            command.CommandText = "SELECT MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA, GIABIA, LANTAIBAN, YEAR(NAMXUATBAN) as NAMXUATBAN, soluong FROM SACH";
+
             adapter.SelectCommand = command;
             table.Clear();
             adapter.Fill(table);
@@ -286,6 +287,7 @@ namespace Sachtest
                         string MaTL = selectedTL.Value;
                         string MaNXB = selectedNXB.Value;
                         string NamNXB = tb_Namxb.Text.Trim();
+                        //string NamNXB = date_NamXB.Value.ToString();
                         string LanTB = tb_Lantaiban.Text.Trim();
                         string GiaBia = tb_Giaban.Text.Trim();
                         string GiaMua = tb_Giamua.Text.Trim();
@@ -298,7 +300,27 @@ namespace Sachtest
                             MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                        if (int.Parse(Soluong) <= 0)
+                        {
+                            MessageBox.Show("Số lượng sách phải lớn hơn 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (!KiemTraNamXuatBanHopLe(int.Parse(NamNXB)))
+                        {
+                            MessageBox.Show("Năm xuất bản không hợp lệ. Năm xuất bản phải nhỏ hơn hoặc bằng năm hiện tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
 
+                        if (decimal.Parse(GiaBia) <= 1000 || decimal.Parse(GiaMua) <= 1000)
+                        {
+                            MessageBox.Show("Giá bìa và giá mua phải lớn hơn 1000 đ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        if (int.Parse(LanTB) <= 0)
+                        {
+                            MessageBox.Show("Lần tái bản không được âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         // Tạo câu lệnh SQL để thêm dữ liệu vào bảng SACH
                         string query = "INSERT INTO SACH (MASACH, MATG, MATL, MANXB, TENSACH, GIAMUA,GIABIA,LANTAIBAN,NAMXUATBAN,soluong) " +
                                         "VALUES (@MaSach, @MaTG, @MaTL, @MaNXB, @TenSach,@GiaMua,@GiaBia, @LanTB, @NamXB,@Soluong)";
@@ -346,7 +368,18 @@ namespace Sachtest
                 MessageBox.Show("Lỗi: " + ex.Message, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private bool KiemTraTenSachTonTai(string tenSach)
+        {
+            // Kiểm tra xem tên sách đã tồn tại trong CSDL hay không
+            string query = "SELECT COUNT(*) FROM SACH WHERE TENSACH = @TenSach";
+            command.Parameters.Clear();
+            command.Parameters.AddWithValue("@TenSach", tenSach);
+            command.CommandText = query;
 
+            int count = Convert.ToInt32(command.ExecuteScalar());
+
+            return count > 0;
+        }
 
         private void lb_Tensach_Click(object sender, EventArgs e)
         {
@@ -357,6 +390,9 @@ namespace Sachtest
         {
             if (e.RowIndex >= 0 && e.RowIndex < dgvKhosach.Rows.Count)
             {
+
+
+      
                 DataGridViewRow selectedRow = dgvKhosach.Rows[e.RowIndex];
                 tb_Masach.Text = selectedRow.Cells["MASACH"].Value.ToString();
                 tb_Tensach.Text = selectedRow.Cells["TENSACH"].Value.ToString();
@@ -382,7 +418,10 @@ namespace Sachtest
                 tb_Lantaiban.Text = selectedRow.Cells["LANTAIBAN"].Value.ToString();
                 tb_Giaban.Text = selectedRow.Cells["GIABIA"].Value.ToString();
                 tb_Giamua.Text = selectedRow.Cells["GIAMUA"].Value.ToString();
+                object selectedNgayXB = selectedRow.Cells["MANXB"].Value;
+               
             }
+
         }
 
         private void tb_Tensach_TextChanged(object sender, EventArgs e)
@@ -487,11 +526,12 @@ namespace Sachtest
                 string MaTG = selectedTG.Value;
                 string MaTL = selectedTL.Value;
                 string MaNXB = selectedNXB.Value;
+                //string NamNXB = date_NamXB.Value.ToString();
                 string NamNXB = tb_Namxb.Text.Trim();
                 string LanTB = tb_Lantaiban.Text.Trim();
                 string GiaBia = tb_Giaban.Text.Trim();
                 string GiaMua = tb_Giamua.Text.Trim();
-
+                string soluong = tb_Soluong.Text.Trim();
                 // Kiểm tra thông tin có đầy đủ hay không
                 if (string.IsNullOrEmpty(MaSach) || string.IsNullOrEmpty(TenSach) || string.IsNullOrEmpty(MaTG) ||
                     string.IsNullOrEmpty(MaTL) || string.IsNullOrEmpty(MaNXB) || string.IsNullOrEmpty(NamNXB) ||
@@ -500,9 +540,34 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                     if (!KiemTraNamXuatBanHopLe(int.Parse(NamNXB)))
+                        {
+                            MessageBox.Show("Năm xuất bản không hợp lệ. Năm xuất bản phải nhỏ hơn hoặc bằng năm hiện tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                if (int.Parse(soluong) <= 0)
+                {
+                    MessageBox.Show("Số lượng sách phải lớn hơn 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!KiemTraNamXuatBanHopLe(int.Parse(NamNXB)))
+                {
+                    MessageBox.Show("Năm xuất bản không hợp lệ. Năm xuất bản phải nhỏ hơn hoặc bằng năm hiện tại.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                if (decimal.Parse(GiaBia) <= 1000 || decimal.Parse(GiaMua) <= 1000)
+                {
+                    MessageBox.Show("Giá bìa và giá mua phải lớn hơn 1000 đ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (int.Parse(LanTB) <= 0)
+                {
+                    MessageBox.Show("Lần tái bản không được âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Tạo câu lệnh SQL để cập nhật dữ liệu vào bảng SACH
-                string query = "UPDATE SACH SET MATG = @MaTG, MATL = @MaTL, MANXB = @MaNXB, TENSACH = @TenSach, GIAMUA = @GiaMua, GIABIA = @GiaBia, LANTAIBAN = @LanTB, NAMXUATBAN = @NamXB WHERE MASACH = @MaSach";
+                string query = "UPDATE SACH SET MATG = @MaTG, MATL = @MaTL, MANXB = @MaNXB, TENSACH = @TenSach, GIAMUA = @GiaMua, GIABIA = @GiaBia, LANTAIBAN = @LanTB, NAMXUATBAN = @NamXB, soluong = @soluong WHERE MASACH = @MaSach";
 
                 // Sử dụng tham số để tránh SQL Injection
                 command.Parameters.Clear();
@@ -515,7 +580,7 @@ namespace Sachtest
                 command.Parameters.AddWithValue("@LanTB", LanTB);
                 command.Parameters.AddWithValue("@GiaBia", GiaBia);
                 command.Parameters.AddWithValue("@GiaMua", GiaMua);
-
+                command.Parameters.AddWithValue("@soluong", soluong);
                 // Thực hiện lệnh SQL
                 command.CommandText = query;
                 int rowsAffected = command.ExecuteNonQuery();
@@ -559,7 +624,7 @@ namespace Sachtest
             tb_Giaban.Text = "";
             tb_Giamua.Text = "";
             tb_Lantaiban.Text = "";
-            tb_Namxb.Text = "";
+            //tb_Namxb.Text = "";
             tb_Soluong.Text = "";
             tb_Tensach.Text = "";
            
@@ -597,7 +662,11 @@ namespace Sachtest
         {
            
         }
-
+        public static bool KiemTraNamXuatBanHopLe(int namXuatBan)
+        {
+            int namHienTai = DateTime.Now.Year;
+            return namXuatBan <= namHienTai && namXuatBan > 0;
+        }
         private void cb_MaTG_SelectedIndexChanged(object sender, EventArgs e)
         {
             

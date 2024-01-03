@@ -194,6 +194,17 @@ namespace Sachtest
             // Kiểm tra so khớp với biểu thức chính quy
             return System.Text.RegularExpressions.Regex.IsMatch(phoneNumber, pattern);
         }
+        private bool ContainsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -213,6 +224,17 @@ namespace Sachtest
                     MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
                     return;
                 }
+                if (ContainsNumeric(txtdiachi.Text))
+                {
+                    MessageBox.Show("Địa chỉ không được chứa số.");
+                    return;
+                }
+                if (ContainsNumeric(txttennv.Text))
+                {
+                    MessageBox.Show("Tên nhân viên không được chứa số.");
+                    return;
+                }
+
                 if (txtmanv.Text == "")
                 {
                     command = connection.CreateCommand();
@@ -312,6 +334,10 @@ namespace Sachtest
         private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtmanv.ReadOnly = false;
+            txtdiachi.Text = "";
+            txtmanv.Text = "";
+            txtsdt.Text = "";
+            txttennv.Text = "";
         }
     }
 }
