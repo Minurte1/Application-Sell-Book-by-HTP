@@ -35,15 +35,33 @@ namespace Sachtest
         {
             try
             {
+                // Mở kết nối
                 //sqlConnection.Open();
 
-                string query = "SELECT H.*, C.* FROM HOADON H JOIN CHITIETHOADON C ON H.MAHOADON = C.MAHOADON ORDER BY H.NGAYLAPHD DESC;";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection);
-                DataTable dataTable = new DataTable();
-                adapter.Fill(dataTable);
+                // Lấy ngày giờ hiện tại đến phút
+                DateTime currentDateTime = DateTime.Now;
+                DateTime currentDateTimeWithoutSeconds = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, currentDateTime.Hour, currentDateTime.Minute, 0);
 
-                // Bây giờ bạn có thể sử dụng dataTable để đổ dữ liệu vào dataGridView hoặc các điều khiển khác.
-                //dataGridView1.DataSource = dataTable;
+                // Lệnh SQL với tham số
+                string query = "SELECT KHACHHANG.MAKH, NHANVIEN.TENNV,KHACHHANG.TENKH, HOADON.MAHOADON AS MAHD, CONVERT(VARCHAR(16), HOADON.NGAYLAPHD, 120) AS NGAYLAPHD, CHITIETHOADON.SOLUONGMUA, CHITIETHOADON.MASACH, SACH.TENSACH,  SACH.GIAMUA, HOADON.TONGTIEN FROM  KHACHHANG JOIN  HOADON ON KHACHHANG.MAKH = HOADON.MAKH JOIN NHANVIEN ON HOADON.MANV = NHANVIEN.MANV JOIN CHITIETHOADON ON HOADON.MAHOADON = CHITIETHOADON.MAHOADON JOIN SACH ON CHITIETHOADON.MASACH = SACH.MASACH WHERE CONVERT(VARCHAR(16), HOADON.NGAYLAPHD, 120) = CONVERT(VARCHAR(16), GETDATE(), 120) ORDER BY HOADON.NGAYLAPHD;";
+
+                // Sử dụng using để đảm bảo giải phóng tài nguyên
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection))
+                {
+                    // Thêm tham số và giá trị
+                    adapter.SelectCommand.Parameters.AddWithValue("@NGAYLAPHD", currentDateTimeWithoutSeconds);
+
+                    // DataTable để chứa dữ liệu
+                    DataTable dataTable = new DataTable();
+
+                    // Đổ dữ liệu từ Adapter vào DataTable
+                    adapter.Fill(dataTable);
+
+                    // Bạn có thể sử dụng dataTable để thao tác với dữ liệu.
+
+                    // Nếu bạn muốn hiển thị trong DataGridView:
+                    dataGridView1.DataSource = dataTable;
+                }
             }
             catch (Exception ex)
             {
@@ -51,16 +69,30 @@ namespace Sachtest
             }
             finally
             {
-                sqlConnection.Close();
+                // Đóng kết nối trong khối finally để đảm bảo rằng nó sẽ được đóng dù có lỗi xảy ra hay không.
+                if (sqlConnection.State == ConnectionState.Open)
+                {
+                    sqlConnection.Close();
+                }
             }
         }
+
+
         private void LoadDataFromSachTablee()
         {
             try
             {
                 //sqlConnection.Open();
 
-                string query = "SELECT H.*, C.* FROM HOADON H JOIN CHITIETHOADON C ON H.MAHOADON = C.MAHOADON ORDER BY H.NGAYLAPHD DESC;";
+                string query = "SELECT \r\n    " +
+                    "KHACHHANG.MAKH,\r\n   " +
+                    " KHACHHANG.TENKH,\r\n   " +
+                   
+                    "  NHANVIEN.TENNV,\r\n  " +
+                    "  HOADON.MAHOADON AS MAHD,\r\n  " +
+                    "  HOADON.NGAYLAPHD,\r\n  " +
+                    "  CHITIETHOADON.SOLUONGMUA,\r\n  " +
+                    "  CHITIETHOADON.MASACH,\r\n    SACH.TENSACH,\r\n    SACH.GIAMUA,\r\n    SACH.GIAMUA * CHITIETHOADON.SOLUONGMUA AS THANHTIEN\r\nFROM \r\n    KHACHHANG\r\nJOIN \r\n    HOADON ON KHACHHANG.MAKH = HOADON.MAKH\r\nJOIN \r\n    NHANVIEN ON HOADON.MANV = NHANVIEN.MANV\r\nJOIN \r\n    CHITIETHOADON ON HOADON.MAHOADON = CHITIETHOADON.MAHOADON\r\nJOIN \r\n    SACH ON CHITIETHOADON.MASACH = SACH.MASACH\r\nORDER BY \r\n    HOADON.NGAYLAPHD DESC;";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, sqlConnection);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
@@ -281,7 +313,7 @@ namespace Sachtest
                 // Thực hiện INSERT
                 insertChiTietHoaDonCommand.ExecuteNonQuery();
               
-                LoadDataFromSachTablee();
+                LoadDataFromSachTable();
                 
 
             }

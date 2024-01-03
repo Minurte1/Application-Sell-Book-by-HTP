@@ -125,9 +125,10 @@
             this.label3.Location = new System.Drawing.Point(94, 34);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(301, 33);
+            this.label3.Size = new System.Drawing.Size(303, 33);
             this.label3.TabIndex = 17;
-            this.label3.Text = "THÊM NHÀ SẢN XUẤT";
+            this.label3.Text = "THÊM NHÀ XUẤT BẢN";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // panel1
             // 
