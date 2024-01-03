@@ -122,6 +122,7 @@
             this.txttennv.Name = "txttennv";
             this.txttennv.Size = new System.Drawing.Size(168, 22);
             this.txttennv.TabIndex = 2;
+            this.txttennv.TextChanged += new System.EventHandler(this.txttennv_TextChanged);
             // 
             // txtsdt
             // 

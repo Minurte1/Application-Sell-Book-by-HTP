@@ -216,15 +216,12 @@ namespace Sachtest
             }
             return true;
         }
+
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (!ContainsOnlyLetters(txtdiachi.Text))
-                {
-                    MessageBox.Show("Địa chỉ chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+           
                 if (txtmanv.Text == "" || txttennv.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
@@ -250,16 +247,8 @@ namespace Sachtest
                     MessageBox.Show("Tên nhân viên không được chứa số.");
                     return;
                 }
-                if (!ContainsOnlyLetters(txttennv.Text))
-                {
-                    MessageBox.Show("Tên nhân viên chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (!ContainsOnlyLetters(txtdiachi.Text))
-                {
-                    MessageBox.Show("Địa chỉ chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+
+             
                 if (txtmanv.Text == "")
                 {
                     command = connection.CreateCommand();
@@ -343,11 +332,6 @@ namespace Sachtest
                 MessageBox.Show("Tên nhân viên không được chứa số.");
                 return;
             }
-            if (!ContainsOnlyLetters(txttennv.Text))
-            {
-                MessageBox.Show("Tên NXB chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             try
             {
                 using (SqlCommand command = connection.CreateCommand())
@@ -393,6 +377,11 @@ namespace Sachtest
             txtmanv.Text = "";
             txtsdt.Text = "";
             txttennv.Text = "";
+        }
+
+        private void txttennv_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

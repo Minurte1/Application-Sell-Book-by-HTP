@@ -72,16 +72,16 @@ namespace Sachtest
 
             return result;
         }
-        private bool ContainsOnlyLetters(string input)
+        private bool ContainsNumeric(string input)
         {
             foreach (char c in input)
             {
-                if (!char.IsLetter(c))
+                if (char.IsDigit(c))
                 {
-                    return false;
+                    return true;
                 }
             }
-            return true;
+            return false;
         }
         private void bt_Them_Click(object sender, EventArgs e)
         {
@@ -110,12 +110,12 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
-                if (!ContainsOnlyLetters(tenNXB))
-                {
-                    MessageBox.Show("Tên NXB chỉ được chứa các kí tự chữ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
 
+                if (ContainsNumeric(tenNXB))
+                {
+                    MessageBox.Show("Tên NXB thành không được chứa số.");
+                    return; 
+                }
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
@@ -220,12 +220,12 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
-                if (!ContainsOnlyLetters(tenNXB))
+
+                if (ContainsNumeric(tenNXB))
                 {
-                    MessageBox.Show("Tên NXB chỉ được chứa các kí tự chữ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên NXB thành không được chứa số.");
                     return;
                 }
-
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

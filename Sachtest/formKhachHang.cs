@@ -384,7 +384,7 @@ namespace Sachtest
                 connection.Close();
             }
         }
-             
+              
     private bool ContainsNumeric(string input)
         {
             foreach (char c in input)
@@ -431,7 +431,33 @@ namespace Sachtest
                 {
                     connection.Open();
                 }
+                if (txttenkh.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
+                {
+                    MessageBox.Show("Bạn chưa truyền đủ dữ liệu, không thể thêm");
+                    return;
+                }
 
+                // Kiểm tra số điện thoại có đủ 10 số hay không
+                if (!IsNumeric(txtsdt.Text) || txtsdt.Text.Length != 10)
+                {
+                    MessageBox.Show("Số điện thoại phải chỉ chứa số và có đủ 10 số.");
+                    return;
+                }
+                if (!IsValidVietnamesePhoneNumber(txtsdt.Text))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
+                    return;
+                }
+                if (ContainsNumeric(txttenkh.Text))
+                {
+                    MessageBox.Show("Tên khách hàng không được chứa số.");
+                    return;
+                }
+                if (ContainsNumeric(txtdiachi.Text))
+                {
+                    MessageBox.Show("Tên tỉnh thành không được chứa số.");
+                    return;
+                }
                 using (SqlCommand command = connection.CreateCommand())
                 {
                     command.CommandText = "UPDATE KHACHHANG SET tenkh = @tenkh, sdt = @sdt, diachi = @diachi, gioitinh = @gioitinh WHERE makh = @makh";

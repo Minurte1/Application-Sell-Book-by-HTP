@@ -81,6 +81,17 @@ namespace Sachtest
             }
             return true;
         }
+        private bool ContainsNumeric(string input)
+        {
+            foreach (char c in input)
+            {
+                if (char.IsDigit(c))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
@@ -110,9 +121,9 @@ namespace Sachtest
                         MessageBox.Show("Tên thể loại đã tồn tại. Vui lòng chọn tên thể loại khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; // Dừng lại nếu tên thể loại đã tồn tại
                     }
-                    if (!ContainsOnlyLetters(tenTheLoai))
+                    if (ContainsNumeric(tenTheLoai))
                     {
-                        MessageBox.Show("Tên thể loại chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Tên thể loại sách không được chứa số.");
                         return;
                     }
                     // Nếu không có trùng lặp, tiếp tục thêm dữ liệu vào CSDL
@@ -204,9 +215,9 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
-                if (!ContainsOnlyLetters(tenTheLoai))
+                if (ContainsNumeric(tenTheLoai))
                 {
-                    MessageBox.Show("Tên thể loại chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Tên thể loại sách không được chứa số.");
                     return;
                 }
                 // Tạo kết nối
