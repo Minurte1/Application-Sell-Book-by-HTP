@@ -70,6 +70,17 @@ namespace Sachtest
 
             return result;
         }
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
@@ -99,7 +110,11 @@ namespace Sachtest
                         MessageBox.Show("Tên thể loại đã tồn tại. Vui lòng chọn tên thể loại khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return; // Dừng lại nếu tên thể loại đã tồn tại
                     }
-
+                    if (!ContainsOnlyLetters(tenTheLoai))
+                    {
+                        MessageBox.Show("Tên thể loại chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     // Nếu không có trùng lặp, tiếp tục thêm dữ liệu vào CSDL
                     Random random = new Random();
                     int randomNumber;
@@ -189,7 +204,11 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
-
+                if (!ContainsOnlyLetters(tenTheLoai))
+                {
+                    MessageBox.Show("Tên thể loại chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Tạo kết nối
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {

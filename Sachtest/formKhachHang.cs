@@ -367,7 +367,7 @@ namespace Sachtest
                 {
                     MessageBox.Show("Tên tỉnh thành không được chứa số.");
                     return;
-                }
+                } 
                 string MAKHne = prefix + maKH;
                 command = connection.CreateCommand();
                 command.CommandText = "INSERT INTO KHACHHANG VALUES (N'" + MAKHne + "', N'" + txttenkh.Text + "','" + txtsdt.Text + "', N'" + txtdiachi.Text + "', N'" + gioitinh + "')";

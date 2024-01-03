@@ -167,10 +167,9 @@
             // 
             // lb_Tongtien
             // 
-            this.lb_Tongtien.AutoSize = true;
-            this.lb_Tongtien.Location = new System.Drawing.Point(200, 224);
+            this.lb_Tongtien.Location = new System.Drawing.Point(158, 200);
             this.lb_Tongtien.Name = "lb_Tongtien";
-            this.lb_Tongtien.Size = new System.Drawing.Size(0, 16);
+            this.lb_Tongtien.Size = new System.Drawing.Size(276, 55);
             this.lb_Tongtien.TabIndex = 11;
             // 
             // bt_XacNhan

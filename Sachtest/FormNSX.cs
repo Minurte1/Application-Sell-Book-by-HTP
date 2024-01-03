@@ -72,6 +72,17 @@ namespace Sachtest
 
             return result;
         }
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
@@ -98,6 +109,11 @@ namespace Sachtest
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
+                }
+                if (!ContainsOnlyLetters(tenNXB))
+                {
+                    MessageBox.Show("Tên NXB chỉ được chứa các kí tự chữ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 // Tạo kết nối
@@ -203,6 +219,11 @@ namespace Sachtest
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
+                }
+                if (!ContainsOnlyLetters(tenNXB))
+                {
+                    MessageBox.Show("Tên NXB chỉ được chứa các kí tự chữ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
                 // Tạo kết nối

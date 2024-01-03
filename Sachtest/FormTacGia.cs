@@ -87,6 +87,18 @@ namespace Sachtest
 
             return result;
         }
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void bt_Them_Click(object sender, EventArgs e)
         {
             try
@@ -115,6 +127,7 @@ namespace Sachtest
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Dừng lại nếu giá trị rỗng
                 }
+
 
                 // Kiểm tra tuổi
                 int age = CalculateAge(ngaySinh);

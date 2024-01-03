@@ -250,6 +250,18 @@ namespace Sachtest
 
             return result;
         }
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+       
         private void thêmDữLiệuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -300,6 +312,7 @@ namespace Sachtest
                             MessageBox.Show("Vui lòng nhập đầy đủ thông tin", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+                    
                         if (int.Parse(Soluong) <= 0)
                         {
                             MessageBox.Show("Số lượng sách phải lớn hơn 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -205,10 +205,26 @@ namespace Sachtest
             }
             return false;
         }
+        private bool ContainsOnlyLetters(string input)
+        {
+            foreach (char c in input)
+            {
+                if (!char.IsLetter(c))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
         private void thêmNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!ContainsOnlyLetters(txtdiachi.Text))
+                {
+                    MessageBox.Show("Địa chỉ chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (txtmanv.Text == "" || txttennv.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
                 {
                     MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
@@ -234,7 +250,16 @@ namespace Sachtest
                     MessageBox.Show("Tên nhân viên không được chứa số.");
                     return;
                 }
-
+                if (!ContainsOnlyLetters(txttennv.Text))
+                {
+                    MessageBox.Show("Tên nhân viên chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!ContainsOnlyLetters(txtdiachi.Text))
+                {
+                    MessageBox.Show("Địa chỉ chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (txtmanv.Text == "")
                 {
                     command = connection.CreateCommand();
@@ -293,6 +318,36 @@ namespace Sachtest
 
         private void sửaNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (txtmanv.Text == "" || txttennv.Text == "" || txtdiachi.Text == "" || txtsdt.Text == "")
+            {
+                MessageBox.Show("bạn chưa truyền đủ dữ liệu không thể thêm");
+                return;
+            }
+            if (!IsNumeric(txtsdt.Text) || txtsdt.Text.Length != 10)
+            {
+                MessageBox.Show("Số điện thoại phải chỉ chứa số và có đủ 10 số.");
+                return;
+            }
+            if (!IsValidVietnamesePhoneNumber(txtsdt.Text))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ theo định dạng Việt Nam.");
+                return;
+            }
+            if (ContainsNumeric(txtdiachi.Text))
+            {
+                MessageBox.Show("Địa chỉ không được chứa số.");
+                return;
+            }
+            if (ContainsNumeric(txttennv.Text))
+            {
+                MessageBox.Show("Tên nhân viên không được chứa số.");
+                return;
+            }
+            if (!ContainsOnlyLetters(txttennv.Text))
+            {
+                MessageBox.Show("Tên NXB chỉ được chứa các kí tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 using (SqlCommand command = connection.CreateCommand())
