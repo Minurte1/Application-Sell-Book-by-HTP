@@ -51,6 +51,7 @@
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.xuấtHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -97,6 +98,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(68, 312);
             this.dataGridView1.Name = "dataGridView1";
@@ -167,9 +169,9 @@
             // 
             // lb_Tongtien
             // 
-            this.lb_Tongtien.Location = new System.Drawing.Point(171, 192);
+            this.lb_Tongtien.Location = new System.Drawing.Point(144, 205);
             this.lb_Tongtien.Name = "lb_Tongtien";
-            this.lb_Tongtien.Size = new System.Drawing.Size(641, 63);
+            this.lb_Tongtien.Size = new System.Drawing.Size(641, 35);
             this.lb_Tongtien.TabIndex = 11;
             this.lb_Tongtien.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -227,7 +229,8 @@
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1});
+            this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1,
+            this.xuấtHóaĐơnToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(982, 28);
@@ -241,6 +244,14 @@
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1.Size = new System.Drawing.Size(288, 24);
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1.Text = "XEM THÔNG TIN CHI TIẾT HÓA ĐƠN";
             this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1.Click += new System.EventHandler(this.xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1_Click);
+            // 
+            // xuấtHóaĐơnToolStripMenuItem
+            // 
+            this.xuấtHóaĐơnToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("xuấtHóaĐơnToolStripMenuItem.Image")));
+            this.xuấtHóaĐơnToolStripMenuItem.Name = "xuấtHóaĐơnToolStripMenuItem";
+            this.xuấtHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
+            this.xuấtHóaĐơnToolStripMenuItem.Text = "Xuất Hóa Đơn";
+            this.xuấtHóaĐơnToolStripMenuItem.Click += new System.EventHandler(this.xuấtHóaĐơnToolStripMenuItem_Click);
             // 
             // label7
             // 
@@ -325,5 +336,6 @@
         private System.Windows.Forms.ToolStripMenuItem xEMTHÔNGTINCHITIẾTHÓAĐƠNToolStripMenuItem1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem xuấtHóaĐơnToolStripMenuItem;
     }
 }

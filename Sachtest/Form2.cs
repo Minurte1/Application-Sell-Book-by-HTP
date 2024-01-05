@@ -68,7 +68,7 @@ namespace Sachtest
 
         private void button4_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormXuathoadon());
+            OpenChildForm(new FormThongKe());
             
         }
 

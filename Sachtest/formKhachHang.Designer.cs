@@ -47,7 +47,6 @@
             this.xóaKháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.check_timkiem = new System.Windows.Forms.CheckBox();
-            this.tìmKiếmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKhachhang)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -181,8 +180,7 @@
             this.thêmKháchHàngToolStripMenuItem,
             this.sửaKháchHàngToolStripMenuItem,
             this.xóaKháchHàngToolStripMenuItem,
-            this.làmMớiToolStripMenuItem,
-            this.tìmKiếmToolStripMenuItem});
+            this.làmMớiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 614);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(840, 28);
@@ -232,13 +230,6 @@
             this.check_timkiem.Text = "Tìm kiếm";
             this.check_timkiem.UseVisualStyleBackColor = true;
             this.check_timkiem.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // tìmKiếmToolStripMenuItem
-            // 
-            this.tìmKiếmToolStripMenuItem.Name = "tìmKiếmToolStripMenuItem";
-            this.tìmKiếmToolStripMenuItem.Size = new System.Drawing.Size(86, 24);
-            this.tìmKiếmToolStripMenuItem.Text = "Tìm Kiếm";
-            this.tìmKiếmToolStripMenuItem.Click += new System.EventHandler(this.tìmKiếmToolStripMenuItem_Click);
             // 
             // formKhachHang
             // 
@@ -292,6 +283,5 @@
         private System.Windows.Forms.ToolStripMenuItem xóaKháchHàngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
         private System.Windows.Forms.CheckBox check_timkiem;
-        private System.Windows.Forms.ToolStripMenuItem tìmKiếmToolStripMenuItem;
     }
 }

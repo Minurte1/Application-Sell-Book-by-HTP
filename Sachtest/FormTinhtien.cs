@@ -551,5 +551,11 @@ namespace Sachtest
         {
             LoadDataFromSachTablee();
         }
+
+        private void xuấtHóaĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormXuatHoaDonRP XUATHOADON = new FormXuatHoaDonRP();
+            XUATHOADON.ShowDialog();
+        }
     }
 }

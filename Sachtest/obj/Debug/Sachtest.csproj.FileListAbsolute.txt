@@ -1,115 +1,8 @@
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\bin\Debug\Sachtest.exe.config
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\bin\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\bin\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.Form1.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.Form2.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.Form3.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.FormChucNang.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Sachtest\obj\Debug\Sachtest.FormTaothanhVien.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe.config
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form1.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form2.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form3.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormChucNang.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhacungcap.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTaothanhVien.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTinhtien.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuathoadon.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\Sachtest\Application-Sell-Book-by-HTP\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe.config
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form1.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form2.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form3.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormChucNang.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhacungcap.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTaothanhVien.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTinhtien.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuathoadon.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Themdulieu.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhapsach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThemTheLoaiSach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTacGia.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNSX.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe.config
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.pdb
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form1.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form2.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form3.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormChucNang.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhacungcap.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhapsach.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNSX.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTacGia.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTaothanhVien.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThemTheLoaiSach.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTinhtien.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuathoadon.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Themdulieu.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhanvien.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.formHoaDon.resources
-C:\Users\Admin\OneDrive\Máy tính\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.formKhachHang.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe.config
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form1.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form2.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form3.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormChucNang.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.formHoaDon.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.formKhachHang.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhacungcap.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhanvien.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNhapsach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNSX.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTacGia.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTaothanhVien.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThemTheLoaiSach.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTinhtien.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuathoadon.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Themdulieu.resources
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
-D:\BAI TAP\BT C Thăng\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe.config
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.exe
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Sachtest.pdb
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.AssemblyReference.cache
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.DoiMatKhau.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form1.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Form2.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormCheckkhosach.resources
@@ -118,12 +11,68 @@ D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-t
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormNSX.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTacGia.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThemTheLoaiSach.resources
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThongKeHoaDon.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormTinhtien.resources
-D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuathoadon.resources
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThongKe.resources
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormXuatHoaDonRP.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.Properties.Resources.resources
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.GenerateResource.cache
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CoreCompileInputs.cache
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.exe
 D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.pdb
-D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.FormThongKeHoaDon.resources
-D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.DoiMatKhau.resources
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\BouncyCastle.Crypto.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itextsharp.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itextsharp.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\obj\Debug\Sachtest.csproj.CopyComplete
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.barcodes.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.bouncy-castle-connector.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.commons.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.forms.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.io.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.kernel.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.layout.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.pdfa.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.sign.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.styledxmlparser.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.svg.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Options.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Newtonsoft.Json.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Buffers.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Memory.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Numerics.Vectors.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.ValueTuple.dll
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.barcodes.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.bouncy-castle-connector.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.commons.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.forms.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.io.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.kernel.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.layout.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.pdfa.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.sign.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.styledxmlparser.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\itext.svg.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Options.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\Newtonsoft.Json.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Buffers.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Memory.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Numerics.Vectors.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\BAI TAP\BT C Thăng\Learning-C-\BT C\sachtest2\Application-Sell-Book-by-HTP-thanhn\Application-Sell-Book-by-HTP\Sachtest\bin\Debug\System.ValueTuple.xml

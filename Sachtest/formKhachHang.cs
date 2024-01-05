@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-//using System.Data.OfQuocBao
+
 namespace Sachtest
 {
     public partial class formKhachHang : Form
     {
         SqlConnection connection;
-        SqlCommand command;
+      
         string connectionString = "Data Source=ACER;Initial Catalog=QLNS3;Integrated Security=True";
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
-      
+        SqlCommand command;
 
         void loaddata()
         {
@@ -46,7 +46,7 @@ namespace Sachtest
             }
             finally
             {
-                // Đóng kết nối sau khi sử dụng
+              
                 connection.Close();
             }
         }
@@ -54,7 +54,7 @@ namespace Sachtest
         {
             try
             {
-                // Kiểm tra xem connection có được khởi tạo chưa
+               
                 if (connection == null)
                 {
                     connection = new SqlConnection(connectionString);
@@ -64,7 +64,6 @@ namespace Sachtest
                 command = connection.CreateCommand();
                 command.CommandText = "SELECT * FROM KHACHHANG WHERE TENKH LIKE @TenLienHe AND DIACHI LIKE @DiaChi AND SDT LIKE @Sdt AND GIOITINH LIKE @Gioitinh;";
 
-                // Sử dụng Parameters để tránh SQL Injection
                 command.Parameters.AddWithValue("@TenLienHe", "%" + txttenkh.Text + "%");
                 command.Parameters.AddWithValue("@DiaChi", "%" + txtdiachi.Text + "%");
                 command.Parameters.AddWithValue("@Sdt", "%" + txtsdt.Text + "%");
@@ -80,14 +79,14 @@ namespace Sachtest
             }
             finally
             {
-                // Đóng kết nối sau khi sử dụng
+                
                 connection.Close();
             }
         }
 
         private bool KiemTraTonTaiMakh(string makh)
         {
-            // Thực hiện kiểm tra xem MaKH đã tồn tại trong cơ sở dữ liệu hay chưa
+           
             string queryKiemTra = "SELECT COUNT(*) FROM KHACHHANG WHERE makh = @makh";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -185,7 +184,7 @@ namespace Sachtest
                     }
                     else
                     {
-                        // Mã KH chưa tồn tại, thực hiện thêm mới
+                        
                         command = connection.CreateCommand();
                         command.CommandText = "insert into KHACHHANG values (N'" + txtmakh.Text + "',N'" + txttenkh.Text + "','" + txtsdt.Text + "',N'" + txtdiachi.Text + "',N'" + cbgioitinh.Text + "')";
                         command.ExecuteNonQuery();
@@ -227,7 +226,7 @@ namespace Sachtest
                 {
                     int i = dgvKhachhang.CurrentRow.Index;
 
-                    // Kiểm tra giá trị của ô trước khi truy cập
+                   
                     if (dgvKhachhang.Rows[i].Cells[0].Value != null)
                     {
                         txtmakh.Text = dgvKhachhang.Rows[i].Cells[0].Value.ToString();
@@ -299,7 +298,7 @@ namespace Sachtest
 
                         int count = (int)command.ExecuteScalar();
 
-                        // Nếu count > 0, tức là MAHD đã tồn tại
+                      
                         result = count > 0;
                     }
                 }
